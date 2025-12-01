@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omar Salama | Portfolio</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="icon" href="/imgs/logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            /* Standard Zoom for Chrome, Edge, Safari */
+            zoom: 0.75;
+            /* Firefox Support (since it doesn't support 'zoom') */
+            -moz-transform: scale(0.75);
+            -moz-transform-origin: top center;
+            /* Optional: Fix width issues on Firefox if content shrinks to the left */
+            width: 100%;
+        }
+
+        /* Fix for the sticky header to ensure it stays full width when zoomed */
+        header.sticky {
+            width: 100%;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="particles-js"></div>
+
+    <div class="mobile-overlay"></div>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">Omar <span>Salama</span></div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <div class="close-menu">
+                    <i class="fas fa-times"></i>
+                </div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div>
+                <h1>Hi, I'm <span>Omar Salama</span></h1>
+                <p>AI & Computer Vision Engineer | Operations & Event Logistics | Computer Science Dual degree Student @ Ain Shams & UEL</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn">View My Work</a>
+                    <a href="#contact" class="btn hero-btn-secondary">Contact Me</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://github.com/omarsalama4" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/omar-mohamed-salama/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:omarsalama117@gmail.com" target="_top">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-down">
+            Scroll down
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="imgs/salama.jpeg" alt="Omar Salama" onerror="this.src='https://placehold.co/400x500/151515/ff2a6d?text=Omar+Photo'">
+                </div>
+                <div class="about-text">
+                    <h3>AI Engineer & Data Scientist | Operations & Event Logistics Leader</h3>
+                    <p>
+                        I'm Omar Salama, a Computer Science & Artificial Intelligence undergraduate
+                        pursuing a Dual Degree at Ain Shams University and the University of East London,
+                        with additional AI coursework at MAHE.
+                    </p>
+                    <p>
+                        I specialize in <strong>Data Science, Machine Learning, Deep Learning, Computer Vision, and Automation</strong>.
+                        My experience includes building predictive models, intelligent systems, and full‑stack applications,
+                        with a strong focus on solving complex real‑world challenges through data‑driven approaches.
+                    </p>
+                    <p>
+                        Beyond technical expertise, I bring leadership in <strong>operations and event logistics</strong>,
+                        having served as IT Specialist, Backend Developer, Event Operations Leader, and Director of Operations.
+                        This unique blend enables me to <em>bridge AI innovation with organizational leadership</em>,
+                        managing people, resources, and workflows while delivering scalable solutions.
+                    </p>
+                    <p>
+                        Currently, I am advancing my skills in <strong>Computer Vision architectures</strong> and
+                        <strong>Automation</strong>, designing intelligent systems that push the boundaries of AI research
+                        while integrating seamlessly into industry applications.
+                    </p>
+
+                    <a href="#contact" class="btn">Get In Touch</a>
+                </div>
+
+
+            </div>
+    </section>
+
+    <section id="experience" class="section experience">
+        <div class="container">
+            <h2 class="section-title">Experience & Education</h2>
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="imgs/fcis.jpg" class="timeline-img" onerror="this.src='https://placehold.co/600x200/232323/ff2a6d?text=Ain+Shams+University'">
+                        <span class="timeline-date">Sept 2022 - Present</span>
+                        <h3>B.Sc. Computer Science (AI Major)</h3>
+                        <p>Ain Shams University & University of East London (Dual Degree)</p>
+                        <h4 style="color: #38BDF8 ">Expected Graduation: 2026</h4>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="imgs/applai.jpg" class="timeline-img" onerror="this.src='https://placehold.co/600x200/232323/05d9e8?text=ApplAi'">
+                        <span class="timeline-date">Nov 2022 - Aug 2025</span>
+                        <h3>OR Director & NLP Specialist @ ApplAi</h3>
+                        <p>
+                            <strong>NLP:</strong> Delivered training on Deep Learning/Transformers and developed curriculum.<br>
+                            <strong>Operations:</strong> Led strategic planning, managed volunteers, and secured key partnerships.
+                        </p>
+                        <h4 style="color: #38BDF8">Leadership & Technical Training</h4>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="imgs/notopia.jpg" class="timeline-img" onerror="this.src='https://placehold.co/600x200/232323/ff2a6d?text=Notopia'">
+                        <span class="timeline-date">July 2024 - Oct 2024</span>
+                        <h3>Full-Stack Developer @ Notopia</h3>
+                        <p>Built a scalable e-commerce app using <strong>Flutter, Next.js, and SQL</strong>. Optimized backend queries, reducing processing time by 30%.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="imgs/dispute.jpg" class="timeline-img" onerror="this.src='https://placehold.co/600x200/232323/ff9a9e?text=Dispute'">
+                        <span class="timeline-date">Oct 2024 - Aug 2025</span>
+                        <h3>IT Specialist @ Dispute</h3>
+                        <p>Managed DNS systems and executed bulk email automation campaigns, significantly improving communication efficiency.</p>
+                        <h4 style="color: #38BDF8">Focus: Automation & DNS Mgmt</h4>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="imgs/asu_racing.png" class="timeline-img" onerror="this.src='https://placehold.co/600x200/232323/f9ca24?text=ASU+Racing+Team'">
+                        <span class="timeline-date">Oct 2024 - Jul 2025</span>
+                        <h3>Path Planning Specialist @ ASU Racing</h3>
+                        <p>Developed path planning algorithms from scratch for the SHELL team. Optimized performance for robotic efficiency.</p>
+                        <h4 style="color: #38BDF8">Tech: Robotics & Deep Learning</h4>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="imgs/aiesec.jpg" class="timeline-img" onerror="this.src='https://placehold.co/600x200/232323/0077b5?text=AIESEC+Egypt'">
+                        <span class="timeline-date">Jan 2025 - Nov 2025</span>
+                        <h3>Finance & B2B Specialist @ AIESEC</h3>
+                        <p>Analyzed financial states for operational efficiency and finalized strategic deals. Conducted market research to identify partnership opportunities.</p>
+                        <h4 style="color: #38BDF8">Skills: Financial Analysis & Negotiation</h4>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="imgs/ocd.jpg" class="timeline-img" onerror="this.src='https://placehold.co/600x200/232323/ff2a6d?text=OCD+Egypt'">
+                        <span class="timeline-date">Mar 2025 - Present</span>
+                        <h3>Event Organizer @ OCD Egypt</h3>
+                        <p>Organized high-profile events including <strong>El Gouna Film Festival</strong> and <strong>Disney on Ice</strong>. Ensured seamless execution and attendee satisfaction.</p>
+                        <h4 style="color: #38BDF8">Role: Ushering & Planning</h4>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="imgs/mahe.jpg" class="timeline-img" onerror="this.src='https://placehold.co/600x200/232323/05d9e8?text=MAHE+Data+Science'">
+                        <span class="timeline-date">July 2025 - Oct 2025</span>
+                        <h3>Data Scientist Intern @ MAHE (India)</h3>
+                        <p>Developed an interactive news summarization chatbot and conducted research under Prof. Ramakrishna culminating in a published paper.</p>
+                        <h4 style="color: #38BDF8">Focus: Research</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+    
+                <!-- LIVER TUMOR AI -->
+                <div class="project-line" data-category="ai">
+                    <div class="project-content-wrapper">
+                        <h3 class="project-title">Liver Tumor AI</h3>
+                        <p class="project-desc">
+                            Real-time liver tumor detection & segmentation with <strong>95% accuracy</strong> and <strong>91.7% Dice score</strong> on unseen patients — 
+                            <strong>zero data leakage</strong> using strict patient-level validation.
+                        </p>
+                        <div class="project-meta">
+                            <span class="project-date"><i class="far fa-calendar"></i> Dec 2025</span>
+                            <span class="project-lang"><span class="lang-color python-color"></span> PyTorch • Medical AI</span>
+                        </div>
+                        <div class="project-tags">
+                            <span>Deep Learning</span>
+                            <span>Segmentation</span>
+                            <span>Explainable AI</span>
+                            <span>Healthcare</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://liver-tumor-ai-patient-independent.streamlit.app" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/omarsalama4/liver-tumor-ai" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-visual">
+                        <div class="project-icon-wrapper">
+                            <i class="fas fa-brain" style="font-size: 120px; color: #00D4AA;"></i>
+                        </div>
+                        <span class="project-badge">Medical AI</span>
+                    </div>
+                </div>
+    
+                <!-- ARTICLE SUMMARIZER CHATBOT -->
+                <div class="project-line" data-category="ai">
+                    <div class="project-content-wrapper">
+                        <h3 class="project-title">Article Summarizer Chatbot</h3>
+                        <p class="project-desc">
+                            Conversational AI that summarizes news articles in 5 sentences, extracts topics, and generates thought-provoking questions — 
+                            powered by Google Gemini 2.5 Flash.
+                        </p>
+                        <div class="project-meta">
+                            <span class="project-date"><i class="far fa-calendar"></i> Nov 2025</span>
+                            <span class="project-lang"><span class="lang-color python-color"></span> Gemini • Streamlit</span>
+                        </div>
+                        <div class="project-tags">
+                            <span>Generative AI</span>
+                            <span>NLP</span>
+                            <span>Chatbot</span>
+                            <span>ROUGE Evaluation</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://news-summary-chatbot-mahe.streamlit.app" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/omarsalama4/News-Summary-chatbot" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-visual">
+                        <div class="project-icon-wrapper">
+                            <i class="fas fa-robot" style="font-size: 120px; color: #4285F4;"></i>
+                        </div>
+                        <span class="project-badge">GenAI</span>
+                    </div>
+                </div>
+    
+                <!-- EXONET: NASA SPACE APPS 2025 -->
+                <div class="project-line" data-category="ai">
+                    <div class="project-content-wrapper">
+                        <h3 class="project-title">ExoNet: AI-Powered Exoplanet Classifier</h3>
+                        <p class="project-desc">
+                            NASA Space Apps Challenge 2025 — ResidualMLP classifier achieving <strong>95.28% accuracy</strong> on K2 exoplanet candidates with SHAP explainability.
+                        </p>
+                        <div class="project-meta">
+                            <span class="project-date"><i class="far fa-calendar"></i> Oct 2025</span>
+                            <span class="project-lang"><span class="lang-color python-color"></span> PyTorch • NASA</span>
+                        </div>
+                        <div class="project-tags">
+                            <span>Astronomy</span>
+                            <span>Classification</span>
+                            <span>XAI</span>
+                            <span>NASA</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/omarelnokrashy/exonet-nasa-spaceapps-2025" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> View Code
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-visual">
+                        <div class="project-icon-wrapper">
+                            <i class="fas fa-satellite-dish" style="font-size: 120px; color: #FFD700;"></i>
+                        </div>
+                        <span class="project-badge">NASA Challenge</span>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> AI & Computer Vision</h3>
+                    <ul class="skill-list">
+                        <li>
+                            <span class="skill-name">Computer Vision & Image Processing</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 95%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">ML & DL</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">NLP & Text Analytics</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Path Planning & Robotics</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 75%;"></div></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>
+                            <span class="skill-name">Python (AI & Automation)</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 95%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">C++ (Performance)</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Dart (Flutter)</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">SQL</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-toolbox"></i> Frameworks & Libs</h3>
+                    <ul class="skill-list">
+                        <li>
+                            <span class="skill-name">TensorFlow / PyTorch</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Pandas & NumPy</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 95%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Flutter SDK</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Scikit-learn</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-robot"></i> Automation Tools</h3>
+                    <ul class="skill-list">
+                        <li>
+                            <span class="skill-name">Python Scripting & Macros</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 95%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Bulk Mailing & DNS Mgmt</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Task Execution Pipelines</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Parallel Programming</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 75%;"></div></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+                    <ul class="skill-list">
+                        <li>
+                            <span class="skill-name">AWS (Machine Learning Specialty)</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Git & GitHub</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Ubuntu / Linux Admin</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">VS Code Environments</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-users-cog"></i> Operations & Leadership</h3>
+                    <ul class="skill-list">
+                        <li>
+                            <span class="skill-name">Operations Management</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 95%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Event Planning & Organizing</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Strategic Planning</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+                        </li>
+                        <li>
+                            <span class="skill-name">Team Leadership</span>
+                            <div class="skill-bar"><div class="skill-level" style="width: 95%;"></div></div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="section certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications & Achievements</h2>
+            <div class="certs-container">
+    
+                <!-- 1. AWS ML Specialty – Still #1 -->
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <img style="width: 100%; height: auto;" src="imgs/AWS.png" alt="AWS Certified Machine Learning – Specialty" onerror="this.src='https://placehold.co/80x80/232323/ff2a6d?text=AWS'">
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-provider">Amazon Web Services</span>
+                        <h3>AWS Certified Machine Learning – Specialty</h3>
+                        <p>Validated expertise in building, training, tuning, and deploying ML/DL models at scale on AWS.</p>
+                        <span class="cert-date">June 2024 – June 2027</span>
+                    </div>
+                </div>
+    
+                <!-- 2. NASA Space Apps 2025 -->
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <img style="width: 100%; height: auto;" src="imgs/cernasa.png" alt="NASA Space Apps Challenge 2025" onerror="this.src='https://placehold.co/80x80/232323/ff2a6d?text=NASA'">
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-provider">NASA Space Apps Challenge 2025</span>
+                        <h3>Cairo Local Participant</h3>
+                        <p>Developed ExoNet: AI-powered exoplanet classifier using NASA K2 data (95.28% accuracy).</p>
+                        <span class="cert-date">October 2025</span>
+                    </div>
+                </div>
+    
+                <!-- 3. Huawei HCIA-AI -->
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <img style="width: 100%; height: auto;" src="imgs/HCIA.png" alt="Huawei HCIA-AI V3.5" onerror="this.src='https://placehold.co/80x80/232323/ff2a6d?text=HCIA'">
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-provider">Huawei</span>
+                        <h3>HCIA-AI V3.5 (Artificial Intelligence)</h3>
+                        <p>Industry-recognized certification in AI theory, neural networks, deep learning, and cloud AI.</p>
+                        <span class="cert-date">September 2024</span>
+                    </div>
+                </div>
+    
+                <!-- 4. NTI 120h AI Professional Training -->
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <img style="width: 100%; height: auto;" src="imgs/NTI.png" alt="NTI Artificial Intelligence Professional Training" onerror="this.src='https://placehold.co/80x80/232323/ff2a6d?text=NTI'">
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-provider">National Telecommunication Institute (NTI)</span>
+                        <h3>Artificial Intelligence Professional Training – 120 Hours</h3>
+                        <p>Government-backed intensive program in ML, DL, ANN, data analysis, and soft skills.</p>
+                        <span class="cert-date">September 2024</span>
+                    </div>
+                </div>
+    
+                <!-- 5. English C1 (EF SET) – Now included, clean & professional -->
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <img style="width: 100%; height: auto;" src="imgs/SEF.png" alt="EF SET English Certificate C1 Advanced" onerror="this.src='https://placehold.co/80x80/232323/ff2a6d?text=EF+SET'">
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-provider">EF SET English Certificate</span>
+                        <h3>C1 Advanced (CEFR)</h3>
+                        <p>Proficient English user — highest level of fluency in speaking, writing, and comprehension.</p>
+                        <span class="cert-date">October 2025</span>
+                    </div>
+                </div>
+    
+                <!-- 6. Applai Computer Vision Training -->
+                <div class="cert-card">
+                    <div class="cert-icon">
+                        <img style="width: 100%; height: auto;" src="imgs/CV.png" alt="Applai Computer Vision Professional Training" onerror="this.src='https://placehold.co/80x80/232323/ff2a6d?text=ApplAi'">
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-provider">Applai</span>
+                        <h3>Computer Vision Professional Training</h3>
+                        <p>30+ hours hands-on training in object detection, image classification, and OpenCV pipelines.</p>
+                        <span class="cert-date">August 2023</span>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-item-content">
+                            <h3>Location</h3>
+                            <p>Cairo, Egypt</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-item-content">
+                            <h3>Email</h3>
+                            <p>omarsalamal17@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="contact-item-content">
+                            <h3>Phone</h3>
+                            <p>+20 102 498 0973</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">Omar <span>Salama</span></div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                </ul>
+            </div>
+            <div class="social-icons">
+                <a href="https://github.com/omarsalama4" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/omar-salama-7887b9267/" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:omarsalamal17@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">© 2025 Omar Salama. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particles.js
+        document.addEventListener('DOMContentLoaded', function () {
+        particlesJS('particles-js', {
+        particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#ff2a6d" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#05d9e8",
+        opacity: 0.4,
+        width: 1
+        },
+        move: {
+        enable: true,
+        speed: 2,
+        direction: "none",
+        random: true,
+        out_mode: "out",
+        bounce: false
+        }
+        },
+        interactivity: {
+        detect_on: "canvas",
+        events: {
+        onhover: { enable: true, mode: "grab" },
+        onclick: { enable: true, mode: "push" },
+        resize: true
+        }
+        },
+        retina_detect: true
+        });
+        });
+
+        // Sticky header
+        window.addEventListener('scroll', function () {
+        const header = document.querySelector('header');
+        const backToTop = document.querySelector('.back-to-top');
+
+        if (window.scrollY > 100) {
+        header.classList.add('sticky');
+        backToTop.classList.add('active');
+        } else {
+        header.classList.remove('sticky');
+        backToTop.classList.remove('active');
+        }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const closeMenu = document.querySelector('.close-menu');
+        const nav = document.querySelector('nav');
+
+        if (menuToggle) {
+        menuToggle.addEventListener('click', function () {
+        nav.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        });
+        }
+
+        if (closeMenu) {
+        closeMenu.addEventListener('click', function () {
+        nav.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        });
+        }
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+        nav.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        });
+        });
+
+        // Back to top functionality
+        const backToTop = document.querySelector('.back-to-top');
+        if (backToTop) {
+        backToTop.addEventListener('click', function () {
+        document.documentElement.scrollTo({ top: 0, behavior: 'smooth' });
+        document.body.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        }
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+        const elements = document.querySelectorAll('.skill-category, .cert-card, .timeline-content, .project-line, .stat-card, .contact-item');
+
+        elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+
+        if (elementPosition < screenPosition) {
+        element.style.opacity = 1;
+        element.style.transform = 'translateY(0)';
+        }
+        });
+        }
+
+        // Initialize element animation styles
+        document.querySelectorAll('.skill-category, .cert-card, .timeline-content, .project-line, .stat-card, .contact-item').forEach(element => {
+        element.style.opacity = 0;
+        element.style.transform = 'translateY(50px)';
+        element.style.transition = 'all 0.6s ease';
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Typing effect for name
+        const nameSpan = document.querySelector('.hero h1 span');
+        const text = "Omar Salama"; // UPDATED NAME
+        let index = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+        if (!isDeleting) {
+        nameSpan.textContent = text.substring(0, index + 1);
+        index++;
+        if (index === text.length) {
+        isDeleting = true;
+        setTimeout(typeWriter, 2000);
+        } else {
+        setTimeout(typeWriter, 100);
+        }
+        } else {
+        nameSpan.textContent = text.substring(0, index);
+        index--;
+        if (index === 0) {
+        isDeleting = false;
+        setTimeout(typeWriter, 500);
+        } else {
+        setTimeout(typeWriter, 50);
+        }
+        }
+        }
+
+        typeWriter();
+    </script>
+</body>
+
+</html>
