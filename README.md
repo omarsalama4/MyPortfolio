@@ -14,4 +14,4 @@ It showcases my skills, projects, and experience as a **AI Engineer**.
 ---
 
 ##  Check it out
-- try it: 
+- try it: [My Portfolio](https://omarsalama4.github.io/MyPortfolio/)
