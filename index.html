@@ -8,6 +8,7 @@
     <meta name="description" content="Omar Salama is an AI Engineer specializing in computer vision, NLP, healthcare AI, and real-time ML systems, including a 96.69% AUROC seizure detection platform.">
     <meta name="author" content="Omar Salama">
     <meta name="robots" content="index, follow">
+    <meta name="omar-ai-api-url" content="https://api.omarsalama.online/api/chat">
     <link rel="canonical" href="https://omarsalama4.github.io/MyPortfolio/">
 
     <meta property="og:type" content="profile">
@@ -698,7 +699,42 @@
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
+    <aside class="chatbot" data-chatbot>
+        <div class="chatbot-panel" data-chat-panel aria-hidden="true">
+            <div class="chatbot-header">
+                <div>
+                    <span>Ask Omar's AI</span>
+                    <small>Verified portfolio assistant</small>
+                </div>
+                <button class="chatbot-close" type="button" data-chat-toggle aria-label="Close AI assistant" aria-expanded="false">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages" data-chat-messages aria-live="polite">
+                <div class="chat-message assistant">
+                    <div class="chat-bubble">Hi, I can answer questions about Omar's portfolio, CV, and GitHub projects.</div>
+                </div>
+                <div class="chat-suggestions" aria-label="Suggested questions">
+                    <button type="button" data-chat-suggestion>Tell me about Omar.</button>
+                    <button type="button" data-chat-suggestion>What AI projects has Omar built?</button>
+                    <button type="button" data-chat-suggestion>Tell me about Shifaa.</button>
+                </div>
+            </div>
+            <form class="chatbot-form" data-chat-form>
+                <input type="text" data-chat-input placeholder="Ask about Omar..." maxlength="900" autocomplete="off" aria-label="Ask Omar's AI a question">
+                <button type="submit" aria-label="Send question">
+                    <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                </button>
+            </form>
+        </div>
+        <button class="chatbot-toggle" type="button" data-chat-toggle aria-label="Open Ask Omar's AI" aria-expanded="false">
+            <i class="fas fa-comments" aria-hidden="true"></i>
+            <span>Ask Omar's AI</span>
+        </button>
+    </aside>
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/chatbot.js" defer></script>
     <script>
         document.documentElement.classList.add('js');
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -1,0 +1,133 @@
+{
+  "generatedAt": "2026-08-11T21:38:42.888Z",
+  "chunks": [
+    {
+      "id": "portfolio:about",
+      "source": "portfolio",
+      "type": "about",
+      "title": "About Me",
+      "content": "About Me Turning applied AI research into production-ready systems for high-impact applications. AI Engineer focused on Computer Vision, NLP, and Real-Time Inference Systems I build AI systems that bridge cutting-edge research with real-world deployment, specializing in computer vision, natural language processing, and performance-aware inference. I'm a dual-degree graduate in Computer Science and Artificial Intelligence from Ain Shams University and the University of East London (Class of 2026, GPA: 3.3/4.0). My flagship work is Shifaa, an AI-powered, privacy-first clinical decision support and patient monitoring platform. I engineered its real-time seizure detection pipeline using Vision Transformers, Graph Neural Networks, OpenPose, ONNX Runtime, C++, and Python, achieving 96.69% AUROC, 90.18% F1-score, and 37+ FPS for low-latency pre-clinical seizure detection. Beyond healthcare AI, I've contributed to NLP research at MAHE, autonomous path planning with the ASU Racing Team, earned the AWS Certified Machine Learning – Specialty certification, and mentored aspiring AI engineers through ApplAi. I'm currently applying that same engineering mindset to AI automation at Cultiv Bureau, building n8n, RAG, CRM, and API-driven workflows. Computer Vision NLP Healthcare AI Research Leadership",
+      "url": "https://omarsalama4.github.io/MyPortfolio/#about",
+      "metadata": {}
+    },
+    {
+      "id": "portfolio:experience",
+      "source": "portfolio",
+      "type": "experience",
+      "title": "Experience & Education",
+      "content": "Experience & Education Sep 2022 - Jul 2026 B.Sc. Computer Science & Artificial Intelligence Ain Shams University & University of East London dual degree in Cairo, Egypt. GPA: 3.3 / 4.0. Graduated: July 2026 Jul 2026 - Present AI & Automation Intern | Cultiv Bureau Build AI-powered business automation workflows using n8n, REST APIs, webhooks, WhatsApp Cloud API, and Bitrix24 CRM integrations. Focused on RAG pipelines, prompt optimization, token reduction, Docker-based local development, building multi-agent systems, and production-style debugging. Jul 2025 - Jan 2026 Data Science Trainee | DEPI Completed intensive cohort-based training in Python, machine learning, deep learning, data visualization, and AI deployment workflows. Applied supervised and unsupervised learning across end-to-end data science projects. Jul 2025 - Sep 2025 Data Scientist Intern | MAHE Built and deployed an interactive news summarization chatbot using Google Gemini API with conversational, context-aware question generation. Co-authored an NLP text summarization research paper under Prof. Ramakrishna. Oct 2022 - Aug 2025 NLP Specialist| ApplAi Developed and delivered a hands-on Deep Learning and NLP curriculum focused on TensorFlow, Transformer architectures, and modern AI workflows for 50+ participants. Oct 2024 - Aug 2025 IT Specialist | Dispute Managed DNS infrastructure and executed large-scale email automation campaigns, improving system reliability and streamlining organization-wide communication pipelines. Oct 2024 - Jul 2025 Path Planning Specialist | ASU Racing Team Developed a path-planning system for an autonomous vehicle, implementing optimization algorithms from scratch for the Shell Eco-marathon team. Jul 2024 - Oct 2024 Full-Stack Developer | Notopia Built a scalable e-commerce app using Flutter, Next.js, and SQL. Optimized backend queries, reducing processing time by 30%.",
+      "url": "https://omarsalama4.github.io/MyPortfolio/#experience",
+      "metadata": {}
+    },
+    {
+      "id": "portfolio:projects",
+      "source": "portfolio",
+      "type": "project",
+      "title": "Featured Projects",
+      "content": "Featured Projects Flagship AI systems presented as compact case studies for fast technical review. Graduation Project | Healthcare AI Shifaa - AI-Based Patient Monitoring Platform Production-grade, privacy-first hospital monitoring platform unifying a grounded medical AI assistant with real-time detection for cardiac arrhythmia, patient falls, and epileptic seizures. 96.69% AUROC 90.18% F1 37+ FPS PyTorch OpenCV ONNX Runtime C++ Python ViViT GNN OpenPose Repo Demo Paper Problem Hospitals need fast, on-premises patient monitoring without leaking sensitive data. Solution A role-aware interface with three detection pipelines and a grounded medical assistant. Architecture Series-gated ViViT + GNN seizure pipeline with OpenPose, ONNX Runtime, C++, and Python. Results 96.69% AUROC, 90.18% F1-score, 37+ FPS, and pre-clinical seizure alerts. Impact Designed for privacy-first, fully on-premises hospital deployment. Future Work Clinical validation, alert workflow hardening, and broader hospital integrations. 1st Place | CV Course Competition Fruit & Food Segmentation and Calorie Estimation AI-powered food analysis platform integrating segmentation, classification, few-shot recognition, and calorie estimation with an EfficientNet-B4 + DeepLabV3+ model. 97.69% Val IoU 1st Place PyTorch OpenCV Streamlit EfficientNet-B4 DeepLabV3+ Few-shot Recognition Code Live Demo Problem Food analysis needs object-level recognition before calories can be estimated reliably. Solution Segment food regions, classify items, support few-shot recognition, then estimate calories. Results 97.69% Validation IoU and 1st Place in the Ain Shams CV Course Competition. Lessons Strong segmentation quality is the foundation for trustworthy downstream nutrition estimates. Medical Imaging Liver Tumor AI - Real-Time Detection & Segmentation PyTorch + U-Net liver tumor segmentation pipeline for unseen patients using strict patient-level validation. 95% Accuracy 91.7% Dice PyTorch U-Net Medical AI Segmentation Live Demo Code Problem Medical segmentation can look strong while leaking patient data across splits. Solution Patient-independent validation with a U-Net segmentation pipeline. Results 95% accuracy and 91.7% Dice score. Impact Healthcare AI proof point with a deployed demo and reproducible code. NLP Research Article Summarizer Chatbot Conversational summarization and question-generation chatbot using Gemini 2.5 Flash API. Gemini API Streamlit NLP Question Generation ROUGE Evaluation Live Demo Code Paper Problem Readers need fast, contextual summaries and follow-up questions from long articles. Solution A Streamlit chatbot that summarizes, extracts topics, and generates context-aware questions. Research Built during the MAHE internship and connected to an NLP summarization paper. Future Work Add richer evaluation dashboards and source-grounded answer tracing. NASA Space Apps ExoNet - AI-Powered Exoplanet Classifier Residual MLP classifier for NASA K2 exoplanet candidates with SHAP explainability. 95.28% Accuracy PyTorch Residual MLP SHAP Astronomy XAI Code Problem Candidate signals need interpretable classification to support review. Solution Residual MLP classifier paired with SHAP feature attribution. Results 95.28% accuracy in the NASA Space Apps Challenge context. Impact Shows ML breadth beyond healthcare, with explainability in a scientific workflow.",
+      "url": "https://omarsalama4.github.io/MyPortfolio/#projects",
+      "metadata": {}
+    },
+    {
+      "id": "portfolio:project:shifaa-ai-based-patient-monitoring-platform",
+      "source": "portfolio",
+      "type": "project",
+      "title": "Shifaa - AI-Based Patient Monitoring Platform",
+      "content": "Graduation Project | Healthcare AI Shifaa - AI-Based Patient Monitoring Platform Production-grade, privacy-first hospital monitoring platform unifying a grounded medical AI assistant with real-time detection for cardiac arrhythmia, patient falls, and epileptic seizures. 96.69% AUROC 90.18% F1 37+ FPS PyTorch OpenCV ONNX Runtime C++ Python ViViT GNN OpenPose Repo Demo Paper Problem Hospitals need fast, on-premises patient monitoring without leaking sensitive data. Solution A role-aware interface with three detection pipelines and a grounded medical assistant. Architecture Series-gated ViViT + GNN seizure pipeline with OpenPose, ONNX Runtime, C++, and Python. Results 96.69% AUROC, 90.18% F1-score, 37+ FPS, and pre-clinical seizure alerts. Impact Designed for privacy-first, fully on-premises hospital deployment. Future Work Clinical validation, alert workflow hardening, and broader hospital integrations.",
+      "url": "https://github.com/omarelnokrashy/Shifaa-AI-Based-Patient-Monitoring-System/tree/Windows-Deployment",
+      "metadata": {
+        "badge": "Graduation Project | Healthcare AI"
+      }
+    },
+    {
+      "id": "portfolio:project:fruit-food-segmentation-and-calorie-estimation",
+      "source": "portfolio",
+      "type": "project",
+      "title": "Fruit & Food Segmentation and Calorie Estimation",
+      "content": "1st Place | CV Course Competition Fruit & Food Segmentation and Calorie Estimation AI-powered food analysis platform integrating segmentation, classification, few-shot recognition, and calorie estimation with an EfficientNet-B4 + DeepLabV3+ model. 97.69% Val IoU 1st Place PyTorch OpenCV Streamlit EfficientNet-B4 DeepLabV3+ Few-shot Recognition Code Live Demo Problem Food analysis needs object-level recognition before calories can be estimated reliably. Solution Segment food regions, classify items, support few-shot recognition, then estimate calories. Results 97.69% Validation IoU and 1st Place in the Ain Shams CV Course Competition. Lessons Strong segmentation quality is the foundation for trustworthy downstream nutrition estimates.",
+      "url": "https://github.com/omarsalama4/AI-Calories-calculator",
+      "metadata": {
+        "badge": "1st Place | CV Course Competition"
+      }
+    },
+    {
+      "id": "portfolio:project:liver-tumor-ai-real-time-detection-segmentation",
+      "source": "portfolio",
+      "type": "project",
+      "title": "Liver Tumor AI - Real-Time Detection & Segmentation",
+      "content": "Medical Imaging Liver Tumor AI - Real-Time Detection & Segmentation PyTorch + U-Net liver tumor segmentation pipeline for unseen patients using strict patient-level validation. 95% Accuracy 91.7% Dice PyTorch U-Net Medical AI Segmentation Live Demo Code Problem Medical segmentation can look strong while leaking patient data across splits. Solution Patient-independent validation with a U-Net segmentation pipeline. Results 95% accuracy and 91.7% Dice score. Impact Healthcare AI proof point with a deployed demo and reproducible code.",
+      "url": "https://github.com/omarsalama4/liver-tumor-ai",
+      "metadata": {
+        "badge": "Medical Imaging"
+      }
+    },
+    {
+      "id": "portfolio:project:article-summarizer-chatbot",
+      "source": "portfolio",
+      "type": "project",
+      "title": "Article Summarizer Chatbot",
+      "content": "NLP Research Article Summarizer Chatbot Conversational summarization and question-generation chatbot using Gemini 2.5 Flash API. Gemini API Streamlit NLP Question Generation ROUGE Evaluation Live Demo Code Paper Problem Readers need fast, contextual summaries and follow-up questions from long articles. Solution A Streamlit chatbot that summarizes, extracts topics, and generates context-aware questions. Research Built during the MAHE internship and connected to an NLP summarization paper. Future Work Add richer evaluation dashboards and source-grounded answer tracing.",
+      "url": "https://github.com/omarsalama4/News-Summary-chatbot",
+      "metadata": {
+        "badge": "NLP Research"
+      }
+    },
+    {
+      "id": "portfolio:project:exonet-ai-powered-exoplanet-classifier",
+      "source": "portfolio",
+      "type": "project",
+      "title": "ExoNet - AI-Powered Exoplanet Classifier",
+      "content": "NASA Space Apps ExoNet - AI-Powered Exoplanet Classifier Residual MLP classifier for NASA K2 exoplanet candidates with SHAP explainability. 95.28% Accuracy PyTorch Residual MLP SHAP Astronomy XAI Code Problem Candidate signals need interpretable classification to support review. Solution Residual MLP classifier paired with SHAP feature attribution. Results 95.28% accuracy in the NASA Space Apps Challenge context. Impact Shows ML breadth beyond healthcare, with explainability in a scientific workflow.",
+      "url": "https://github.com/omarelnokrashy/exonet-nasa-spaceapps-2025",
+      "metadata": {
+        "badge": "NASA Space Apps"
+      }
+    },
+    {
+      "id": "portfolio:skills",
+      "source": "portfolio",
+      "type": "skill",
+      "title": "Technical Skills",
+      "content": "Technical Skills CV-aligned skill groups for technical recruiters, ATS scans, and fast engineering review. Programming Languages Python C++ C# JavaScript Dart SQL AI & Machine Learning PyTorch TensorFlow Scikit-learn Hugging Face Transformers ONNX Runtime Graph Neural Networks Vision Transformers RAG Prompt Engineering Computer Vision & NLP OpenCV Image Segmentation Object Detection Pose Estimation Optical Flow 3D Vision Transformers Gemini API Data & Cloud Pandas NumPy AWS SageMaker AWS Lambda Data Preprocessing Streamlit n8n REST APIs Webhooks Bitrix24 CRM WhatsApp Cloud API Multi-agent Systems Software Development Flutter Next.js Git Linux Docker OOP Data Structures & Algorithms Leadership & Research Technical Leadership Cross-functional Collaboration Public Speaking Problem Solving Curriculum Design Research Writing",
+      "url": "https://omarsalama4.github.io/MyPortfolio/#skills",
+      "metadata": {}
+    },
+    {
+      "id": "portfolio:achievements",
+      "source": "portfolio",
+      "type": "certification",
+      "title": "Achievements & Certifications",
+      "content": "Achievements & Certifications Amazon Web Services | May 2024 AWS Certified Machine Learning - Specialty Validated machine learning model building, training, tuning, and deployment on AWS, including SageMaker-centered workflows. Graduation Project Expo Shifaa Participated in ASU GP Expo Presented the AI patient monitoring platform to faculty, industry professionals, and recruiters at the FCIS Expo. NASA | Sep 2025 NASA Space Apps Challenge Participant Built ExoNet, an explainable exoplanet classifier reaching 95.28% accuracy on K2 candidates. Huawei | Nov 2023 HCIA-AI V3.5 Certification covering AI foundations, neural networks, deep learning, and cloud AI concepts. NTI | Nov 2023 AI Professional Training - 120 Hours Government-backed intensive program in ML, DL, ANN, data analysis, and professional skills. ApplAi | Jul 2023 Computer Vision Professional Training Hands-on training in object detection, image classification, and OpenCV pipelines. ICPC | Jun 2023 ICPC ECPC Qualification Competitive-programming qualification demonstrating algorithmic problem-solving fundamentals. ArabCAB 2026 FCIS Team Finalist Represented the Ain Shams University FCIS team as a finalist at ArabCAB 2026. EF SET | Oct 2025 English C1 Advanced Advanced English proficiency for technical writing, presentations, and cross-functional collaboration.",
+      "url": "https://omarsalama4.github.io/MyPortfolio/#achievements",
+      "metadata": {}
+    },
+    {
+      "id": "portfolio:leadership",
+      "source": "portfolio",
+      "type": "experience",
+      "title": "Leadership & Community",
+      "content": "Leadership & Community Leadership roles that support the AI engineering narrative through mentoring, partnerships, and community delivery. Oct 2022 - Aug 2025 ApplAi | Operational Lead Led 12+ strategic meetings, secured 3 partnership and venue agreements, and delivered 20+ soft skills workshops to develop members' professional and leadership capabilities. Mar 2023 - Present Resala Charity | Head of Department Directed 50+ volunteers and organized 10+ charity events, including the El-Adha Clothing Campaign 2023, across 30+ social initiatives. Sep 2025 - Apr 2026 IAESTE | Exchange Administrator Managed the 2025-2026 international internship exchange cycle, coordinating internship placements across multiple countries. Jan 2025 - Nov 2025 AIESEC | Finance & B2B Specialist Conducted market research, closed 2 strategic partnership deals, and optimized financial workflows across university entities.",
+      "url": "https://omarsalama4.github.io/MyPortfolio/#leadership",
+      "metadata": {}
+    },
+    {
+      "id": "portfolio:contact",
+      "source": "portfolio",
+      "type": "contact",
+      "title": "Contact",
+      "content": "Get In Touch Email omarsalama117@gmail.com Phone +20 102 498 0973 LinkedIn omar-mohamed-salama GitHub omarsalama4 Location Cairo, Egypt",
+      "url": "https://omarsalama4.github.io/MyPortfolio/#contact",
+      "metadata": {}
+    },
+    {
+      "id": "cv:full",
+      "source": "cv",
+      "type": "resume",
+      "title": "Omar Salama CV",
+      "content": "OMAR SALAMA AI Engineer Cairo, Egypt • omarsalama117@gmail.com • +20 102 498 0973 • LinkedIn • GitHub • Portfolio PROFESSIONAL SUMMARY Computer Science & Artificial Intelligence graduate (dual degree, Ain Shams University & University of East London) passionate about translating cutting-edge AI research into production-ready solutions. Experienced in developing end-to-end machine learning, computer vision, and NLP applications with a focus on real-time inference, deployment, and performance optimization. As part of my graduation project, I engineered a hybrid real-time epileptic seizure detection system integrating Vision Transformers, Graph Neural Networks, ONNX Runtime, C++, and Python, delivering 96.69% AUROC, 90.18% F1-score, 37+ FPS, and pre-clinical seizure alerts through a novel series-gating architecture. Built AI solutions spanning healthcare, medical imaging, autonomous systems, and NLP. Seeking an opportunity to contribute to impactful AI products as an AI/ML Engineer, Computer Vision Engineer, or Applied AI Engineer. TECHNICAL SKILLS Programming Languages Python • C++ • Dart • SQL AI / Machine Learning PyTorch • TensorFlow • Scikit-learn • Hugging Face Transformers Computer Vision & NLP OpenCV • Image Segmentation • Object Detection • Pose Estimation • Optical Flow • 3D Vision • Transformers • Gemini API Data & Cloud Pandas • NumPy • AWS (SageMaker, Lambda) • Data Preprocessing • Streamlit Software Development Flutter • Next.js • Git • Linux • OOP • Data Structures & Algorithms Soft Skills Technical Leadership • Cross-functional Collaboration • Public Speaking • Problem Solving EDUCATION B.Sc. in Computer Science & Artificial Intelligence (Dual Degree) 09/2022 – 07/2026 Ain Shams University & University of East London • Cairo, Egypt • GPA: 3.3 / 4.0 WORK EXPERIENCE Data Science Trainee • Digital Egypt Pioneers Initiative (DEPI) • Cairo, Egypt 07/2025 – 01/2026 ● Completed an intensive, cohort-based training program covering Python, machine learning, deep learning, data visualization, and AI deployment workflows. ● Applied supervised and unsupervised learning techniques across end-to-end data science projects, collaborating with a cross- functional cohort to solve real-world problems. Data Scientist Intern • Manipal Academy of Higher Education (MAHE) • Manipal, India 07/2025 – 09/2025 ● Built and deployed an interactive news-summarization chatbot using the Google Gemini API with conversational, context-aware question generation. ● Co-authored a research paper under Prof. Ramakrishna on NLP-based text summarization techniques. NLP Specialist / Operational Lead • Applai – Ain Shams University • Cairo, Egypt 10/2022 – 08/2025 ● Progressed from Operational Specialist to Director of Operations to NLP Specialist, leading 12+ strategic meetings and securing 3 venue/partnership contracts. ● Designed and delivered a Deep Learning & NLP curriculum covering Transformers and TensorFlow to 50+ peer students. IT Specialist • Dispute – Ain Shams University • Cairo, Egypt 10/2024 – 08/2025 ● Managed DNS infrastructure and executed large-scale email automation campaigns, improving system reliability and streamlining communication pipelines organization-wide. Path Planning Specialist • ASU Racing Team – Shell Eco-marathon • Cairo, Egypt 10/2024 – 07/2025 ● Developed a path-planning system for an autonomous vehicle, implementing optimization algorithms from scratch for a competitive racing team. GRADUATION PROJECT Shifaa — AI-Based Patient Monitoring Platform 10/2025 – 07/2026 Ain Shams University ● Production-grade, privacy-first hospital monitoring platform that unifies a grounded medical AI assistant with three real-time detection systems (cardiac arrhythmia, patient falls, and epileptic seizures) behind a single role-aware interface — all running fully on-premises. ● Real-time seizure detection pipeline achieving 96.69% AUROC, 90.18% F1-score, and 37+ FPS. Technologies: PyTorch, OpenCV, ONNX Runtime, C++, Python, ViViT, Graph Neural Networks, OpenPose Repo • Demo • Paper PROJECTS Fruit & Food Segmentation and Calorie Estimation — 1st Place, CV Course Competition 12/2025 – 01/2026 Ain Shams University ● Built an AI-powered food and fruit analysis platform integrating segmentation, classification, few-shot recognition, and calorie estimation. Developed an EfficientNet-B4 + DeepLabV3+ model achieving 97.69% Validation IoU. Technologies: PyTorch, OpenCV, Streamlit Repo • Live Demo Liver Tumor AI — Real-Time Detection & Segmentation 12/2025 DEPI Data Science Track ● Developed a PyTorch + U-Net liver tumor segmentation pipeline achieving 95% accuracy and 91.7% Dice score. Technologies: PyTorch, U-Net Repo • Live Demo ExoNet 10/2025 NASA Space Apps Challenge ● Built a residual MLP classifier for exoplanet detection with SHAP explainability, achieving 95.28% accuracy. Repo Article Summarizer Chatbot 09/2025 MAHE — Prof. Ramakrishna ● Developed a conversational summarization and question-generation chatbot using Gemini 2.5 Flash API. Repo • Live Demo • Paper LEADERSHIP & VOLUNTEER EXPERIENCE Head of Department • Resala Charity – Farz Masr El-Gdida • Cairo, Egypt 03/2023 – Present ● Directed 50+ volunteers and organized 10+ charity events, including the El-Adha Clothing Campaign 2023, delivering aid to families in need across 30+ social initiatives. Exchange Administrator • IAESTE – Cairo University • Cairo, Egypt 09/2025 – 04/2026 ● Managed the international internship exchange program for the 2025–2026 cycle, coordinating student placements across multiple countries. Finance & B2B Specialist • AIESEC – Ain Shams University • Cairo, Egypt 01/2025 – 11/2025 ● Conducted market research and closed 2 strategic partnership deals while optimizing financial workflows across multiple university entities. CERTIFICATIONS & AWARDS AWS Certified Machine Learning – Specialty Amazon Web Services, 05/2024 HCIA-AI V3.5 Huawei, 11/2023 AI Professional Training (120h) National Telecommunications Institute (NTI), 11/2023 Computer Vision Professional Training ApplAi, 07/2023 ICPC ECPC Qualification ICPC, 06/2023 NASA Space Apps Challenge 2025 — Participant NASA, 09/2025 ACHIEVEMENTS & ACTIVITIES ● Selected to present the Shifaa AI-Based Patient Monitoring System at the FCIS Ain Shams University Graduation Project Expo, showcasing the project to faculty, industry professionals, and recruiters. ● 1st Place, Computer Vision Course Competition — Ain Shams University (Food/Fruit Recognition & Calorie Estimation), 2025–2026. ● Represented the Ain Shams University FCIS team as a finalist at ArabCAB 2026. LANGUAGES Arabic (Native) English (C1 Advanced — EF SET)",
+      "metadata": {
+        "generatedFrom": "Omar_Salama_CV.pdf"
+      }
+    }
+  ]
+}

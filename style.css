@@ -1284,6 +1284,190 @@ footer {
     transform: scale(1.02);
 }
 
+/* Ask Omar's AI Chatbot */
+.chatbot {
+    position: fixed;
+    right: 24px;
+    bottom: 86px;
+    z-index: 1200;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 14px;
+}
+
+.chatbot-toggle,
+.chatbot-close,
+.chatbot-form button,
+.chat-suggestions button {
+    font-family: inherit;
+}
+
+.chatbot-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 0;
+    border-radius: 999px;
+    padding: 14px 18px;
+    background: var(--gradient);
+    color: #07111f;
+    font-weight: 800;
+    box-shadow: 0 18px 40px rgba(2, 6, 23, 0.34);
+    cursor: pointer;
+}
+
+.chatbot-panel {
+    width: min(380px, calc(100vw - 32px));
+    height: 520px;
+    max-height: calc(100svh - 128px);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface-strong);
+    box-shadow: var(--shadow);
+}
+
+.chatbot.chatbot-open .chatbot-panel {
+    display: flex;
+}
+
+.chatbot-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--border);
+}
+
+.chatbot-header span {
+    display: block;
+    color: var(--text-white);
+    font-weight: 800;
+}
+
+.chatbot-header small {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+}
+
+.chatbot-close {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.75);
+    color: var(--text-white);
+    cursor: pointer;
+}
+
+.chatbot-messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.chat-message {
+    display: flex;
+    flex-direction: column;
+    max-width: 88%;
+}
+
+.chat-message.user {
+    align-self: flex-end;
+}
+
+.chat-message.assistant {
+    align-self: flex-start;
+}
+
+.chat-bubble {
+    padding: 11px 13px;
+    border-radius: 14px;
+    background: rgba(15, 23, 42, 0.86);
+    border: 1px solid var(--border);
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    white-space: pre-wrap;
+}
+
+.chat-message.user .chat-bubble {
+    background: var(--gradient);
+    color: #07111f;
+    border-color: transparent;
+    font-weight: 700;
+}
+
+.chat-sources {
+    margin-top: 6px;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    line-height: 1.4;
+}
+
+.chat-sources a {
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+.chat-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chat-suggestions button {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 10px;
+    background: rgba(15, 23, 42, 0.7);
+    color: var(--text-gray);
+    font-size: 0.78rem;
+    cursor: pointer;
+}
+
+.chatbot-form {
+    display: flex;
+    gap: 10px;
+    padding: 14px;
+    border-top: 1px solid var(--border);
+}
+
+.chatbot-form input {
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 12px 14px;
+    background: rgba(2, 6, 23, 0.65);
+    color: var(--text-white);
+    outline: 0;
+}
+
+.chatbot-form input:focus {
+    border-color: #38bdf8;
+}
+
+.chatbot-form button {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--gradient);
+    color: #07111f;
+    cursor: pointer;
+}
+
 /* Force Resala logo to fit container height instead of stretching width */
 .leadership-card img[src*="resala"] {
     width: auto;

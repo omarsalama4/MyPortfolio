@@ -1,0 +1,14 @@
+{
+  "name": "omar-salama-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build-knowledge": "node scripts/build-knowledge.js",
+    "test:chatbot": "node scripts/test-chatbot.js"
+  },
+  "dependencies": {
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {}
+}
