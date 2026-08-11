@@ -604,21 +604,30 @@ footer {
 
 .projects-grid {
     display: grid;
-    gap: 34px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
     position: relative;
     z-index: 1;
 }
 
 .project-case {
     display: block;
-    padding: 32px;
+    padding: 24px;
     overflow: hidden;
+    position: relative;
+    isolation: isolate;
+    min-height: 100%;
+    border-color: rgba(226, 232, 240, 0.1);
+    background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.86), rgba(15, 23, 42, 0.48)),
+        var(--surface);
 }
 
 .project-copy {
     display: grid;
-    grid-template-columns: 1fr 1.35fr;
-    gap: 36px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    height: 100%;
 }
 
 .project-info {
@@ -628,38 +637,58 @@ footer {
 }
 
 .project-featured {
+    grid-column: 1 / -1;
+    padding: 32px;
     border-color: rgba(56, 189, 248, 0.38);
     background:
-        linear-gradient(135deg, rgba(56, 189, 248, 0.13), transparent 32%),
+        linear-gradient(135deg, rgba(56, 189, 248, 0.17), transparent 34%),
+        linear-gradient(315deg, rgba(255, 42, 109, 0.12), transparent 30%),
         var(--surface);
 }
 
+.project-featured .project-copy {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 30px;
+}
+
 .project-heading h3 {
-    margin: 10px 0 14px;
-    font-size: clamp(1.65rem, 3vw, 2.35rem);
-    line-height: 1.14;
+    margin: 10px 0 12px;
+    font-size: clamp(1.35rem, 2vw, 1.72rem);
+    line-height: 1.18;
+}
+
+.project-featured .project-heading h3 {
+    font-size: clamp(1.85rem, 3vw, 2.45rem);
 }
 
 .project-lede {
     color: var(--text-gray);
-    font-size: 1.06rem;
+    font-size: 0.98rem;
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.58;
+}
+
+.project-featured .project-lede {
+    font-size: 1.06rem;
 }
 
 .case-grid {
     display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 0;
+}
+
+.project-featured .case-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    margin-bottom: 20px;
 }
 
 .case-grid div {
-    min-height: 112px;
-    padding: 14px;
+    min-height: 0;
+    padding: 13px 14px;
     border: 1px solid rgba(226, 232, 240, 0.09);
     border-radius: var(--radius);
-    background: rgba(15, 23, 42, 0.44);
+    background: rgba(2, 6, 23, 0.26);
 }
 
 .case-grid strong {
@@ -671,7 +700,8 @@ footer {
 .case-grid span {
     display: block;
     color: var(--text-gray);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
 .metric-row,
@@ -686,12 +716,17 @@ footer {
     border-color: rgba(34, 197, 94, 0.38);
     background: rgba(34, 197, 94, 0.1);
     color: #bbf7d0;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-weight: 800;
 }
 
 .project-tags span {
     min-height: 30px;
-    padding: 5px 10px;
-    font-size: 0.82rem;
+    padding: 6px 10px;
+    border-color: rgba(56, 189, 248, 0.16);
+    background: rgba(56, 189, 248, 0.07);
+    color: #cbd5e1;
+    font-size: 0.8rem;
 }
 
 .project-link {
@@ -700,7 +735,7 @@ footer {
     justify-content: center;
     gap: 8px;
     min-height: 42px;
-    padding: 10px 14px;
+    padding: 9px 13px;
     border: 1px solid rgba(56, 189, 248, 0.36);
     border-radius: var(--radius);
     background: rgba(56, 189, 248, 0.08);
@@ -760,16 +795,27 @@ footer {
 .skills-container {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
+    gap: 18px;
+    align-items: stretch;
 }
 
 .skill-category {
-    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    padding: 22px;
+    min-height: 100%;
+    background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.76), rgba(15, 23, 42, 0.45)),
+        var(--surface);
     transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .skill-category.core {
     border-color: rgba(56, 189, 248, 0.3);
+    background:
+        linear-gradient(135deg, rgba(56, 189, 248, 0.11), transparent 46%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.5)),
+        var(--surface);
 }
 
 .skill-category:hover,
@@ -787,24 +833,39 @@ footer {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 18px;
-    font-size: 1.2rem;
+    margin-bottom: 16px;
+    font-size: 1.04rem;
+    line-height: 1.25;
 }
 
 .skill-category h3 i {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: rgba(255, 42, 109, 0.12);
     color: var(--accent-pink);
 }
 
 .skill-pills {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
 .skill-pill {
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
     border-color: rgba(226, 232, 240, 0.14);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.045);
     color: var(--text-gray);
+    font-size: 0.82rem;
+    line-height: 1.25;
     transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
@@ -1023,7 +1084,7 @@ footer {
 
     .skills-container,
     .achievement-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     
     .stats-strip {
@@ -1087,12 +1148,16 @@ footer {
     }
 
     .about-content,
-    .project-copy {
+    .project-featured .project-copy {
         grid-template-columns: 1fr;
     }
 
-    .project-copy {
+    .project-featured .project-copy {
         gap: 32px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
 
     .timeline::after {
@@ -1147,8 +1212,16 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .project-featured .case-grid {
+        grid-template-columns: 1fr;
+    }
+
     .project-case {
         padding: 18px;
+    }
+
+    .project-featured {
+        padding: 20px;
     }
 
     .project-visual img {
