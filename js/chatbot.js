@@ -219,7 +219,7 @@
   suggestions.forEach(button => {
     button.addEventListener('click', () => {
       setOpen(true);
-      ask(button.textContent);
+      ask(button.dataset.question || button.textContent);
     });
   });
   document.addEventListener('keydown', event => {

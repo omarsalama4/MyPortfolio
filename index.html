@@ -715,9 +715,18 @@
                     <div class="chat-bubble">Hi, I can answer questions about Omar's portfolio, CV, and GitHub projects.</div>
                 </div>
                 <div class="chat-suggestions" aria-label="Suggested questions">
-                    <button type="button" data-chat-suggestion>Tell me about Omar.</button>
-                    <button type="button" data-chat-suggestion>What AI projects has Omar built?</button>
-                    <button type="button" data-chat-suggestion>Tell me about Shifaa.</button>
+                    <button type="button" data-chat-suggestion data-question="Tell me about Omar.">
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                        <span>Tell me about Omar</span>
+                    </button>
+                    <button type="button" data-chat-suggestion data-question="What AI projects has Omar built?">
+                        <i class="fas fa-brain" aria-hidden="true"></i>
+                        <span>AI projects</span>
+                    </button>
+                    <button type="button" data-chat-suggestion data-question="Tell me about Shifaa.">
+                        <i class="fas fa-heart-pulse" aria-hidden="true"></i>
+                        <span>Shifaa</span>
+                    </button>
                 </div>
             </div>
             <form class="chatbot-form" data-chat-form>
