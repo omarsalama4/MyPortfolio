@@ -137,7 +137,9 @@ function isGreeting(message) {
 }
 
 function isCasualConversation(message) {
-  return /^(how are you|how're you|what can you do|thanks|thank you|who are you)\??$/i.test(message.trim());
+  const normalized = message.trim();
+  return /^(how are you|how're you|what can you do|thanks|thank you|who are you)\??$/i.test(normalized) ||
+    /^(hi|hello|hey)[,!\s]+(how are you|how're you)\??$/i.test(normalized);
 }
 
 function isPersonalPreferenceQuestion(message) {
