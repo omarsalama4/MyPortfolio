@@ -5,6 +5,8 @@ const conversations = new Map();
 const requestLog = new Map();
 const MAX_MESSAGE_LENGTH = 900;
 const MAX_HISTORY_MESSAGES = 6;
+const MAX_CONTEXT_CHARS = 4800;
+const MAX_CONTEXT_CHUNK_CHARS = 900;
 const DEFAULT_MODEL = 'openai/gpt-4o-mini';
 const DEFAULT_BASE_URL = 'https://openrouter.ai/api/v1';
 const UNKNOWN_ANSWER = "I don't have verified information about that in Omar's portfolio, CV, or GitHub.";
@@ -85,7 +87,7 @@ function buildMessages(message, context, history) {
         'The frontend displays source links separately, so mention sources only in plain language when helpful.'
       ].join('\n')
     },
-    ...history.slice(-MAX_HISTORY_MESSAGES),
+    ...history.slice(-2),
     {
       role: 'user',
       content: `Verified context:\n${context || 'No relevant verified context was retrieved.'}\n\nVisitor question: ${message}`
@@ -115,7 +117,7 @@ async function callLlm(messages) {
         model,
         messages,
         temperature: 0.2,
-        max_tokens: 450
+        max_tokens: 300
       }),
       signal: controller.signal
     });
@@ -211,12 +213,16 @@ export default async function handler(req, res) {
     }
 
     const githubChunks = await refreshGithubKnowledge().catch(() => []);
-    const retrieved = retrieveKnowledge(message, { chunks: undefined, limit: 7 }).concat(
-      retrieveKnowledge(message, { chunks: githubChunks, limit: 3 })
+    const retrieved = retrieveKnowledge(message, { chunks: undefined, limit: 4 }).concat(
+      retrieveKnowledge(message, { chunks: githubChunks, limit: 2 })
     );
-    const selected = retrieved.slice(0, 8);
-    const previous = conversations.get(conversationId) || [];
-    const context = formatContext(selected);
+    const selected = retrieved.slice(0, 5);
+    const previous = (conversations.get(conversationId) || []).slice(-2);
+    const context = formatContext(selected, {
+      maxChars: MAX_CONTEXT_CHARS,
+      maxChunkChars: MAX_CONTEXT_CHUNK_CHARS,
+      includeUrls: false
+    });
     const messages = buildMessages(message, context, previous);
     let answer = UNKNOWN_ANSWER;
     if (selected.length) {
