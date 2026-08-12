@@ -11,6 +11,7 @@ const DEFAULT_MODEL = 'openai/gpt-4o-mini';
 const DEFAULT_BASE_URL = 'https://openrouter.ai/api/v1';
 const UNKNOWN_ANSWER = "I don't have verified information about that in Omar's portfolio, CV, or GitHub.";
 const GREETING_ANSWER = "Hi, I'm Omar Salama's AI Portfolio Assistant. Ask me about Omar's AI projects, skills, experience, education, certifications, or GitHub work.";
+const CASUAL_ANSWER = "I'm doing well, thanks for asking. I'm ready to answer questions about Omar's portfolio, CV, AI projects, skills, experience, or GitHub work.";
 
 function getAllowedOrigins() {
   const configured = (process.env.ALLOWED_ORIGINS || '')
@@ -134,6 +135,10 @@ function isGreeting(message) {
   return /^(hi|hello|hey|good morning|good afternoon|good evening)\.?$/i.test(message.trim());
 }
 
+function isCasualConversation(message) {
+  return /^(how are you|how're you|what can you do|thanks|thank you|who are you)\??$/i.test(message.trim());
+}
+
 function isPersonalPreferenceQuestion(message) {
   return /\b(favorite|favourite|prefer|preference|like|likes|love|hobby|hobbies)\b/i.test(message);
 }
@@ -202,6 +207,11 @@ export default async function handler(req, res) {
       remember(conversationId, 'user', message);
       remember(conversationId, 'assistant', GREETING_ANSWER);
       return res.status(200).json({ answer: GREETING_ANSWER, sources: [] });
+    }
+    if (isCasualConversation(message)) {
+      remember(conversationId, 'user', message);
+      remember(conversationId, 'assistant', CASUAL_ANSWER);
+      return res.status(200).json({ answer: CASUAL_ANSWER, sources: [] });
     }
 
     // Personal preferences are not part of the verified portfolio dataset. Avoid
