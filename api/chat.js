@@ -12,6 +12,7 @@ const DEFAULT_BASE_URL = 'https://openrouter.ai/api/v1';
 const UNKNOWN_ANSWER = "I don't have verified information about that in Omar's portfolio, CV, or GitHub.";
 const GREETING_ANSWER = "Hi, I'm Omar Salama's AI Portfolio Assistant. Ask me about Omar's AI projects, skills, experience, education, certifications, or GitHub work.";
 const CASUAL_ANSWER = "I'm doing well, thanks for asking. I'm ready to answer questions about Omar's portfolio, CV, AI projects, skills, experience, or GitHub work.";
+const THANKS_ANSWER = "You're welcome!";
 
 function getAllowedOrigins() {
   const configured = (process.env.ALLOWED_ORIGINS || '')
@@ -139,7 +140,12 @@ function isGreeting(message) {
 function isCasualConversation(message) {
   const normalized = message.trim();
   return /^(how are you|how're you|what can you do|thanks|thank you|who are you)\??$/i.test(normalized) ||
-    /^(hi|hello|hey)[,!\s]+(how are you|how're you)\??$/i.test(normalized);
+    /^(hi|hello|hey)[,!\s]+(how are you|how're you)\??$/i.test(normalized) ||
+    /^(okay|ok|alright|sure)?[,!\s]*(thanks|thank you)[!.]?$/i.test(normalized);
+}
+
+function isThanksMessage(message) {
+  return /^(okay|ok|alright|sure)?[,!\s]*(thanks|thank you)[!.]?$/i.test(message.trim());
 }
 
 function isPersonalPreferenceQuestion(message) {
@@ -216,9 +222,10 @@ export default async function handler(req, res) {
       return res.status(200).json({ answer: GREETING_ANSWER, sources: [] });
     }
     if (isCasualConversation(message)) {
+      const answer = isThanksMessage(message) ? THANKS_ANSWER : CASUAL_ANSWER;
       remember(conversationId, 'user', message);
-      remember(conversationId, 'assistant', CASUAL_ANSWER);
-      return res.status(200).json({ answer: CASUAL_ANSWER, sources: [] });
+      remember(conversationId, 'assistant', answer);
+      return res.status(200).json({ answer, sources: [] });
     }
 
     // Personal preferences are not part of the verified portfolio dataset. Avoid
