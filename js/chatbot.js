@@ -196,7 +196,14 @@
         return;
       }
 
-      if (!response.ok) throw new Error('Chat request failed');
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        const message = errorData.error === 'message_too_long'
+          ? 'Please keep your question shorter so I can answer it reliably.'
+          : 'The AI assistant is temporarily unavailable. Please try again in a moment.';
+        thinking.replaceWith(messageNode(message, 'assistant'));
+        return;
+      }
 
       const data = await response.json();
       thinking.replaceWith(messageNode(
