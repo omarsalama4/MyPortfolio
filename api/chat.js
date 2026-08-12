@@ -132,6 +132,17 @@ function isGreeting(message) {
   return /^(hi|hello|hey|good morning|good afternoon|good evening)\.?$/i.test(message.trim());
 }
 
+function isPersonalPreferenceQuestion(message) {
+  return /\b(favorite|favourite|prefer|preference|like|likes|love|hobby|hobbies)\b/i.test(message);
+}
+
+function isUnknownAnswer(answer) {
+  const normalized = String(answer || '').toLowerCase().replace(/\s+/g, ' ').trim();
+  return normalized === UNKNOWN_ANSWER.toLowerCase() ||
+    normalized.includes("don't have verified information") ||
+    normalized.includes('do not have verified information');
+}
+
 function cleanContent(content) {
   return String(content || '')
     .replace(/\s+/g, ' ')
@@ -191,6 +202,14 @@ export default async function handler(req, res) {
       return res.status(200).json({ answer: GREETING_ANSWER, sources: [] });
     }
 
+    // Personal preferences are not part of the verified portfolio dataset. Avoid
+    // attaching unrelated pages that happen to share a common word.
+    if (isPersonalPreferenceQuestion(message)) {
+      remember(conversationId, 'user', message);
+      remember(conversationId, 'assistant', UNKNOWN_ANSWER);
+      return res.status(200).json({ answer: UNKNOWN_ANSWER, sources: [] });
+    }
+
     const githubChunks = await refreshGithubKnowledge().catch(() => []);
     const retrieved = retrieveKnowledge(message, { chunks: undefined, limit: 7 }).concat(
       retrieveKnowledge(message, { chunks: githubChunks, limit: 3 })
@@ -213,7 +232,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       answer,
-      sources: uniqueSources(selected)
+      sources: isUnknownAnswer(answer) ? [] : uniqueSources(selected)
     });
   } catch (error) {
     const status = error.statusCode || 500;
