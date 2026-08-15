@@ -164,7 +164,7 @@ async function callLlm(messages, requestId) {
       model,
       messages,
       ...(isGpt5Model
-        ? { max_completion_tokens: 300 }
+        ? { reasoning_effort: 'minimal', max_completion_tokens: 600 }
         : { temperature: 0.2, max_tokens: 300 })
     };
     const response = await fetch(`${baseUrl}/chat/completions`, {
@@ -186,7 +186,13 @@ async function callLlm(messages, requestId) {
       throw error;
     }
     const data = await response.json();
-    const answer = data.choices?.[0]?.message?.content?.trim() || UNKNOWN_ANSWER;
+    const answer = data.choices?.[0]?.message?.content?.trim();
+    if (!answer) {
+      const error = new Error('LLM returned no visible answer');
+      error.statusCode = 502;
+      error.providerRequestId = providerRequestId;
+      throw error;
+    }
     debugLog('provider_response', { requestId, provider, model, providerRequestId, responseReceived: true });
     return {
       answer,
@@ -229,6 +235,26 @@ function isDiagnosticsTest(message) {
   return /^PORTFOLIO_API_TEST_[A-Z0-9_-]+$/i.test(message.trim());
 }
 
+function refineResources(message, resources, history) {
+  const normalized = message.toLowerCase();
+  const historyText = history.map(item => item.content).join(' ').toLowerCase();
+  const refersToShifaa = normalized.includes('shifaa') ||
+    normalized.includes('most significant') ||
+    normalized.includes('flagship') ||
+    ((normalized.includes('that project') || normalized.includes('it')) && historyText.includes('shifaa'));
+
+  if (refersToShifaa) {
+    const shifaaResources = resources.filter(resource => resource.title.toLowerCase().includes('shifaa'));
+    if (shifaaResources.length) return shifaaResources.slice(0, 1);
+  }
+
+  if (normalized.includes('medical ai')) {
+    return resources.filter(resource => /shifaa|liver tumor/i.test(resource.title)).slice(0, 2);
+  }
+
+  return resources;
+}
+
 function isUnknownAnswer(answer) {
   const normalized = String(answer || '').toLowerCase().replace(/\s+/g, ' ').trim();
   return normalized === UNKNOWN_ANSWER.toLowerCase() ||
@@ -247,10 +273,14 @@ function cleanContent(content) {
     .trim();
 }
 
-function extractiveFallback(message, chunks) {
+function extractiveFallback(message, chunks, history = []) {
   const normalized = message.toLowerCase();
   const primary = chunks.find(chunk => normalized.includes('shifaa') && chunk.title.toLowerCase().includes('shifaa')) || chunks[0];
   if (!primary) return UNKNOWN_ANSWER;
+
+  const historyText = history.map(item => item.content).join(' ').toLowerCase();
+  const referencedProject = chunks.find(chunk => chunk.type === 'project' && historyText.includes(chunk.title.toLowerCase()));
+  const shifaa = chunks.find(chunk => chunk.title.toLowerCase().includes('shifaa'));
 
   if (normalized.includes('shifaa')) {
     return [
@@ -263,14 +293,30 @@ function extractiveFallback(message, chunks) {
     ].join('\n\n');
   }
 
+  if (normalized.includes('technolog') && normalized.includes('project')) {
+    const project = referencedProject || shifaa;
+    if (project) {
+      const technologies = project.title.toLowerCase().includes('shifaa')
+        ? 'PyTorch, OpenCV, ONNX Runtime, C++, Python, ViViT, Graph Neural Networks, and OpenPose'
+        : cleanContent(project.content).split('. ').slice(0, 2).join('. ');
+      return `${project.title} uses ${technologies}.`;
+    }
+  }
+
   if (normalized.includes('skill') || normalized.includes('technolog')) {
     const skills = chunks.find(chunk => chunk.type === 'skill') || primary;
     return cleanContent(skills.content).split('. ').slice(0, 4).join('. ') + '.';
   }
 
   if (normalized.includes('project')) {
+    if (normalized.includes('significant') || normalized.includes('flagship')) {
+      const project = shifaa || chunks.find(chunk => chunk.type === 'project');
+      if (project) {
+        return 'Omar\'s most significant project is Shifaa, his graduation project: a privacy-first AI patient monitoring platform combining cardiac arrhythmia, fall, and epileptic seizure detection. The seizure pipeline achieved 96.69% AUROC, 90.18% F1-score, and 37+ FPS.';
+      }
+    }
     const projects = chunks
-      .filter(chunk => chunk.type === 'project')
+      .filter(chunk => chunk.type === 'project' && chunk.title !== 'Featured Projects')
       .slice(0, 5)
       .map(chunk => `- ${chunk.title}: ${cleanContent(chunk.content).split('. ')[0]}.`);
     return projects.length ? `Verified AI projects I found:\n${projects.join('\n')}` : UNKNOWN_ANSWER;
@@ -335,7 +381,11 @@ export default async function handler(req, res) {
     const selected = retrieved.slice(0, 5);
     const diagnosticsTest = isDiagnosticsTest(message);
     const previous = (conversations.get(conversationId) || []).slice(-2);
-    const resources = selectRelevantResources(message, [...selected, ...githubChunks]);
+    const resources = refineResources(
+      message,
+      selectRelevantResources(message, [...selected, ...githubChunks]),
+      previous
+    );
     const context = formatContext(selected, {
       maxChars: MAX_CONTEXT_CHARS,
       maxChunkChars: MAX_CONTEXT_CHUNK_CHARS,
@@ -355,7 +405,7 @@ export default async function handler(req, res) {
           providerRequestId: error.providerRequestId || null
         };
         debugLog('provider_fallback', { requestId, reason: 'provider_error_or_timeout', status: providerError.status });
-        answer = extractiveFallback(message, selected);
+        answer = extractiveFallback(message, selected, previous);
       }
     }
     if (isUnknownAnswer(answer)) answer = UNKNOWN_ANSWER;
