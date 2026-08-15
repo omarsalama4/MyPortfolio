@@ -22,7 +22,10 @@ function providerConfig() {
     process.env.LLM_BASE_URL ||
     DEFAULT_BASE_URL
   ).replace(/\/$/, '');
-  const model = process.env.OPENAI_MODEL || process.env.LLM_MODEL || DEFAULT_MODEL;
+  const configuredModel = process.env.OPENAI_MODEL || process.env.LLM_MODEL || DEFAULT_MODEL;
+  const model = configuredModel.trim().toLowerCase() === 'gpt-5 nano'
+    ? 'gpt-5-nano'
+    : configuredModel;
   const apiKey = process.env.OPENAI_API_KEY || process.env.LLM_API_KEY || '';
   const provider = baseUrl.includes('api.openai.com') ? 'OpenAI' : 'OpenAI-compatible endpoint';
   return { apiKey, baseUrl, model, provider };
@@ -156,18 +159,21 @@ async function callLlm(messages, requestId) {
   const timeout = setTimeout(() => controller.abort(), 30_000);
 
   try {
+    const isGpt5Model = /^gpt-5(?:[.-]|$)/i.test(model);
+    const requestBody = {
+      model,
+      messages,
+      ...(isGpt5Model
+        ? { max_completion_tokens: 300 }
+        : { temperature: 0.2, max_tokens: 300 })
+    };
     const response = await fetch(`${baseUrl}/chat/completions`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${apiKey}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        model,
-        messages,
-        temperature: 0.2,
-        max_tokens: 300
-      }),
+      body: JSON.stringify(requestBody),
       signal: controller.signal
     });
 
@@ -204,6 +210,10 @@ function isCvRequest(message) {
   return /\b(cv|resume|curriculum vitae)\b/i.test(message);
 }
 
+function isDiagnosticsTest(message) {
+  return /^PORTFOLIO_API_TEST_[A-Z0-9_-]+$/i.test(message.trim());
+}
+
 function isUnknownAnswer(answer) {
   const normalized = String(answer || '').toLowerCase().replace(/\s+/g, ' ').trim();
   return normalized === UNKNOWN_ANSWER.toLowerCase() ||
@@ -238,17 +248,17 @@ function extractiveFallback(message, chunks) {
     ].join('\n\n');
   }
 
+  if (normalized.includes('skill') || normalized.includes('technolog')) {
+    const skills = chunks.find(chunk => chunk.type === 'skill') || primary;
+    return cleanContent(skills.content).split('. ').slice(0, 4).join('. ') + '.';
+  }
+
   if (normalized.includes('project')) {
     const projects = chunks
       .filter(chunk => chunk.type === 'project')
       .slice(0, 5)
       .map(chunk => `- ${chunk.title}: ${cleanContent(chunk.content).split('. ')[0]}.`);
     return projects.length ? `Verified AI projects I found:\n${projects.join('\n')}` : UNKNOWN_ANSWER;
-  }
-
-  if (normalized.includes('skill') || normalized.includes('technolog')) {
-    const skills = chunks.find(chunk => chunk.type === 'skill') || primary;
-    return cleanContent(skills.content).split('. ').slice(0, 4).join('. ') + '.';
   }
 
   return cleanContent(primary.content).split('. ').slice(0, 5).join('. ') + '.';
@@ -308,6 +318,7 @@ export default async function handler(req, res) {
       retrieveKnowledge(message, { chunks: githubChunks, limit: 2 })
     );
     const selected = retrieved.slice(0, 5);
+    const diagnosticsTest = isDiagnosticsTest(message);
     const previous = (conversations.get(conversationId) || []).slice(-2);
     const resources = selectRelevantResources(message, [...selected, ...githubChunks]);
     const context = formatContext(selected, {
@@ -317,7 +328,7 @@ export default async function handler(req, res) {
     });
     const messages = buildMessages(message, context, previous, resources);
     let answer = UNKNOWN_ANSWER;
-    if (selected.length) {
+    if (selected.length || diagnosticsTest) {
       try {
         answer = await callLlm(messages, requestId);
       } catch {
