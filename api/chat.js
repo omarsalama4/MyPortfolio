@@ -171,17 +171,32 @@ async function callLlm(messages, requestId) {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'X-Client-Request-Id': requestId
       },
       body: JSON.stringify(requestBody),
       signal: controller.signal
     });
 
-    if (!response.ok) throw new Error(`LLM request failed: ${response.status}`);
+    const providerRequestId = response.headers?.get?.('x-request-id') || null;
+    if (!response.ok) {
+      const error = new Error(`LLM request failed: ${response.status}`);
+      error.statusCode = response.status;
+      error.providerRequestId = providerRequestId;
+      throw error;
+    }
     const data = await response.json();
     const answer = data.choices?.[0]?.message?.content?.trim() || UNKNOWN_ANSWER;
-    debugLog('provider_response', { requestId, provider, model, responseReceived: true });
-    return answer;
+    debugLog('provider_response', { requestId, provider, model, providerRequestId, responseReceived: true });
+    return {
+      answer,
+      providerRequestId,
+      usage: data.usage ? {
+        promptTokens: data.usage.prompt_tokens,
+        completionTokens: data.usage.completion_tokens,
+        totalTokens: data.usage.total_tokens
+      } : null
+    };
   } finally {
     clearTimeout(timeout);
   }
@@ -328,11 +343,18 @@ export default async function handler(req, res) {
     });
     const messages = buildMessages(message, context, previous, resources);
     let answer = UNKNOWN_ANSWER;
+    let providerResult = null;
+    let providerError = null;
     if (selected.length || diagnosticsTest) {
       try {
-        answer = await callLlm(messages, requestId);
-      } catch {
-        debugLog('provider_fallback', { requestId, reason: 'provider_error_or_timeout' });
+        providerResult = await callLlm(messages, requestId);
+        answer = providerResult.answer;
+      } catch (error) {
+        providerError = {
+          status: error.statusCode || null,
+          providerRequestId: error.providerRequestId || null
+        };
+        debugLog('provider_fallback', { requestId, reason: 'provider_error_or_timeout', status: providerError.status });
         answer = extractiveFallback(message, selected);
       }
     }
@@ -341,10 +363,26 @@ export default async function handler(req, res) {
     remember(conversationId, 'user', message);
     remember(conversationId, 'assistant', answer);
 
-    return res.status(200).json({
+    const responseBody = {
       answer,
       sources: isUnknownAnswer(answer) ? [] : resources
-    });
+    };
+    if (diagnosticsTest) {
+      const config = providerConfig();
+      responseBody.diagnostics = {
+        backendRequestId: requestId,
+        provider: config.provider,
+        baseUrl: config.baseUrl,
+        model: config.model,
+        providerResponseReceived: Boolean(providerResult),
+        providerRequestId: providerResult?.providerRequestId || providerError?.providerRequestId || null,
+        usage: providerResult?.usage || null,
+        fallbackUsed: !providerResult,
+        errorStatus: providerError?.status || null
+      };
+    }
+
+    return res.status(200).json(responseBody);
   } catch (error) {
     debugLog('request_error', { requestId, status: error.statusCode || 500 });
     const status = error.statusCode || 500;
