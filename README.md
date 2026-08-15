@@ -20,13 +20,13 @@ It showcases my skills, projects, and experience as a **AI Engineer**.
 
 ## Ask Omar's AI
 
-The portfolio stays static on GitHub Pages. The chatbot calls a separate serverless backend through `POST /api/chat`.
+The portfolio and chatbot API are deployed together on Vercel. The chatbot calls the same-origin serverless endpoint through `POST /api/chat`.
 
 1. Install dependencies: `npm install`
 2. Rebuild verified knowledge after portfolio/CV edits: `npm run build-knowledge`
-3. Deploy the API folder to a Node serverless host such as Vercel.
-4. Configure backend environment variables from `.env.example`.
-5. Set `<meta name="omar-ai-api-url" content="https://your-api-domain.example/api/chat">` in `index.html` for GitHub Pages.
+3. Deploy the repository to Vercel with the root directory set to the repository root.
+4. Configure `OPENAI_API_KEY`, `OPENAI_BASE_URL=https://api.openai.com/v1`, and `OPENAI_MODEL=gpt-4o-mini` in Vercel. The older `LLM_*` variables remain supported for another OpenAI-compatible provider.
+5. Use `/api/health` to confirm the deployed provider, model, and whether a server-side key is configured.
 
 No API keys or private tokens belong in browser JavaScript.
 
@@ -34,5 +34,5 @@ If the chatbot says it could not reach the AI assistant, check:
 
 - The serverless API is deployed.
 - `https://your-api-domain.example/api/health` returns `{ "ok": true }`.
-- The `omar-ai-api-url` meta tag points to the deployed `/api/chat` URL, not the GitHub Pages domain.
-- `LLM_API_KEY`, `LLM_BASE_URL`, and `LLM_MODEL` are configured in the API host.
+- `OPENAI_API_KEY` is configured only in the Vercel server environment; it is never sent to the browser.
+- Set `CHATBOT_DEBUG=true` temporarily when investigating provider routing. Logs include provider, base URL, model, request ID, message counts, and character counts, never keys or full conversation text.
