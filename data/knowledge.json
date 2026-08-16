@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T10:48:21.476Z",
+  "generatedAt": "2026-08-16T08:46:22.742Z",
   "chunks": [
     {
       "id": "portfolio:about",
@@ -36,7 +36,17 @@
       "content": "Graduation Project | Healthcare AI Shifaa - AI-Based Patient Monitoring Platform Production-grade, privacy-first hospital monitoring platform unifying a grounded medical AI assistant with real-time detection for cardiac arrhythmia, patient falls, and epileptic seizures. 96.69% AUROC 90.18% F1 37+ FPS PyTorch OpenCV ONNX Runtime C++ Python ViViT GNN OpenPose Repo Demo Paper Problem Hospitals need fast, on-premises patient monitoring without leaking sensitive data. Solution A role-aware interface with three detection pipelines and a grounded medical assistant. Architecture Series-gated ViViT + GNN seizure pipeline with OpenPose, ONNX Runtime, C++, and Python. Results 96.69% AUROC, 90.18% F1-score, 37+ FPS, and pre-clinical seizure alerts. Impact Designed for privacy-first, fully on-premises hospital deployment. Future Work Clinical validation, alert workflow hardening, and broader hospital integrations.",
       "url": "https://github.com/omarelnokrashy/Shifaa-AI-Based-Patient-Monitoring-System/tree/Windows-Deployment",
       "metadata": {
-        "badge": "Graduation Project | Healthcare AI"
+        "badge": "Graduation Project | Healthcare AI",
+        "technologies": [
+          "PyTorch",
+          "OpenCV",
+          "ONNX Runtime",
+          "C++",
+          "Python",
+          "ViViT",
+          "GNN",
+          "OpenPose"
+        ]
       }
     },
     {
@@ -47,7 +57,15 @@
       "content": "1st Place | CV Course Competition Fruit & Food Segmentation and Calorie Estimation AI-powered food analysis platform integrating segmentation, classification, few-shot recognition, and calorie estimation with an EfficientNet-B4 + DeepLabV3+ model. 97.69% Val IoU 1st Place PyTorch OpenCV Streamlit EfficientNet-B4 DeepLabV3+ Few-shot Recognition Code Live Demo Problem Food analysis needs object-level recognition before calories can be estimated reliably. Solution Segment food regions, classify items, support few-shot recognition, then estimate calories. Results 97.69% Validation IoU and 1st Place in the Ain Shams CV Course Competition. Lessons Strong segmentation quality is the foundation for trustworthy downstream nutrition estimates.",
       "url": "https://github.com/omarsalama4/AI-Calories-calculator",
       "metadata": {
-        "badge": "1st Place | CV Course Competition"
+        "badge": "1st Place | CV Course Competition",
+        "technologies": [
+          "PyTorch",
+          "OpenCV",
+          "Streamlit",
+          "EfficientNet-B4",
+          "DeepLabV3+",
+          "Few-shot Recognition"
+        ]
       }
     },
     {
@@ -58,7 +76,13 @@
       "content": "Medical Imaging Liver Tumor AI - Real-Time Detection & Segmentation PyTorch + U-Net liver tumor segmentation pipeline for unseen patients using strict patient-level validation. 95% Accuracy 91.7% Dice PyTorch U-Net Medical AI Segmentation Live Demo Code Problem Medical segmentation can look strong while leaking patient data across splits. Solution Patient-independent validation with a U-Net segmentation pipeline. Results 95% accuracy and 91.7% Dice score. Impact Healthcare AI proof point with a deployed demo and reproducible code.",
       "url": "https://github.com/omarsalama4/liver-tumor-ai",
       "metadata": {
-        "badge": "Medical Imaging"
+        "badge": "Medical Imaging",
+        "technologies": [
+          "PyTorch",
+          "U-Net",
+          "Medical AI",
+          "Segmentation"
+        ]
       }
     },
     {
@@ -69,7 +93,14 @@
       "content": "NLP Research Article Summarizer Chatbot Conversational summarization and question-generation chatbot using Gemini 2.5 Flash API. Gemini API Streamlit NLP Question Generation ROUGE Evaluation Live Demo Code Paper Problem Readers need fast, contextual summaries and follow-up questions from long articles. Solution A Streamlit chatbot that summarizes, extracts topics, and generates context-aware questions. Research Built during the MAHE internship and connected to an NLP summarization paper. Future Work Add richer evaluation dashboards and source-grounded answer tracing.",
       "url": "https://github.com/omarsalama4/News-Summary-chatbot",
       "metadata": {
-        "badge": "NLP Research"
+        "badge": "NLP Research",
+        "technologies": [
+          "Gemini API",
+          "Streamlit",
+          "NLP",
+          "Question Generation",
+          "ROUGE Evaluation"
+        ]
       }
     },
     {
@@ -80,7 +111,14 @@
       "content": "NASA Space Apps ExoNet - AI-Powered Exoplanet Classifier Residual MLP classifier for NASA K2 exoplanet candidates with SHAP explainability. 95.28% Accuracy PyTorch Residual MLP SHAP Astronomy XAI Code Problem Candidate signals need interpretable classification to support review. Solution Residual MLP classifier paired with SHAP feature attribution. Results 95.28% accuracy in the NASA Space Apps Challenge context. Impact Shows ML breadth beyond healthcare, with explainability in a scientific workflow.",
       "url": "https://github.com/omarelnokrashy/exonet-nasa-spaceapps-2025",
       "metadata": {
-        "badge": "NASA Space Apps"
+        "badge": "NASA Space Apps",
+        "technologies": [
+          "PyTorch",
+          "Residual MLP",
+          "SHAP",
+          "Astronomy",
+          "XAI"
+        ]
       }
     },
     {

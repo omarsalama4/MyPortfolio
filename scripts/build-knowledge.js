@@ -35,6 +35,13 @@ function firstText(markup, selector) {
   return match ? stripHtml(match[1]) : '';
 }
 
+function projectTechnologies(markup) {
+  const block = markup.match(/<div class="project-tags">([\s\S]*?)<\/div>/i)?.[1] || '';
+  return Array.from(block.matchAll(/<span[^>]*>([\s\S]*?)<\/span>/gi))
+    .map(match => stripHtml(match[1]))
+    .filter(Boolean);
+}
+
 function projectChunks(html) {
   return Array.from(html.matchAll(/<article class="project-case[\s\S]*?<\/article>/g)).map((match, index) => {
     const markup = match[0];
@@ -51,7 +58,8 @@ function projectChunks(html) {
       githubLink || `${portfolioUrl}#projects`,
       {
         badge: firstText(markup, 'span'),
-        image: attrValue(markup, 'src')
+        image: attrValue(markup, 'src'),
+        technologies: projectTechnologies(markup)
       }
     );
   });
