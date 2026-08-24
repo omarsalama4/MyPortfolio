@@ -8,7 +8,7 @@ const MAX_MESSAGE_LENGTH = 900;
 const MAX_HISTORY_MESSAGES = 6;
 const MAX_CONTEXT_CHARS = 4800;
 const MAX_CONTEXT_CHUNK_CHARS = 900;
-const DEFAULT_MODEL = 'gpt-4o-mini';
+const DEFAULT_MODEL = 'gpt-5-nano';
 const DEFAULT_BASE_URL = 'https://api.openai.com/v1';
 const UNKNOWN_ANSWER = "I don't have verified information about that in Omar's portfolio, CV, or GitHub.";
 const GREETING_ANSWER = "Hi, I'm Omar Salama's AI Portfolio Assistant. Ask me about Omar's AI projects, skills, experience, education, certifications, or GitHub work.";
@@ -17,6 +17,7 @@ const THANKS_ANSWER = "You're welcome!";
 const CV_ANSWER = "You can view or download Omar's CV here.";
 
 function providerConfig() {
+  const requestedProvider = (process.env.LLM_PROVIDER || process.env.OPENAI_PROVIDER || 'openai').trim().toLowerCase();
   const baseUrl = (
     process.env.OPENAI_BASE_URL ||
     process.env.LLM_BASE_URL ||
@@ -27,8 +28,10 @@ function providerConfig() {
     ? 'gpt-5-nano'
     : configuredModel;
   const apiKey = process.env.OPENAI_API_KEY || process.env.LLM_API_KEY || '';
-  const provider = baseUrl.includes('api.openai.com') ? 'OpenAI' : 'OpenAI-compatible endpoint';
-  return { apiKey, baseUrl, model, provider };
+  const provider = requestedProvider === 'openai' || baseUrl.includes('api.openai.com')
+    ? 'OpenAI'
+    : 'OpenAI-compatible endpoint';
+  return { apiKey, baseUrl, model, provider, requestedProvider };
 }
 
 function debugLog(event, details = {}) {
@@ -146,6 +149,11 @@ async function callLlm(messages, requestId) {
   const { apiKey, baseUrl, model, provider } = config;
   if (!apiKey) {
     throw new Error('LLM provider is not configured');
+  }
+  if (provider === 'OpenAI' && /^gsk_/i.test(apiKey)) {
+    const error = new Error('OpenAI provider requires an OpenAI API key, not a Groq key');
+    error.statusCode = 401;
+    throw error;
   }
 
   debugLog('provider_request', {

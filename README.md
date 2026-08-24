@@ -25,7 +25,24 @@ The portfolio and chatbot API are deployed together on Vercel. The chatbot calls
 1. Install dependencies: `npm install`
 2. Rebuild verified knowledge after portfolio/CV edits: `npm run build-knowledge`
 3. Deploy the repository to Vercel with the root directory set to the repository root.
-4. Configure `OPENAI_API_KEY`, `OPENAI_BASE_URL=https://api.openai.com/v1`, and `OPENAI_MODEL=gpt-4o-mini` in Vercel. The older `LLM_*` variables remain supported for another OpenAI-compatible provider.
+4. Configure the OpenAI server-side variables in Vercel. The generic `LLM_*` names match the Vercel-style environment variable screen:
+
+   ```text
+   LLM_PROVIDER=openai
+   LLM_API_KEY=your_openai_api_key
+   LLM_BASE_URL=https://api.openai.com/v1
+   LLM_MODEL=gpt-5-nano
+   ```
+
+   The OpenAI-native aliases are also supported:
+
+   ```text
+   OPENAI_API_KEY=your_openai_api_key
+   OPENAI_BASE_URL=https://api.openai.com/v1
+   OPENAI_MODEL=gpt-5-nano
+   ```
+
+   Do not use a Groq key here. An OpenAI provider call requires an OpenAI API key.
 5. Use `/api/health` to confirm the deployed provider, model, and whether a server-side key is configured.
 
 No API keys or private tokens belong in browser JavaScript.
