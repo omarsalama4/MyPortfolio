@@ -298,6 +298,47 @@ function focusedProjectExcerpt(project) {
   return content.slice(0, 600);
 }
 
+function isOmarOverviewQuestion(message) {
+  return /\b(?:tell me about|who is|about)\s+omar\b/i.test(message);
+}
+
+function isProjectOverviewQuestion(message) {
+  return /\b(?:ai\s+)?projects?\b/i.test(message);
+}
+
+function namedProject(chunks, message) {
+  const questionTokens = new Set(String(message || '').toLowerCase().match(/[a-z0-9]+/g) || []);
+  return specificProjects(chunks).find(project => {
+    const titleTokens = project.title.toLowerCase().match(/[a-z0-9]+/g) || [];
+    return titleTokens.some(token => token.length >= 4 && questionTokens.has(token));
+  });
+}
+
+// Keep common recruiter questions grounded even if a smaller model becomes overly cautious.
+function verifiedPortfolioAnswer(message, chunks) {
+  if (!chunks.length) return '';
+
+  if (isOmarOverviewQuestion(message)) {
+    const about = chunks.find(chunk => chunk.type === 'about');
+    if (about) {
+      const summary = cleanContent(about.content).split('. ').slice(0, 4).join('. ').replace(/[.]+$/, '');
+      return summary ? `${summary}.` : '';
+    }
+  }
+
+  const project = namedProject(chunks, message);
+  if (project) return `${project.title}\n${focusedProjectExcerpt(project)}`;
+
+  if (isProjectOverviewQuestion(message)) {
+    const projects = specificProjects(chunks)
+      .slice(0, 5)
+      .map(chunk => `- ${chunk.title}: ${cleanContent(chunk.content).split('. ')[0]}.`);
+    if (projects.length) return `Verified AI projects Omar has built:\n${projects.join('\n')}`;
+  }
+
+  return '';
+}
+
 function extractiveFallback(message, chunks, history = []) {
   const normalized = message.toLowerCase();
   const primary = chunks.find(chunk => normalized.includes('shifaa') && chunk.title.toLowerCase().includes('shifaa')) || chunks[0];
@@ -404,7 +445,11 @@ export default async function handler(req, res) {
     let answer = UNKNOWN_ANSWER;
     let providerResult = null;
     let providerError = null;
-    if (selected.length || diagnosticsTest) {
+    const directAnswer = diagnosticsTest ? '' : verifiedPortfolioAnswer(message, selected);
+    if (directAnswer) {
+      answer = directAnswer;
+      debugLog('verified_direct_answer', { requestId, selectedChunks: selected.length });
+    } else if (selected.length || diagnosticsTest) {
       try {
         providerResult = await callLlm(messages, requestId);
         answer = providerResult.answer;

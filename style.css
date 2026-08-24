@@ -1548,6 +1548,39 @@ footer {
     text-decoration: none;
 }
 
+.chat-diagnostics {
+    margin-top: 7px;
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+}
+
+.chat-diagnostics summary {
+    padding: 7px 9px;
+    color: #7dd3fc;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.chat-diagnostics dl {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 5px 9px;
+    margin: 0;
+    padding: 0 9px 9px;
+    overflow-wrap: anywhere;
+}
+
+.chat-diagnostics dt {
+    color: var(--text-gray);
+}
+
+.chat-diagnostics dd {
+    margin: 0;
+    color: var(--text-muted);
+}
+
 .chat-suggestions {
     align-self: stretch;
     display: grid;

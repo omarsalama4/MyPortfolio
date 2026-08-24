@@ -121,7 +121,45 @@
     }
   }
 
-  function messageNode(text, role, sources) {
+  function appendDiagnostics(parent, diagnostics) {
+    if (!diagnostics || typeof diagnostics !== 'object') return;
+
+    const details = document.createElement('details');
+    details.className = 'chat-diagnostics';
+    const summary = document.createElement('summary');
+    summary.textContent = 'Connection diagnostics';
+    details.appendChild(summary);
+
+    const list = document.createElement('dl');
+    const fields = [
+      ['Provider', diagnostics.provider],
+      ['Model', diagnostics.model],
+      ['Model response received', diagnostics.providerResponseReceived],
+      ['Fallback used', diagnostics.fallbackUsed],
+      ['Error status', diagnostics.errorStatus],
+      ['Prompt tokens', diagnostics.usage?.promptTokens],
+      ['Completion tokens', diagnostics.usage?.completionTokens],
+      ['Total tokens', diagnostics.usage?.totalTokens],
+      ['Backend request ID', diagnostics.backendRequestId],
+      ['Provider request ID', diagnostics.providerRequestId]
+    ];
+
+    fields.forEach(([label, value]) => {
+      if (value === null || value === undefined || value === '') return;
+      const term = document.createElement('dt');
+      term.textContent = label;
+      const description = document.createElement('dd');
+      description.textContent = String(value);
+      list.append(term, description);
+    });
+
+    if (list.childNodes.length) {
+      details.appendChild(list);
+      parent.appendChild(details);
+    }
+  }
+
+  function messageNode(text, role, sources, diagnostics) {
     const item = document.createElement('div');
     item.className = `chat-message ${role}`;
 
@@ -158,6 +196,8 @@
       });
       item.appendChild(list);
     }
+
+    if (role === 'assistant') appendDiagnostics(item, diagnostics);
 
     return item;
   }
@@ -209,7 +249,8 @@
       thinking.replaceWith(messageNode(
         data.answer || "I don't have verified information about that in Omar's available sources.",
         'assistant',
-        data.sources || []
+        data.sources || [],
+        data.diagnostics
       ));
       messages.scrollTop = messages.scrollHeight;
     } catch {
