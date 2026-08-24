@@ -21,7 +21,7 @@ globalThis.fetch = async (url, options = {}) => {
     ok: true,
     headers: { get: () => 'test-openai-request-id' },
     json: async () => ({
-      choices: [{ message: { content: 'Grounded model response.\nIf you want, I can add more detail.\nSources: model-invented-link' } }],
+      choices: [{ message: { content: `${'Grounded model response. '.repeat(70)}\nIf you want, I can add more detail.\nSources: model-invented-link` } }],
       usage: { prompt_tokens: 120, completion_tokens: 12, total_tokens: 132 }
     })
   };
@@ -61,6 +61,7 @@ async function assertCase(name, message, options = {}) {
     !options.answerIncludes || response.answer.includes(options.answerIncludes),
     !response.answer.includes('Sources:'),
     !response.answer.includes('If you want'),
+    response.answer.split(/\s+/).filter(Boolean).length <= 120,
     !options.contextIncludes || options.contextIncludes.every(value => context.includes(value)),
     options.expectedSourceCount === undefined || response.sources.length === options.expectedSourceCount
   ].every(Boolean);
