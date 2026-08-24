@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto';
-import { formatContext, retrieveKnowledge, selectRelevantResources } from '../lib/knowledge.js';
+import { formatContext, loadKnowledge, retrieveKnowledge, selectRelevantResources } from '../lib/knowledge.js';
 import { refreshGithubKnowledge } from './github.js';
 
 const conversations = new Map();
@@ -314,26 +314,64 @@ function namedProject(chunks, message) {
   });
 }
 
+function projectDescription(project) {
+  const titleIndex = project.content.indexOf(project.title);
+  const afterTitle = titleIndex >= 0
+    ? project.content.slice(titleIndex + project.title.length).trim()
+    : project.content;
+  const firstSentence = afterTitle.match(/^(.+?\.)(?=\s|$)/);
+  return cleanContent(firstSentence?.[1] || afterTitle).replace(/[.]+$/, '');
+}
+
+function sectionValue(project, label) {
+  const labels = 'Problem|Solution|Architecture|Results|Impact|Lessons|Research|Future Work';
+  const match = cleanContent(project.content).match(
+    new RegExp(`\\b${label}\\b\\s+(.+?)(?=\\s+\\b(?:${labels})\\b|$)`, 'i')
+  );
+  return match ? match[1].trim().replace(/[.]+$/, '') : '';
+}
+
+function projectDetailAnswer(project) {
+  const details = [
+    `${project.title}\n${projectDescription(project)}.`,
+    sectionValue(project, 'Solution') ? `- Approach: ${sectionValue(project, 'Solution')}.` : '',
+    sectionValue(project, 'Results') ? `- Results: ${sectionValue(project, 'Results')}.` : '',
+    project.metadata?.technologies?.length ? `- Stack: ${project.metadata.technologies.join(', ')}.` : ''
+  ].filter(Boolean);
+  return details.join('\n');
+}
+
+function omarOverviewAnswer() {
+  return [
+    'Omar Salama is an AI Engineer focused on computer vision, NLP, healthcare AI, and real-time inference systems.',
+    '- Dual-degree graduate in Computer Science and Artificial Intelligence from Ain Shams University and the University of East London.',
+    '- Flagship work: Shifaa, a privacy-first patient monitoring platform with 96.69% AUROC, 90.18% F1-score, and 37+ FPS for real-time seizure detection.',
+    '- His work also spans NLP research, autonomous systems, and AI automation with RAG, n8n, CRM, and API-driven workflows.'
+  ].join('\n');
+}
+
+function projectOverviewAnswer(projects) {
+  const summaries = projects.slice(0, 5).map(project => {
+    const badge = project.metadata?.badge ? `${project.metadata.badge}: ` : '';
+    return `- ${project.title} - ${badge}${projectDescription(project)}.`;
+  });
+  return `Omar's AI projects include:\n${summaries.join('\n')}`;
+}
+
 // Keep common recruiter questions grounded even if a smaller model becomes overly cautious.
 function verifiedPortfolioAnswer(message, chunks) {
   if (!chunks.length) return '';
 
   if (isOmarOverviewQuestion(message)) {
-    const about = chunks.find(chunk => chunk.type === 'about');
-    if (about) {
-      const summary = cleanContent(about.content).split('. ').slice(0, 4).join('. ').replace(/[.]+$/, '');
-      return summary ? `${summary}.` : '';
-    }
+    return omarOverviewAnswer();
   }
 
-  const project = namedProject(chunks, message);
-  if (project) return `${project.title}\n${focusedProjectExcerpt(project)}`;
+  const allProjects = specificProjects(loadKnowledge());
+  const project = namedProject(allProjects, message);
+  if (project) return projectDetailAnswer(project);
 
   if (isProjectOverviewQuestion(message)) {
-    const projects = specificProjects(chunks)
-      .slice(0, 5)
-      .map(chunk => `- ${chunk.title}: ${cleanContent(chunk.content).split('. ')[0]}.`);
-    if (projects.length) return `Verified AI projects Omar has built:\n${projects.join('\n')}`;
+    if (allProjects.length) return projectOverviewAnswer(allProjects);
   }
 
   return '';
