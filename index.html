@@ -706,9 +706,14 @@
                     <span>Ask Omar's AI</span>
                     <small>Verified portfolio assistant</small>
                 </div>
-                <button class="chatbot-close" type="button" data-chat-toggle aria-label="Close AI assistant" aria-expanded="false">
-                    <i class="fas fa-times" aria-hidden="true"></i>
-                </button>
+                <div class="chatbot-header-actions">
+                    <button class="chatbot-export" type="button" data-chat-export aria-label="Export conversation as PDF" title="Export conversation as PDF" disabled>
+                        <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                    </button>
+                    <button class="chatbot-close" type="button" data-chat-toggle aria-label="Close AI assistant" aria-expanded="false">
+                        <i class="fas fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
             </div>
             <div class="chatbot-messages" data-chat-messages aria-live="polite">
                 <div class="chat-message assistant">
