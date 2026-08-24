@@ -2,7 +2,10 @@ import { loadKnowledge, retrieveKnowledge, selectRelevantResources } from '../li
 
 const questions = [
   'Tell me about Omar.',
+  'Check Omar\'s portfolio.',
+  'Where is Omar?',
   'What AI projects has Omar built?',
+  'What is Omar\'s latest project?',
   'Tell me about Shifaa.',
   'What technologies does Omar use?',
   'What is Omar\'s Computer Vision experience?',
