@@ -2,6 +2,8 @@
 
 Run these in the deployed portfolio chat after a deployment. The wording may vary because OpenAI writes the response, but the response should stay grounded in the listed verified context.
 
+Source policy: every grounded portfolio answer displays up to three links from the retrieved evidence. Greetings, acknowledgements, and unsupported questions display no sources.
+
 | Scenario | Prompt | Expected behavior |
 | --- | --- | --- |
 | Greeting | `hello` | A brief greeting. No portfolio sources and no OpenAI request needed. |

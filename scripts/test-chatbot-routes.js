@@ -21,7 +21,7 @@ globalThis.fetch = async (url, options = {}) => {
     ok: true,
     headers: { get: () => 'test-openai-request-id' },
     json: async () => ({
-      choices: [{ message: { content: 'Grounded model response.' } }],
+      choices: [{ message: { content: 'Grounded model response.\nSources: model-invented-link' } }],
       usage: { prompt_tokens: 120, completion_tokens: 12, total_tokens: 132 }
     })
   };
@@ -59,7 +59,9 @@ async function assertCase(name, message, options = {}) {
   const passes = [
     providerCalled === Boolean(options.expectProvider),
     !options.answerIncludes || response.answer.includes(options.answerIncludes),
-    !options.contextIncludes || options.contextIncludes.every(value => context.includes(value))
+    !response.answer.includes('Sources:'),
+    !options.contextIncludes || options.contextIncludes.every(value => context.includes(value)),
+    options.expectedSourceCount === undefined || response.sources.length === options.expectedSourceCount
   ].every(Boolean);
 
   console.log(`${passes ? 'PASS' : 'FAIL'} ${name}`);
@@ -71,36 +73,56 @@ async function assertCase(name, message, options = {}) {
 
 await assertCase('greeting stays local', 'hello', {
   expectProvider: false,
-  answerIncludes: "Omar Salama's AI Portfolio Assistant"
+  answerIncludes: "Omar Salama's AI Portfolio Assistant",
+  expectedSourceCount: 0
 });
 await assertCase('acknowledgement stays conversational', 'ok', {
   expectProvider: false,
-  answerIncludes: 'Got it.'
+  answerIncludes: 'Got it.',
+  expectedSourceCount: 0
 });
 await assertCase('vague portfolio request uses OpenAI RAG', 'check portfolio', {
   expectProvider: true,
-  contextIncludes: ['About Me', 'Featured Projects']
+  contextIncludes: ['About Me', 'Featured Projects'],
+  expectedSourceCount: 3
 });
 await assertCase('location request uses contact context', 'where is Omar', {
   expectProvider: true,
-  contextIncludes: ['Contact', 'Cairo, Egypt']
+  contextIncludes: ['Contact', 'Cairo, Egypt'],
+  expectedSourceCount: 3
 });
 await assertCase('project request uses project context', 'What AI projects has Omar built?', {
   expectProvider: true,
-  contextIncludes: ['Shifaa - AI-Based Patient Monitoring Platform']
+  contextIncludes: ['Shifaa - AI-Based Patient Monitoring Platform'],
+  expectedSourceCount: 3
 });
 await assertCase('latest-project request uses chronology context', "What is Omar's latest project?", {
   expectProvider: true,
-  contextIncludes: ['Shifaa - AI-Based Patient Monitoring Platform', 'Fruit & Food Segmentation and Calorie Estimation']
+  contextIncludes: ['Shifaa - AI-Based Patient Monitoring Platform', 'Fruit & Food Segmentation and Calorie Estimation'],
+  expectedSourceCount: 3
 });
 await assertCase('unsupported topic avoids the provider', 'how is the weather?', {
   expectProvider: false,
-  answerIncludes: UNKNOWN_ANSWER
+  answerIncludes: UNKNOWN_ANSWER,
+  expectedSourceCount: 0
 });
 await assertCase('provider failure uses verified fallback', 'Tell me about Shifaa.', {
   expectProvider: true,
   providerMode: 'failure',
-  answerIncludes: 'Shifaa'
+  answerIncludes: 'Shifaa',
+  expectedSourceCount: 3
 });
+
+providerMode = 'success';
+const followUpConversationId = 'follow-up-context';
+await ask('Tell me about Shifaa.', followUpConversationId);
+const beforeFollowUp = providerCalls.length;
+const followUpResponse = await ask('What technologies does it use?', followUpConversationId);
+const followUpContext = providerCalls.at(-1)?.messages?.[1]?.content || '';
+const followUpPasses = providerCalls.length > beforeFollowUp &&
+  followUpContext.includes('Shifaa - AI-Based Patient Monitoring Platform') &&
+  followUpResponse.sources.length === 3;
+console.log(`${followUpPasses ? 'PASS' : 'FAIL'} follow-up keeps prior portfolio context`);
+if (!followUpPasses) failures += 1;
 
 if (failures) process.exitCode = 1;
