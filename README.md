@@ -52,5 +52,6 @@ If the chatbot says it could not reach the AI assistant, check:
 - The serverless API is deployed.
 - `https://your-api-domain.example/api/health` returns `{ "ok": true }`.
 - `OPENAI_API_KEY` is configured only in the Vercel server environment; it is never sent to the browser.
+- Run `npm run test:chatbot` for knowledge retrieval coverage and `npm run test:chatbot:routes` for mocked end-to-end routing coverage. Manual production prompts and expected behavior are in `docs/chatbot-test-scenarios.md`.
 - Set `CHATBOT_DEBUG=true` temporarily when investigating provider routing. Logs include provider, base URL, model, request ID, message counts, and character counts, never keys or full conversation text.
 - Send a unique `PORTFOLIO_API_TEST_YYYY_MM_DD` message to exercise the provider even when no portfolio context matches. Its response includes safe diagnostics such as the backend request ID, OpenAI request ID, model, token usage, and whether fallback was used.

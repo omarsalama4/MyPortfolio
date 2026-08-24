@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build-knowledge": "node scripts/build-knowledge.js",
-    "test:chatbot": "node scripts/test-chatbot.js"
+    "test:chatbot": "node scripts/test-chatbot.js",
+    "test:chatbot:routes": "node scripts/test-chatbot-routes.js"
   },
   "dependencies": {
     "pdf-parse": "^1.1.1"
