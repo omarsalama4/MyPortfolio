@@ -102,26 +102,6 @@
     if (!parent.childNodes.length) appendParagraph(parent, text);
   }
 
-  function sourceHref(source) {
-    if (!source.url) return '';
-
-    try {
-      const url = new URL(source.url, window.location.href);
-      if (
-        url.hash &&
-        (url.hostname === window.location.hostname ||
-          url.hostname === 'omarsalama4.github.io' ||
-          url.hostname === 'www.omarsalama.online' ||
-          url.hostname === 'omarsalama.online')
-      ) {
-        return url.hash;
-      }
-      return source.url;
-    } catch {
-      return source.url;
-    }
-  }
-
   function appendDiagnostics(parent, diagnostics) {
     if (!diagnostics || typeof diagnostics !== 'object') return;
 
@@ -160,7 +140,7 @@
     }
   }
 
-  function messageNode(text, role, sources, diagnostics) {
+  function messageNode(text, role, diagnostics) {
     const item = document.createElement('div');
     item.className = `chat-message ${role}`;
 
@@ -173,38 +153,13 @@
     }
     item.appendChild(bubble);
 
-    if (sources && sources.length) {
-      const list = document.createElement('div');
-      list.className = 'chat-sources';
-      list.textContent = 'Sources: ';
-      sources.slice(0, 4).forEach((source, index) => {
-        if (index) list.appendChild(document.createTextNode(', '));
-        const href = sourceHref(source);
-        if (href) {
-          const link = document.createElement('a');
-          link.href = href;
-          if (!href.startsWith('#')) {
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-          }
-          link.textContent = source.title || source.type;
-          list.appendChild(link);
-        } else {
-          const span = document.createElement('span');
-          span.textContent = source.title || source.type;
-          list.appendChild(span);
-        }
-      });
-      item.appendChild(list);
-    }
-
     if (role === 'assistant') appendDiagnostics(item, diagnostics);
 
     return item;
   }
 
-  function appendMessage(text, role, sources) {
-    const node = messageNode(text, role, sources);
+  function appendMessage(text, role) {
+    const node = messageNode(text, role);
     messages.appendChild(node);
     messages.scrollTop = messages.scrollHeight;
     return node;
@@ -343,7 +298,6 @@
       thinking.replaceWith(messageNode(
         data.answer || "I don't have verified information about that in Omar's available sources.",
         'assistant',
-        data.sources || [],
         data.diagnostics
       ));
       messages.scrollTop = messages.scrollHeight;

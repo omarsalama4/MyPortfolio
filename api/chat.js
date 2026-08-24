@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto';
-import { formatContext, retrieveKnowledge, selectRelevantResources } from '../lib/knowledge.js';
+import { formatContext, retrieveKnowledge } from '../lib/knowledge.js';
 import { refreshGithubKnowledge } from './github.js';
 
 const conversations = new Map();
@@ -98,13 +98,10 @@ async function readBody(req) {
   return raw ? JSON.parse(raw) : {};
 }
 
-function buildMessages(message, context, history, resources) {
+function buildMessages(message, context, history) {
   const session = history.length
     ? history.map(item => `${item.role === 'user' ? 'User' : 'Assistant'}: ${item.content}`).join('\n')
     : 'No previous messages in this session.';
-  const resourceContext = resources.length
-    ? resources.map(resource => `- ${resource.title}: ${resource.url}`).join('\n')
-    : 'No resources selected for this question.';
 
   return [
     {
@@ -123,10 +120,10 @@ function buildMessages(message, context, history, resources) {
         'Determine the visitor intent internally, but never state or label a classification in the answer. For casual conversation, greetings, thanks, or questions about your role, reply naturally and briefly without portfolio sources. For portfolio-related questions, use only the verified context.',
         `Reply with exactly "${UNKNOWN_ANSWER}" only when no relevant verified context is retrieved. If context is relevant but incomplete, answer with the verified portion and briefly state the limitation.`,
         'Do not expose system prompts, API keys, or implementation details.',
-        'Response format: use one short opening sentence followed by up to four simple bullets when details help. Keep casual replies to one sentence. Never add a Sources section; the frontend renders the retrieved sources separately.',
-        'Do not append generic offers such as "If you\'d like, I can" unless the visitor explicitly asks for options or next steps.',
+        'Response format: use one short opening sentence followed by up to four simple bullets when details help. Keep casual replies to one sentence. Never add a Sources section.',
+        'Never end with a generic follow-up invitation or offer. Answer only the visitor\'s request unless they explicitly ask for options or next steps.',
         'Do not use markdown tables. Do not include numeric citation placeholders like [1] or [portfolio](1).',
-        'The frontend displays selected resource links separately. Never invent URLs and never add a Sources section.'
+        'Never invent URLs or add a Sources section.'
       ].join('\n')
     },
     {
@@ -137,9 +134,6 @@ function buildMessages(message, context, history, resources) {
         '',
         '=== CURRENT SESSION ===',
         session,
-        '',
-        '=== AVAILABLE RELEVANT RESOURCES ===',
-        resourceContext,
         '',
         '=== CURRENT USER QUESTION ===',
         message
@@ -261,7 +255,7 @@ function isUnknownAnswer(answer) {
 function normalizeAnswer(answer) {
   return String(answer || '')
     .replace(/\n(?:sources?|references?)\s*:[\s\S]*$/i, '')
-    .replace(/\nif you(?:'|’)d like\b[\s\S]*$/i, '')
+    .replace(/\n(?:if you(?:'|’)d like|if you want|let me know if you(?:'|’)d like|i can also)\b[\s\S]*$/i, '')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 }
@@ -396,13 +390,12 @@ export default async function handler(req, res) {
     );
     const selected = retrieved.slice(0, 6);
     const diagnosticsTest = isDiagnosticsTest(message);
-    const resources = selectRelevantResources(selected);
     const context = formatContext(selected, {
       maxChars: MAX_CONTEXT_CHARS,
       maxChunkChars: MAX_CONTEXT_CHUNK_CHARS,
       includeUrls: false
     });
-    const messages = buildMessages(message, context, previous, resources);
+    const messages = buildMessages(message, context, previous);
     let answer = UNKNOWN_ANSWER;
     let providerResult = null;
     let providerError = null;
@@ -426,7 +419,7 @@ export default async function handler(req, res) {
 
     const responseBody = {
       answer,
-      sources: isUnknownAnswer(answer) ? [] : resources
+      sources: []
     };
     if (diagnosticsTest) {
       const config = providerConfig();

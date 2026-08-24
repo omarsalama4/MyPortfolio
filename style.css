@@ -1558,18 +1558,6 @@ footer {
     font-weight: 700;
 }
 
-.chat-sources {
-    margin-top: 6px;
-    color: var(--text-muted);
-    font-size: 0.72rem;
-    line-height: 1.4;
-}
-
-.chat-sources a {
-    color: #38bdf8;
-    text-decoration: none;
-}
-
 .chat-diagnostics {
     margin-top: 7px;
     border: 1px solid rgba(56, 189, 248, 0.22);

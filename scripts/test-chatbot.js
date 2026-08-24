@@ -1,4 +1,4 @@
-import { loadKnowledge, retrieveKnowledge, selectRelevantResources } from '../lib/knowledge.js';
+import { loadKnowledge, retrieveKnowledge } from '../lib/knowledge.js';
 
 const questions = [
   'Tell me about Omar.',
@@ -26,18 +26,6 @@ for (const question of questions) {
 }
 
 const localKnowledge = loadKnowledge();
-const resourceCases = [
-  ['Tell me about Omar.', 1],
-  ['What AI projects has Omar built?', 1]
-];
-
-for (const [question, expectedMaximum] of resourceCases) {
-  const resources = selectRelevantResources(retrieveKnowledge(question, { limit: 8 }));
-  console.log(`\nResources Q: ${question}`);
-  console.log(resources.map(resource => `- ${resource.title}: ${resource.url}`).join('\n') || '- none');
-  if (resources.length < expectedMaximum) failures += 1;
-}
-
 if (!localKnowledge.length) {
   console.error('Knowledge base is empty.');
   failures += 1;

@@ -2,11 +2,11 @@
 
 Run these in the deployed portfolio chat after a deployment. The wording may vary because OpenAI writes the response, but the response should stay grounded in the listed verified context.
 
-Source policy: every grounded portfolio answer displays up to three links from the retrieved evidence. Greetings, acknowledgements, and unsupported questions display no sources.
+Source policy: the chat never displays source links. The model is still grounded by retrieved portfolio, CV, and GitHub context.
 
 | Scenario | Prompt | Expected behavior |
 | --- | --- | --- |
-| Greeting | `hello` | A brief greeting. No portfolio sources and no OpenAI request needed. |
+| Greeting | `hello` | A brief greeting. No OpenAI request needed. |
 | Acknowledgement | `ok` | A short acknowledgement, never the unknown-information fallback. |
 | Portfolio overview | `check portfolio` | An OpenAI-generated overview of Omar's AI focus, experience, education, and flagship work. |
 | Location | `where is Omar` | Reports the portfolio-listed location: Cairo, Egypt. It must not claim a private residence. |
