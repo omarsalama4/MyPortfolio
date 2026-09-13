@@ -38,20 +38,28 @@ header { position:fixed; z-index:100; top:0; left:0; width:100%; border-bottom:1
 @media (max-width:760px) { .timeline::after { left:16px; }.timeline-item,.timeline-item:nth-child(odd),.timeline-item:nth-child(even) { width:100%; margin-left:0; padding:0 0 17px 45px; }.timeline-item:nth-child(odd)::after,.timeline-item:nth-child(even)::after { left:9px; right:auto; border-radius:2px; }.timeline-item:nth-child(odd) .timeline-content:hover,.timeline-item:nth-child(even) .timeline-content:hover { transform:translateX(3px); }.project-featured .project-info,.project-featured .case-grid { padding:20px; }.project-hero-visual img { height:168px; object-position:center 15%; } }
 
 /* Keep the hero balanced without repeating the About portrait. */
-.hero { min-height:650px; }
-.hero-grid { display:grid; grid-template-columns:minmax(0,1.12fr) minmax(330px,.72fr); align-items:center; gap:clamp(40px,7vw,90px); }
-.hero-systems-map { position:relative; min-height:390px; overflow:hidden; border:1px solid #356271; border-radius:6px; background:linear-gradient(145deg,#13252d 0%,#0c151a 72%); box-shadow:0 18px 42px rgba(0,0,0,.22); }
-.hero-systems-map::before,.hero-systems-map::after { position:absolute; left:50%; width:1px; height:140px; background:linear-gradient(var(--cyan),transparent); content:""; transform-origin:top; }
-.hero-systems-map::before { top:147px; transform:rotate(-47deg); }.hero-systems-map::after { top:147px; transform:rotate(47deg); }
-.systems-map-header,.systems-map-footer { position:absolute; right:18px; left:18px; display:flex; align-items:center; justify-content:space-between; color:var(--muted); font:700 .64rem/1 "JetBrains Mono",monospace; letter-spacing:.08em; }.systems-map-header { top:17px; }.systems-map-header i { color:var(--cyan); font-size:.85rem; }.systems-map-footer { bottom:17px; color:var(--cyan); }
-.systems-map-core { position:absolute; z-index:2; top:132px; left:50%; width:116px; height:116px; display:grid; place-items:center; border:1px solid var(--cyan); border-radius:50%; color:#09212a; background:var(--cyan); box-shadow:0 0 0 10px rgba(101,215,232,.09),0 0 28px rgba(101,215,232,.22); text-align:center; font:800 .9rem/1.15 "JetBrains Mono",monospace; transform:translateX(-50%); }
-.systems-map-node { position:absolute; z-index:2; width:105px; display:flex; align-items:center; gap:7px; color:#dce9ed; font:700 .59rem/1.25 "JetBrains Mono",monospace; letter-spacing:.025em; }.systems-map-node i { width:28px; height:28px; display:grid; place-items:center; border:1px solid #477b89; border-radius:4px; color:var(--cyan); background:#102027; font-size:.73rem; }.node-agents { top:83px; left:28px; }.node-vision { top:255px; left:30px; }.node-inference { top:255px; right:17px; }.node-inference i { color:var(--violet); border-color:#695f9e; }
+.hero { min-height:610px; }
+.hero-grid { display:block; }
+.hero-copy { max-width:860px; margin:0 auto; text-align:center; }
+.hero-copy .eyebrow,.hero-copy .hero-btns,.hero-copy .social-icons { justify-content:center; }
+.hero-copy h1,.hero-copy .hero-summary { margin-right:auto; margin-left:auto; }
 .timeline-content { min-height:304px; display:flex; flex-direction:column; box-sizing:border-box; }
-.timeline-img { width:76px; height:76px; padding:8px; border-color:#315464; background:#0d171c; filter:grayscale(1) invert(1) sepia(.25) saturate(1100%) hue-rotate(143deg) brightness(1.15) contrast(1.05); mix-blend-mode:screen; }
+.timeline-img { width:86px; height:86px; margin-bottom:16px; padding:0; border:0; border-radius:5px; object-fit:contain; background:transparent; }
 .project-featured .project-copy { min-height:640px; align-items:stretch; }
 .project-featured .project-info,.project-featured .case-grid { min-height:640px; box-sizing:border-box; }
 .project-featured .case-grid { grid-template-rows:repeat(6,minmax(0,1fr)); }
 .project-featured .case-grid div { display:flex; flex-direction:column; justify-content:center; padding:10px 0; }
 .project-featured .case-grid div:first-child { border-top:0; }.project-featured .case-grid div:last-child { border-bottom:0; }
-@media (max-width:960px) { .hero-grid { grid-template-columns:1fr; gap:30px; }.hero-systems-map { width:min(100%,620px); min-height:360px; }.project-featured .project-copy,.project-featured .project-info,.project-featured .case-grid { min-height:0; }.project-featured .case-grid { grid-template-rows:none; }.project-featured .case-grid div { display:block; padding:14px 0; } }
-@media (max-width:760px) { .hero { min-height:auto; }.hero-systems-map { min-height:330px; }.systems-map-core { top:112px; width:104px; height:104px; font-size:.8rem; }.hero-systems-map::before,.hero-systems-map::after { top:125px; height:125px; }.node-agents { top:62px; left:18px; }.node-vision { top:226px; left:18px; }.node-inference { top:226px; right:8px; }.timeline-content { min-height:0; }.timeline-img { width:68px; height:68px; } }
+/* Shared project-card rhythm: each card uses the same vertical sequence and action baseline. */
+.projects-grid { align-items:stretch; grid-auto-rows:1fr; }
+.project-case,.project-case .project-copy,.project-case .project-info { display:flex; flex-direction:column; }
+.project-case .project-copy,.project-case .project-info { height:100%; }
+.project-featured .project-copy { display:grid; flex-direction:initial; }
+.project-case:not(.project-featured) .project-copy { gap:16px; }
+.project-case:not(.project-featured) .project-heading h3 { min-height:52px; margin-bottom:0; }
+.project-case:not(.project-featured) .project-lede { min-height:66px; margin:0; }
+.project-case:not(.project-featured) .metric-row { min-height:29px; margin:0; }
+.project-case:not(.project-featured) .project-tags { min-height:62px; margin:0; align-content:flex-start; }
+.project-case:not(.project-featured) .project-actions { margin-top:auto; }
+@media (max-width:960px) { .project-featured .project-copy,.project-featured .project-info,.project-featured .case-grid { min-height:0; }.project-featured .case-grid { grid-template-rows:none; }.project-featured .case-grid div { display:block; padding:14px 0; } }
+@media (max-width:760px) { .hero { min-height:auto; }.timeline-content { min-height:0; }.timeline-img { width:76px; height:76px; }.project-case:not(.project-featured) .project-heading h3,.project-case:not(.project-featured) .project-lede,.project-case:not(.project-featured) .metric-row,.project-case:not(.project-featured) .project-tags { min-height:0; } }
