@@ -66,3 +66,21 @@ header { position:fixed; z-index:100; top:0; left:0; width:100%; border-bottom:1
 .project-case:not(.project-featured) .project-info--no-metric .project-actions { grid-row:5; }
 @media (max-width:960px) { .project-featured .project-copy,.project-featured .project-info,.project-featured .case-grid { min-height:0; }.project-featured .case-grid { grid-template-rows:none; }.project-featured .case-grid div { display:block; padding:14px 0; } }
 @media (max-width:760px) { .hero { min-height:auto; }.timeline-content { min-height:0; }.timeline-img { width:76px; height:76px; }.project-case:not(.project-featured) .project-info { grid-template-rows:auto auto auto auto auto; gap:10px; }.project-case:not(.project-featured) .project-heading { overflow:visible; }.project-case:not(.project-featured) .project-lede { overflow:visible; } }
+
+/* Recruiter-facing refinements: make identity and compact project signals easier to scan. */
+.logo-prominent { font-size:clamp(1.2rem,1.85vw,1.52rem); letter-spacing:.015em; }
+.achievement-symbol { width:100%; height:176px; display:grid; place-items:center; margin:0 0 16px; border:1px solid #315464; border-radius:5px; color:var(--cyan); background:#0f1b21; font-size:3.25rem; }
+.project-case:not(.project-featured) .project-info { display:flex; flex-direction:column; gap:10px; min-height:270px; }
+.project-case:not(.project-featured) .project-heading { min-height:62px; overflow:visible; }
+.project-case:not(.project-featured) .project-heading h3 { display:-webkit-box; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:2; }
+.project-case:not(.project-featured) .project-lede { display:-webkit-box; min-height:52px; margin:0; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:3; }
+.project-case:not(.project-featured) .metric-row { min-height:29px; }
+.project-case:not(.project-featured) .project-tags { min-height:52px; max-height:52px; overflow:hidden; }
+.project-case:not(.project-featured) .project-actions { margin-top:auto; }
+@media (max-width:760px) {
+    .logo-prominent { font-size:1.2rem; }
+    .achievement-symbol { height:210px; }
+    .project-case:not(.project-featured) .project-info { min-height:0; }
+    .project-case:not(.project-featured) .project-heading,.project-case:not(.project-featured) .project-lede,.project-case:not(.project-featured) .project-tags { min-height:0; max-height:none; overflow:visible; }
+    .project-case:not(.project-featured) .project-heading h3,.project-case:not(.project-featured) .project-lede { display:block; }
+}
