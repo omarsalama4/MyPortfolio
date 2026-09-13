@@ -75,7 +75,7 @@ header { position:fixed; z-index:100; top:0; left:0; width:100%; border-bottom:1
 .project-case:not(.project-featured) .project-heading h3 { display:-webkit-box; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:2; }
 .project-case:not(.project-featured) .project-lede { display:-webkit-box; min-height:52px; margin:0; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:3; }
 .project-case:not(.project-featured) .metric-row { min-height:29px; }
-.project-case:not(.project-featured) .project-tags { min-height:52px; max-height:52px; overflow:hidden; }
+.project-case:not(.project-featured) .project-tags { min-height:66px; max-height:none; overflow:visible; }
 .project-case:not(.project-featured) .project-actions { margin-top:auto; }
 @media (max-width:760px) {
     .logo-prominent { font-size:1.2rem; }

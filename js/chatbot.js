@@ -319,6 +319,12 @@
       ask(button.dataset.question || button.textContent);
     });
   });
+  document.querySelectorAll('[data-open-chat]').forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      setOpen(true);
+    });
+  });
   exportButton?.addEventListener('click', exportConversation);
   updateExportAvailability();
   document.addEventListener('keydown', event => {

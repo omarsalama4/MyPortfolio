@@ -102,7 +102,7 @@
             <div class="container hero-content">
                 <div class="hero-grid">
                     <div class="hero-copy">
-                        <p class="eyebrow">Applied AI Engineer / Computer Vision / RAG & Automation</p>
+                        <p class="eyebrow">Applied AI Engineer / RAG & Automation / LLM Products</p>
                         <h1>I build AI systems from <span>models to reliable workflows.</span></h1>
                         <p class="hero-summary">
                             Omar Salama builds <strong>real-time computer-vision systems and LLM-powered automation workflows</strong> for high-impact applications. The work combines measurable model performance, retrieval, APIs, and deployment-aware engineering.
@@ -135,13 +135,13 @@
                         <img src="imgs/salama.png" alt="Portrait of Omar Salama" loading="lazy">
                     </div>
                     <div class="about-text">
-                        <p class="section-kicker">Applied AI Engineer for AI/ML, Computer Vision, and AI Automation roles.</p>
-                        <h3>Computer vision depth. Reliable AI automation. Product-minded engineering.</h3>
+                        <p class="section-kicker">Applied AI Engineer for AI Automation, AI/ML, and LLM product roles.</p>
+                        <h3>Reliable AI automation. Product-minded engineering. Computer vision depth.</h3>
                         <p>
                             I build applied AI systems that take research into usable products and workflows. My focus is computer vision, real-time inference, retrieval-augmented generation, and LLM-enabled automation backed by APIs and practical reliability controls.
                         </p>
                         <p>
-                            My flagship work is Shifaa, a privacy-first patient-monitoring platform. I worked on its real-time seizure-detection pipeline using Vision Transformers, Graph Neural Networks, OpenPose, ONNX Runtime, C++, and Python, reporting 96.69% AUROC, 90.18% F1-score, and 37+ FPS.
+                            My flagship work is Shifaa, a privacy-first patient-monitoring platform. I worked on its real-time seizure-detection pipeline using Vision Transformers, Graph Neural Networks, OpenPose, ONNX Runtime, C++, and Python.
                         </p>
                         <p>
                             I hold a dual degree in Computer Science and Artificial Intelligence from Ain Shams University and the University of East London (Class of 2026, GPA: 3.3/4.0). At Cultiv Bureau, I apply the same mindset to AI automation: n8n workflows, RAG, CRM integrations, APIs, webhooks, and production debugging.
@@ -351,29 +351,25 @@
 
                     <article class="project-case">
                         <div class="project-copy">
-                            <div class="project-info">
+                            <div class="project-info project-info--no-metric">
                                 <div class="project-heading">
-                                    <span class="project-badge">NASA Space Apps</span>
-                                    <h3>ExoNet - AI-Powered Exoplanet Classifier</h3>
+                                    <span class="project-badge">Speech AI / LLM Product</span>
+                                    <h3>CohereVoice Studio</h3>
                                 </div>
                                 <p class="project-lede">
-                                    Residual MLP classifier for NASA K2 exoplanet candidates with SHAP explainability.
+                                    An advanced speech-recognition, broadcast-subtitle, and meeting-intelligence suite with Egyptian Arabic-aware model routing.
                                 </p>
-                                <div class="metric-row">
-                                    <span>95.28% Accuracy</span>
-                                </div>
                                 <div class="project-tags">
-                                    <span>PyTorch</span><span>Residual MLP</span><span>SHAP</span><span>Astronomy</span><span>XAI</span>
+                                    <span>Cohere Transcribe</span><span>Streamlit</span><span>pyannote.audio</span><span>wav2vec 2.0</span><span>FFmpeg</span>
                                 </div>
                                 <div class="project-actions">
-                                    <a href="https://github.com/omarelnokrashy/exonet-nasa-spaceapps-2025" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
+                                    <a href="https://github.com/omarsalama4/coherevoice-studio" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
                                 </div>
                             </div>
                             <div class="case-grid">
-                                <div><strong>Problem</strong><span>Candidate signals need interpretable classification to support review.</span></div>
-                                <div><strong>Solution</strong><span>Residual MLP classifier paired with SHAP feature attribution.</span></div>
-                                <div><strong>Results</strong><span>95.28% accuracy in the NASA Space Apps Challenge context.</span></div>
-                                <div><strong>Impact</strong><span>Shows ML breadth beyond healthcare, with explainability in a scientific workflow.</span></div>
+                                <div><strong>Capabilities</strong><span>Generates broadcast-ready subtitles, multilingual transcripts, speaker labels, and structured meeting notes.</span></div>
+                                <div><strong>Architecture</strong><span>Routes media by language, then combines ASR, diarization, word alignment, subtitle splitting, and translation.</span></div>
+                                <div><strong>Delivery</strong><span>Available through a Streamlit studio and a scriptable CLI for repeatable media-processing workflows.</span></div>
                             </div>
                         </div>
                     </article>
@@ -393,7 +389,7 @@
                                 </div>
                                 <div class="project-actions">
                                     <a href="https://github.com/omarsalama4/MyPortfolio" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
-                                    <a href="#chatbot" class="project-link"><i class="fas fa-comments" aria-hidden="true"></i> Try Assistant</a>
+                                    <a href="#chatbot" class="project-link" data-open-chat><i class="fas fa-comments" aria-hidden="true"></i> Try Assistant</a>
                                 </div>
                             </div>
                             <div class="case-grid">
@@ -716,7 +712,7 @@
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <aside class="chatbot" data-chatbot>
+    <aside id="chatbot" class="chatbot" data-chatbot>
         <div class="chatbot-panel" data-chat-panel aria-hidden="true">
             <div class="chatbot-header">
                 <div>
