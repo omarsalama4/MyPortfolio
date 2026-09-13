@@ -62,5 +62,7 @@ header { position:fixed; z-index:100; top:0; left:0; width:100%; border-bottom:1
 .project-case:not(.project-featured) .project-lede { margin:0; overflow:hidden; }
 .project-case:not(.project-featured) .metric-row,.project-case:not(.project-featured) .project-tags,.project-case:not(.project-featured) .project-actions { min-height:0; margin:0; align-content:start; }
 .project-case:not(.project-featured) .project-actions { align-self:start; }
+.project-case:not(.project-featured) .project-info--no-metric .project-tags { grid-row:4; }
+.project-case:not(.project-featured) .project-info--no-metric .project-actions { grid-row:5; }
 @media (max-width:960px) { .project-featured .project-copy,.project-featured .project-info,.project-featured .case-grid { min-height:0; }.project-featured .case-grid { grid-template-rows:none; }.project-featured .case-grid div { display:block; padding:14px 0; } }
 @media (max-width:760px) { .hero { min-height:auto; }.timeline-content { min-height:0; }.timeline-img { width:76px; height:76px; }.project-case:not(.project-featured) .project-info { grid-template-rows:auto auto auto auto auto; gap:10px; }.project-case:not(.project-featured) .project-heading { overflow:visible; }.project-case:not(.project-featured) .project-lede { overflow:visible; } }
