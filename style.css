@@ -50,16 +50,17 @@ header { position:fixed; z-index:100; top:0; left:0; width:100%; border-bottom:1
 .project-featured .case-grid { grid-template-rows:repeat(6,minmax(0,1fr)); }
 .project-featured .case-grid div { display:flex; flex-direction:column; justify-content:center; padding:10px 0; }
 .project-featured .case-grid div:first-child { border-top:0; }.project-featured .case-grid div:last-child { border-bottom:0; }
-/* Shared project-card rhythm: each card uses the same vertical sequence and action baseline. */
+/* Compact cards share fixed content rows, keeping their actions aligned without collision. */
 .projects-grid { align-items:stretch; grid-auto-rows:auto; }
 .project-case { min-height:0; }
 .project-case .project-copy,.project-case .project-info { height:auto; }
 .project-featured .project-copy { display:grid; flex-direction:initial; }
-.project-case:not(.project-featured) .project-copy { gap:11px; }
-.project-case:not(.project-featured) .project-heading h3 { min-height:44px; margin-bottom:0; }
-.project-case:not(.project-featured) .project-lede { min-height:0; margin:0; }
-.project-case:not(.project-featured) .metric-row { min-height:0; margin:0; }
-.project-case:not(.project-featured) .project-tags { min-height:0; margin:0; align-content:flex-start; }
-.project-case:not(.project-featured) .project-actions { margin-top:0; }
+.project-case:not(.project-featured) .project-copy { padding:20px; }
+.project-case:not(.project-featured) .project-info { display:grid; grid-template-rows:58px 60px 29px 54px 36px; gap:8px; align-content:start; }
+.project-case:not(.project-featured) .project-heading { overflow:hidden; }
+.project-case:not(.project-featured) .project-heading h3 { min-height:0; margin:7px 0 0; font-size:clamp(1.2rem,2vw,1.7rem); }
+.project-case:not(.project-featured) .project-lede { margin:0; overflow:hidden; }
+.project-case:not(.project-featured) .metric-row,.project-case:not(.project-featured) .project-tags,.project-case:not(.project-featured) .project-actions { min-height:0; margin:0; align-content:start; }
+.project-case:not(.project-featured) .project-actions { align-self:start; }
 @media (max-width:960px) { .project-featured .project-copy,.project-featured .project-info,.project-featured .case-grid { min-height:0; }.project-featured .case-grid { grid-template-rows:none; }.project-featured .case-grid div { display:block; padding:14px 0; } }
-@media (max-width:760px) { .hero { min-height:auto; }.timeline-content { min-height:0; }.timeline-img { width:76px; height:76px; }.project-case:not(.project-featured) .project-heading h3,.project-case:not(.project-featured) .project-lede,.project-case:not(.project-featured) .metric-row,.project-case:not(.project-featured) .project-tags { min-height:0; } }
+@media (max-width:760px) { .hero { min-height:auto; }.timeline-content { min-height:0; }.timeline-img { width:76px; height:76px; }.project-case:not(.project-featured) .project-info { grid-template-rows:auto auto auto auto auto; gap:10px; }.project-case:not(.project-featured) .project-heading { overflow:visible; }.project-case:not(.project-featured) .project-lede { overflow:visible; } }
