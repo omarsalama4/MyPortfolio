@@ -34,8 +34,8 @@ header { position:fixed; z-index:100; top:0; left:0; width:100%; border-bottom:1
 @media (max-width:760px) { .section { padding-top:68px; }.hero { min-height:auto; }.hero-system-card { min-height:382px; }.hero-portrait-wrap { height:225px; }.hero-portrait { width:210px; height:245px; }.project-featured .project-info,.project-featured .case-grid { padding:22px; }.project-hero-visual img { height:180px; }.achievement-card img { height:210px; } }
 .hero { min-height:580px; display:flex; align-items:center; }.hero-grid { display:block; }.hero-copy { max-width:780px; }
 .timeline { max-width:1120px; }.timeline::after { left:50%; }.timeline-item,.timeline-item:nth-child(odd),.timeline-item:nth-child(even) { width:50%; padding:0 48px 24px 0; }.timeline-item:nth-child(even) { margin-left:50%; padding:0 0 24px 48px; }.timeline-item::after,.timeline-item:nth-child(odd)::after,.timeline-item:nth-child(even)::after { top:28px; width:16px; height:16px; border-radius:2px; }.timeline-item:nth-child(odd)::after { right:-8px; left:auto; }.timeline-item:nth-child(even)::after { left:-8px; }.timeline-item:nth-child(odd) .timeline-content:hover { transform:translateX(-4px); }.timeline-item:nth-child(even) .timeline-content:hover { transform:translateX(4px); }
-.project-featured .project-info { padding:clamp(20px,3vw,30px); }.project-featured .case-grid { padding:clamp(20px,2.8vw,30px); }.project-hero-visual { margin:16px 0; }.project-hero-visual img { height:190px; object-position:center 18%; }
-@media (max-width:760px) { .timeline::after { left:16px; }.timeline-item,.timeline-item:nth-child(odd),.timeline-item:nth-child(even) { width:100%; margin-left:0; padding:0 0 17px 45px; }.timeline-item:nth-child(odd)::after,.timeline-item:nth-child(even)::after { left:9px; right:auto; border-radius:2px; }.timeline-item:nth-child(odd) .timeline-content:hover,.timeline-item:nth-child(even) .timeline-content:hover { transform:translateX(3px); }.project-featured .project-info,.project-featured .case-grid { padding:20px; }.project-hero-visual img { height:168px; object-position:center 15%; } }
+.project-featured .project-info { padding:clamp(20px,3vw,30px); }.project-featured .case-grid { padding:clamp(20px,2.8vw,30px); }.project-hero-visual { margin:16px 0; }.project-hero-visual img { height:190px; object-position:center 28%; }
+@media (max-width:760px) { .timeline::after { left:16px; }.timeline-item,.timeline-item:nth-child(odd),.timeline-item:nth-child(even) { width:100%; margin-left:0; padding:0 0 17px 45px; }.timeline-item:nth-child(odd)::after,.timeline-item:nth-child(even)::after { left:9px; right:auto; border-radius:2px; }.timeline-item:nth-child(odd) .timeline-content:hover,.timeline-item:nth-child(even) .timeline-content:hover { transform:translateX(3px); }.project-featured .project-info,.project-featured .case-grid { padding:20px; }.project-hero-visual img { height:168px; object-position:center 24%; } }
 
 /* Keep the hero balanced without repeating the About portrait. */
 .hero { min-height:610px; }
@@ -52,14 +52,14 @@ header { position:fixed; z-index:100; top:0; left:0; width:100%; border-bottom:1
 .project-featured .case-grid div:first-child { border-top:0; }.project-featured .case-grid div:last-child { border-bottom:0; }
 /* Shared project-card rhythm: each card uses the same vertical sequence and action baseline. */
 .projects-grid { align-items:stretch; grid-auto-rows:auto; }
-.project-case,.project-case .project-copy,.project-case .project-info { display:flex; flex-direction:column; }
-.project-case .project-copy,.project-case .project-info { height:100%; }
+.project-case { min-height:0; }
+.project-case .project-copy,.project-case .project-info { height:auto; }
 .project-featured .project-copy { display:grid; flex-direction:initial; }
 .project-case:not(.project-featured) .project-copy { gap:11px; }
 .project-case:not(.project-featured) .project-heading h3 { min-height:44px; margin-bottom:0; }
 .project-case:not(.project-featured) .project-lede { min-height:0; margin:0; }
 .project-case:not(.project-featured) .metric-row { min-height:0; margin:0; }
 .project-case:not(.project-featured) .project-tags { min-height:0; margin:0; align-content:flex-start; }
-.project-case:not(.project-featured) .project-actions { margin-top:auto; }
+.project-case:not(.project-featured) .project-actions { margin-top:0; }
 @media (max-width:960px) { .project-featured .project-copy,.project-featured .project-info,.project-featured .case-grid { min-height:0; }.project-featured .case-grid { grid-template-rows:none; }.project-featured .case-grid div { display:block; padding:14px 0; } }
 @media (max-width:760px) { .hero { min-height:auto; }.timeline-content { min-height:0; }.timeline-img { width:76px; height:76px; }.project-case:not(.project-featured) .project-heading h3,.project-case:not(.project-featured) .project-lede,.project-case:not(.project-featured) .metric-row,.project-case:not(.project-featured) .project-tags { min-height:0; } }
