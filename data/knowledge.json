@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T22:28:10.830Z",
+  "generatedAt": "2026-09-13T22:32:23.554Z",
   "chunks": [
     {
       "id": "portfolio:about",
@@ -170,7 +170,7 @@
       "source": "portfolio",
       "type": "certification",
       "title": "Achievements & Certifications",
-      "content": "Achievements & Certifications Amazon Web Services | May 2024 AWS Certified Machine Learning - Specialty Validated machine learning model building, training, tuning, and deployment on AWS, including SageMaker-centered workflows. Ain Shams University | 2025 - 2026 1st Place, Computer Vision Course Competition Recognized for the Fruit & Food Segmentation and Calorie Estimation platform, which reported 97.69% validation IoU. NASA | Sep 2025 NASA Space Apps Challenge Participant Built ExoNet, an explainable exoplanet classifier reaching 95.28% accuracy on K2 candidates. Huawei | Nov 2023 HCIA-AI V3.5 Certification covering AI foundations, neural networks, deep learning, and cloud AI concepts. NTI | Nov 2023 AI Professional Training - 120 Hours Government-backed intensive program in ML, DL, ANN, data analysis, and professional skills. ApplAi | Jul 2023 Computer Vision Professional Training Hands-on training in object detection, image classification, and OpenCV pipelines. ICPC | Jun 2023 ICPC ECPC Qualification Competitive-programming qualification demonstrating algorithmic problem-solving fundamentals. ArabCAB 2026 FCIS Team Finalist Represented the Ain Shams University FCIS team as a finalist at ArabCAB 2026. EF SET | Oct 2025 English C1 Advanced Advanced English proficiency for technical writing, presentations, and cross-functional collaboration.",
+      "content": "Achievements & Certifications Amazon Web Services | May 2024 AWS Certified Machine Learning - Specialty Validated machine learning model building, training, tuning, and deployment on AWS, including SageMaker-centered workflows. McKinsey.org | In Progress McKinsey Forward Program Currently completing a practical learning program in problem solving, communication, relationship building, and digital and AI essentials. NASA | Sep 2025 NASA Space Apps Challenge Participant Built ExoNet, an explainable exoplanet classifier reaching 95.28% accuracy on K2 candidates. Huawei | Nov 2023 HCIA-AI V3.5 Certification covering AI foundations, neural networks, deep learning, and cloud AI concepts. NTI | Nov 2023 AI Professional Training - 120 Hours Government-backed intensive program in ML, DL, ANN, data analysis, and professional skills. ApplAi | Jul 2023 Computer Vision Professional Training Hands-on training in object detection, image classification, and OpenCV pipelines. ICPC | Jun 2023 ICPC ECPC Qualification Competitive-programming qualification demonstrating algorithmic problem-solving fundamentals. ArabCAB 2026 FCIS Team Finalist Represented the Ain Shams University FCIS team as a finalist at ArabCAB 2026. EF SET | Oct 2025 English C1 Advanced Advanced English proficiency for technical writing, presentations, and cross-functional collaboration.",
       "url": "https://omarsalama4.github.io/MyPortfolio/#achievements",
       "metadata": {}
     },
