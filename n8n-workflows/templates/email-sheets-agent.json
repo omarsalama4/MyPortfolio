@@ -1,0 +1,173 @@
+{
+  "name": "Email and Google Sheets agent",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "88f9b4d4-c71e-47e4-adee-bc06a33fe301",
+      "name": "When chat message received",
+      "webhookId": "964d51d5-b9e9-4388-839e-5ad5b7d6c238"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "REPLACE_WITH_DOCUMENT_SOURCE_NAME"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        112,
+        240
+      ],
+      "id": "fbfc421e-a0eb-4ee1-bde2-bb1b86b2e362",
+      "name": "OpenAI Chat Model",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "REPLACE_WITH_YOUR_TEMPLATE_TEXT"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        224,
+        0
+      ],
+      "id": "552bb59d-9f86-436e-963b-e40a77974dde",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "sendTo": "REPLACE_WITH_RECIPIENT_EMAIL",
+        "subject": "REPLACE_WITH_YOUR_TEMPLATE_TEXT",
+        "emailType": "text",
+        "message": "REPLACE_WITH_YOUR_TEMPLATE_TEXT",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmailTool",
+      "typeVersion": 2.2,
+      "position": [
+        608,
+        160
+      ],
+      "id": "24bcad5e-2d26-4a4b-a13a-29027a152757",
+      "name": "Send a message in Gmail",
+      "webhookId": "87e613b1-0ede-45f8-b2ca-4b25e3a41aed",
+      "credentials": {}
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        320,
+        240
+      ],
+      "id": "eb368323-a5d3-49b7-8425-1473bb119464",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "documentId": "REPLACE_WITH_GOOGLE_SHEET_ID",
+        "sheetName": "REPLACE_WITH_SHEET_NAME",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        464,
+        192
+      ],
+      "id": "5510fa6d-7bdd-4d33-97b5-bc732398a085",
+      "name": "Get row(s) in sheet in Google Sheets",
+      "credentials": {}
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        []
+      ]
+    },
+    "Send a message in Gmail": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "active": false,
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": false
+  }
+}

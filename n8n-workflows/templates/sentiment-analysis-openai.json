@@ -1,0 +1,195 @@
+{
+  "name": "Sentiment analysis with OpenAI",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "REPLACE_WITH_YOUR_TEMPLATE_TEXT",
+        "formDescription": "REPLACE_WITH_YOUR_TEMPLATE_TEXT",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Name",
+              "placeholder": "Ex: Omar Salama",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Review",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        -16,
+        32
+      ],
+      "id": "fe93fd1d-8827-408e-8459-edf5628d905f",
+      "name": "On form submission",
+      "webhookId": "9106a4eb-3d21-4cfb-9332-a0532b771cab"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "REPLACE_WITH_DOCUMENT_SOURCE_NAME"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "REPLACE_WITH_YOUR_TEMPLATE_TEXT"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {
+          "textFormat": {
+            "textOptions": {
+              "type": "json_object"
+            }
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.3,
+      "position": [
+        192,
+        -144
+      ],
+      "id": "fdd74106-45bb-4222-9468-db7e906498d5",
+      "name": "Message a model",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": "REPLACE_WITH_GOOGLE_SHEET_ID",
+        "sheetName": "REPLACE_WITH_SHEET_NAME",
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.Name }}",
+            "Review": "={{ $json.Review }}",
+            "Sentiment": "={{ $json.output[0].content[0].text.sentiment }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Review",
+              "displayName": "Review",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Sentiment",
+              "displayName": "Sentiment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        816,
+        -112
+      ],
+      "id": "eedb24ef-85d1-49e1-a9b3-0935d4752e7a",
+      "name": "Append row in sheet",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        560,
+        16
+      ],
+      "id": "7b98a5d7-6ada-4270-868e-a439d37849c7",
+      "name": "Merge"
+    }
+  ],
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        []
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "active": false,
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": false
+  }
+}

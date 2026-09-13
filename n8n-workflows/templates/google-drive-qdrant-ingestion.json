@@ -1,0 +1,155 @@
+{
+  "name": "Google Drive to Qdrant ingestion",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": "REPLACE_WITH_GOOGLE_DRIVE_FOLDER_ID",
+        "event": "fileCreated",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "be4ceca3-bce9-46a4-9658-66ef63c03f6c",
+      "name": "Google Drive Trigger",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": "REPLACE_WITH_GOOGLE_DRIVE_FILE_ID",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        208,
+        0
+      ],
+      "id": "ed1b47bd-793f-4b4d-be19-82a25f6bea48",
+      "name": "Download file",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "qdrantCollection": "REPLACE_WITH_QDRANT_COLLECTION",
+        "embeddingBatchSize": 1,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "typeVersion": 1.3,
+      "position": [
+        416,
+        0
+      ],
+      "id": "3b07ef66-ad08-4466-8141-4ea999a85eac",
+      "name": "Qdrant Vector Store",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        288,
+        224
+      ],
+      "id": "a1632387-da29-4ffa-bd2a-68966bb28c2f",
+      "name": "Embeddings OpenAI",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "dataType": "binary",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "name",
+                "value": "={{ $('Download file').item.json.name }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        560,
+        208
+      ],
+      "id": "c13342cb-7ea3-4c71-93c4-3e8720d398ef",
+      "name": "Default Data Loader"
+    }
+  ],
+  "connections": {
+    "Google Drive Trigger": {
+      "main": [
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "Qdrant Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Qdrant Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Qdrant Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "active": false,
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": false
+  }
+}

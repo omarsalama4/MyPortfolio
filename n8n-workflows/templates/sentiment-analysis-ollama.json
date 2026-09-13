@@ -1,0 +1,214 @@
+{
+  "name": "Sentiment analysis with Ollama",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "REPLACE_WITH_YOUR_TEMPLATE_TEXT",
+        "formDescription": "REPLACE_WITH_YOUR_TEMPLATE_TEXT",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Name",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Review",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        -304,
+        -16
+      ],
+      "id": "31c0eebb-0518-4f79-8ac2-57ba06adfaf7",
+      "name": "On form submission",
+      "webhookId": "0db80511-b987-4957-a842-308edeed4443"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "REPLACE_WITH_YOUR_TEMPLATE_TEXT",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "REPLACE_WITH_YOUR_TEMPLATE_TEXT"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -48,
+        64
+      ],
+      "id": "8999490e-b911-4c48-8c32-d76d62ee6f33",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        432,
+        -32
+      ],
+      "id": "f9a5968c-49c3-4be6-b4a8-55ee149608ad",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "model": "deepseek-r1:7b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        -64,
+        336
+      ],
+      "id": "aab862da-7f0e-43b9-a088-aa0e6dcaf160",
+      "name": "Ollama Chat Model",
+      "credentials": {}
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": "REPLACE_WITH_GOOGLE_SHEET_ID",
+        "sheetName": "REPLACE_WITH_SHEET_NAME",
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Your Name": "={{ $json.Name }}",
+            "Review": "={{ $json.Review }}",
+            "Sentiment": "={{ $json.text }}"
+          },
+          "matchingColumns": [
+            "Your Name"
+          ],
+          "schema": [
+            {
+              "id": "Your Name",
+              "displayName": "Your Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Review",
+              "displayName": "Review",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Sentiment",
+              "displayName": "Sentiment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        704,
+        -16
+      ],
+      "id": "43669f5e-f731-40ac-a3d5-fafa1f4dfbb0",
+      "name": "Append row in sheet",
+      "credentials": {}
+    }
+  ],
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "active": false,
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": false
+  }
+}
