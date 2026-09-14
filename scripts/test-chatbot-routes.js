@@ -21,7 +21,7 @@ globalThis.fetch = async (url, options = {}) => {
     ok: true,
     headers: { get: () => 'test-openai-request-id' },
     json: async () => ({
-      choices: [{ message: { content: `${'Grounded model response. '.repeat(70)}\nIf you want, I can add more detail.\nSources: model-invented-link` } }],
+      choices: [{ message: { content: '### Grounded response\nA concise answer from verified context.\n- First verified detail.\n- Second verified detail.\nIf you want, I can add more detail.\nSources: model-invented-link' } }],
       usage: { prompt_tokens: 120, completion_tokens: 12, total_tokens: 132 }
     })
   };
@@ -62,6 +62,7 @@ async function assertCase(name, message, options = {}) {
     !response.answer.includes('Sources:'),
     !response.answer.includes('If you want'),
     response.answer.split(/\s+/).filter(Boolean).length <= 120,
+    !options.expectStructured || (/^### /m.test(response.answer) && /\n- /.test(response.answer)),
     !options.contextIncludes || options.contextIncludes.every(value => context.includes(value)),
     options.expectedSourceCount === undefined || response.sources.length === options.expectedSourceCount,
     !options.expectedSourceUrl || response.sources.some(source => source.url === options.expectedSourceUrl)
@@ -110,7 +111,8 @@ await assertCase('CV and resume request returns both documents', 'download CV an
 await assertCase('resume-content question uses grounded retrieval', 'what does the resume contain?', {
   expectProvider: true,
   contextIncludes: ['Omar Salama Resume'],
-  expectedSourceCount: 0
+  expectedSourceCount: 0,
+  expectStructured: true
 });
 await assertCase('vague portfolio request uses OpenAI RAG', 'check portfolio', {
   expectProvider: true,

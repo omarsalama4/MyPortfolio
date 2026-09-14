@@ -44,6 +44,15 @@
     parent.appendChild(paragraph);
   }
 
+  function appendHeading(parent, text) {
+    const value = plainMarkdown(text);
+    if (!value) return;
+    const heading = document.createElement('h4');
+    heading.className = 'chat-heading';
+    heading.textContent = value;
+    parent.appendChild(heading);
+  }
+
   function appendTableAsList(parent, tableLines) {
     const rows = tableLines
       .filter(line => line.includes('|') && !/^\s*\|?\s*:?-{3,}:?\s*\|/.test(line))
@@ -81,6 +90,13 @@
       }
 
       flushTable();
+      const heading = line.match(/^#{1,4}\s+(.+)$/);
+      if (heading) {
+        list = null;
+        appendHeading(parent, heading[1]);
+        return;
+      }
+
       const bullet = line.match(/^[-*]\s+(.*)$/);
       if (bullet) {
         if (!list) {
@@ -95,7 +111,7 @@
       }
 
       list = null;
-      appendParagraph(parent, line.replace(/^#{1,4}\s*/, ''));
+      appendParagraph(parent, line);
     });
 
     flushTable();

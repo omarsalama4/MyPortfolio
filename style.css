@@ -88,3 +88,4 @@ header { position:fixed; z-index:100; top:0; left:0; width:100%; border-bottom:1
 .chat-resources { display:grid; gap:6px; margin-top:10px; }
 .chat-resources a { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:34px; padding:7px 9px; border:1px solid var(--cyan); border-radius:5px; color:var(--cyan); font-size:.76rem; font-weight:800; text-decoration:none; }
 .chat-resources a:hover,.chat-resources a:focus-visible { color:#09212a; background:var(--cyan); outline:0; }
+.chat-heading { margin:0 0 7px; color:var(--cyan); font:800 .76rem/1.25 "JetBrains Mono",monospace; letter-spacing:.04em; text-transform:uppercase; }
