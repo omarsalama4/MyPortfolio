@@ -10,6 +10,7 @@ Source policy: the chat never displays source links. The model is still grounded
 | Acknowledgement | `ok` | A short acknowledgement, never the unknown-information fallback. |
 | CV download | `download Omar's CV` | Displays a CV download action without an OpenAI request. |
 | Resume download | `download Omar's resume` | Displays a resume download action without an OpenAI request. |
+| Resume content | `what does the resume contain?` | Uses resume knowledge to provide a grounded summary. |
 | Portfolio overview | `check portfolio` | An OpenAI-generated overview of Omar's AI focus, experience, education, and flagship work. |
 | Location | `where is Omar` | Reports the portfolio-listed location: Cairo, Egypt. It must not claim a private residence. |
 | AI projects | `What AI projects has Omar built?` | An OpenAI-generated answer grounded in the project records, including Shifaa. |

@@ -253,6 +253,15 @@ function isResumeRequest(message) {
   return /\bresume\b/i.test(message);
 }
 
+function isDocumentAccessRequest(message) {
+  const normalized = message.trim();
+  const mentionsDocument = isCvRequest(normalized) || isResumeRequest(normalized);
+  if (!mentionsDocument) return false;
+
+  return /\b(download|view|open|access|link|pdf)\b/i.test(normalized) ||
+    /^(?:do|can|could|would)\b[\s\S]*\b(?:have|share|send|show)\b/i.test(normalized);
+}
+
 function isDiagnosticsTest(message) {
   return /^PORTFOLIO_API_TEST_[A-Z0-9_-]+$/i.test(message.trim());
 }
@@ -413,7 +422,7 @@ export default async function handler(req, res) {
     }
     const cvRequested = isCvRequest(message);
     const resumeRequested = isResumeRequest(message);
-    if (cvRequested || resumeRequested) {
+    if (isDocumentAccessRequest(message)) {
       const resources = [
         ...(cvRequested ? [CV_RESOURCE] : []),
         ...(resumeRequested ? [RESUME_RESOURCE] : [])

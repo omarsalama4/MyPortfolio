@@ -96,10 +96,21 @@ await assertCase('resume download stays local and returns its document', 'downlo
   expectedSourceCount: 1,
   expectedSourceUrl: '/Omar_Salama_Resume.pdf'
 });
+await assertCase('resume availability returns its document', 'do you have the resume?', {
+  expectProvider: false,
+  answerIncludes: 'resume below.',
+  expectedSourceCount: 1,
+  expectedSourceUrl: '/Omar_Salama_Resume.pdf'
+});
 await assertCase('CV and resume request returns both documents', 'download CV and resume', {
   expectProvider: false,
   answerIncludes: 'CV and resume below.',
   expectedSourceCount: 2
+});
+await assertCase('resume-content question uses grounded retrieval', 'what does the resume contain?', {
+  expectProvider: true,
+  contextIncludes: ['Omar Salama Resume'],
+  expectedSourceCount: 0
 });
 await assertCase('vague portfolio request uses OpenAI RAG', 'check portfolio', {
   expectProvider: true,

@@ -12,7 +12,7 @@ const questions = [
   'What is Omar\'s Agentic AI experience?',
   'What certifications does Omar have?',
   'Where did Omar study?',
-  'What is in Omar\'s resume?',
+  'What does Omar\'s resume contain?',
   'Show me Omar\'s GitHub projects.',
   'Why should I hire Omar as an AI Engineer?',
   'What is Omar\'s experience with technology XYZ?'
