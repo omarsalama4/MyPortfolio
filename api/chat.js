@@ -16,7 +16,11 @@ const GREETING_ANSWER = "Hi, I'm Omar Salama's AI Portfolio Assistant. Ask me ab
 const CASUAL_ANSWER = "I'm doing well, thanks for asking. I'm ready to answer questions about Omar's portfolio, CV, AI projects, skills, experience, or GitHub work.";
 const THANKS_ANSWER = "You're welcome!";
 const ACKNOWLEDGEMENT_ANSWER = "Got it. Ask me anything about Omar's portfolio, CV, projects, or experience.";
-const CV_ANSWER = "You can view or download Omar's CV here.";
+const CV_ANSWER = "You can view or download Omar's CV below.";
+const RESUME_ANSWER = "You can view or download Omar's resume below.";
+const DOCUMENTS_ANSWER = "You can view or download Omar's CV and resume below.";
+const CV_RESOURCE = { type: 'cv', title: 'Omar Salama CV', url: '/Omar_Salama_CV.pdf' };
+const RESUME_RESOURCE = { type: 'resume', title: 'Omar Salama Resume', url: '/Omar_Salama_Resume.pdf' };
 
 function providerConfig() {
   const requestedProvider = (process.env.LLM_PROVIDER || process.env.OPENAI_PROVIDER || 'openai').trim().toLowerCase();
@@ -242,7 +246,11 @@ function isPersonalPreferenceQuestion(message) {
 }
 
 function isCvRequest(message) {
-  return /\b(cv|resume|curriculum vitae)\b/i.test(message);
+  return /\b(cv|curriculum vitae)\b/i.test(message);
+}
+
+function isResumeRequest(message) {
+  return /\bresume\b/i.test(message);
 }
 
 function isDiagnosticsTest(message) {
@@ -281,6 +289,25 @@ function cleanContent(content) {
 
 function specificProjects(chunks) {
   return chunks.filter(chunk => chunk.type === 'project' && chunk.title !== 'Featured Projects');
+}
+
+function selectContextChunks(chunks, limit = 6) {
+  const selected = [];
+  const selectedIds = new Set();
+  let hasProfessionalDocument = false;
+  const add = chunk => {
+    if (!chunk || selected.length >= limit || selectedIds.has(chunk.id)) return;
+    const isProfessionalDocument = chunk.source === 'cv' || chunk.source === 'resume';
+    if (isProfessionalDocument && hasProfessionalDocument) return;
+    selected.push(chunk);
+    selectedIds.add(chunk.id);
+    if (isProfessionalDocument) hasProfessionalDocument = true;
+  };
+
+  // Broad recruiter questions need a project proof point alongside biography.
+  add(chunks.find(chunk => chunk.type === 'project'));
+  chunks.forEach(add);
+  return selected;
 }
 
 function primaryProject(chunks) {
@@ -384,11 +411,19 @@ export default async function handler(req, res) {
       remember(conversationId, 'assistant', UNKNOWN_ANSWER);
       return res.status(200).json({ answer: UNKNOWN_ANSWER, sources: [] });
     }
-    if (isCvRequest(message)) {
-      const cvResource = { type: 'cv', title: 'Omar Salama CV', url: '/Omar_Salama_CV.pdf' };
+    const cvRequested = isCvRequest(message);
+    const resumeRequested = isResumeRequest(message);
+    if (cvRequested || resumeRequested) {
+      const resources = [
+        ...(cvRequested ? [CV_RESOURCE] : []),
+        ...(resumeRequested ? [RESUME_RESOURCE] : [])
+      ];
+      const answer = resources.length > 1
+        ? DOCUMENTS_ANSWER
+        : cvRequested ? CV_ANSWER : RESUME_ANSWER;
       remember(conversationId, 'user', message);
-      remember(conversationId, 'assistant', CV_ANSWER);
-      return res.status(200).json({ answer: CV_ANSWER, sources: [cvResource] });
+      remember(conversationId, 'assistant', answer);
+      return res.status(200).json({ answer, sources: resources });
     }
 
     const previous = (conversations.get(conversationId) || []).slice(-2);
@@ -397,10 +432,10 @@ export default async function handler(req, res) {
       ...previous.filter(item => item.role === 'user').map(item => item.content)
     ].join(' ');
     const githubChunks = await refreshGithubKnowledge().catch(() => []);
-    const retrieved = retrieveKnowledge(retrievalQuery, { chunks: undefined, limit: 5 }).concat(
+    const retrieved = retrieveKnowledge(retrievalQuery, { chunks: undefined, limit: 8 }).concat(
       retrieveKnowledge(retrievalQuery, { chunks: githubChunks, limit: 2 })
     );
-    const selected = retrieved.slice(0, 6);
+    const selected = selectContextChunks(retrieved);
     const diagnosticsTest = isDiagnosticsTest(message);
     const context = formatContext(selected, {
       maxChars: MAX_CONTEXT_CHARS,

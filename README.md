@@ -1,57 +1,58 @@
-#  Personal Portfolio Website
+# Omar Salama | Applied AI Engineer
 
-This is my **personal portfolio website**, 
-It showcases my skills, projects, and experience as a **AI Engineer**.
+The source for my professional portfolio: [omarsalama.online](https://www.omarsalama.online/).
 
----
+I build reliable AI products and automation systems that connect language models, retrieval, APIs, and human workflows. My work spans retrieval-augmented generation (RAG), agentic system design, AI automation, speech intelligence, and performance-aware computer vision.
 
-##  Features
-- Responsive and modern UI
-- Dynamic projects section
-- (skills, projects, blog posts)
-- Clean code, scalable, and easy to maintain
+## Focus
 
----
+- **LLM products and RAG:** grounded assistants, knowledge retrieval, prompt design, context control, and evaluation.
+- **AI automation:** dependable workflows using n8n, REST/GraphQL APIs, webhooks, CRM integrations, OCR, and structured outputs.
+- **Applied ML:** real-time inference, healthcare AI, computer vision, NLP, and speech-processing systems.
+- **Engineering practice:** Python, TypeScript, Docker, testing, secure API boundaries, and production-minded debugging.
 
-##  Check it out
-- try it: [My Portfolio](https://omarsalama4.github.io/MyPortfolio/)
+## Portfolio Experience
 
----
+The site is a responsive, accessible static portfolio with an optional serverless AI assistant. It is designed for recruiters and technical reviewers to quickly understand my professional focus, experience, selected work, leadership, certifications, and contact details.
 
-## Ask Omar's AI
+The assistant is deliberately grounded in verified portfolio, CV, resume, and GitHub context. It answers professional questions through same-origin `POST /api/chat`, does not expose API keys to the browser, and returns a clear limitation when the requested information is not verified.
 
-The portfolio and chatbot API are deployed together on Vercel. The chatbot calls the same-origin serverless endpoint through `POST /api/chat`.
+## Run Locally
 
-1. Install dependencies: `npm install`
-2. Rebuild verified knowledge after portfolio/CV edits: `npm run build-knowledge`
-3. Deploy the repository to Vercel with the root directory set to the repository root.
-4. Configure the OpenAI server-side variables in Vercel. The generic `LLM_*` names match the Vercel-style environment variable screen:
+```bash
+npm install
+npm run build-knowledge
+```
 
-   ```text
-   LLM_PROVIDER=openai
-   LLM_API_KEY=your_openai_api_key
-   LLM_BASE_URL=https://api.openai.com/v1
-   LLM_MODEL=gpt-5-nano
-   ```
+Open `index.html` in a browser for the static portfolio. The AI assistant requires a serverless-compatible host for the `/api/chat` endpoint.
 
-   The OpenAI-native aliases are also supported:
+## Environment Configuration
 
-   ```text
-   OPENAI_API_KEY=your_openai_api_key
-   OPENAI_BASE_URL=https://api.openai.com/v1
-   OPENAI_MODEL=gpt-5-nano
-   ```
+Configure these only in the server environment, such as Vercel. Never place API keys in client-side JavaScript or commit them to the repository.
 
-   Do not use a Groq key here. An OpenAI provider call requires an OpenAI API key.
-5. Use `/api/health` to confirm the deployed provider, model, and whether a server-side key is configured.
+```text
+LLM_PROVIDER=openai
+LLM_API_KEY=your_openai_api_key
+LLM_BASE_URL=https://api.openai.com/v1
+LLM_MODEL=gpt-5-nano
+```
 
-No API keys or private tokens belong in browser JavaScript.
+The equivalent `OPENAI_API_KEY`, `OPENAI_BASE_URL`, and `OPENAI_MODEL` aliases are also supported. See [.env.example](.env.example) for the complete configuration list.
 
-If the chatbot says it could not reach the AI assistant, check:
+## Validate the Assistant
 
-- The serverless API is deployed.
-- `https://your-api-domain.example/api/health` returns `{ "ok": true }`.
-- `OPENAI_API_KEY` is configured only in the Vercel server environment; it is never sent to the browser.
-- Run `npm run test:chatbot` for knowledge retrieval coverage and `npm run test:chatbot:routes` for mocked end-to-end routing coverage. Manual production prompts and expected behavior are in `docs/chatbot-test-scenarios.md`.
-- Set `CHATBOT_DEBUG=true` temporarily when investigating provider routing. Logs include provider, base URL, model, request ID, message counts, and character counts, never keys or full conversation text.
-- Send a unique `PORTFOLIO_API_TEST_YYYY_MM_DD` message to exercise the provider even when no portfolio context matches. Its response includes safe diagnostics such as the backend request ID, OpenAI request ID, model, token usage, and whether fallback was used.
+```bash
+npm run build-knowledge
+npm run test:chatbot
+npm run test:chatbot:routes
+```
+
+`test:chatbot` validates verified knowledge retrieval. `test:chatbot:routes` mocks the provider and validates routing, conversation handling, grounded context, and failure fallback. Manual production checks are documented in [docs/chatbot-test-scenarios.md](docs/chatbot-test-scenarios.md).
+
+For deployment diagnostics, call `/api/health`. During a short investigation only, set `CHATBOT_DEBUG=true`; logs omit API keys and full conversation content.
+
+## Contact
+
+- Portfolio: [omarsalama.online](https://www.omarsalama.online/)
+- LinkedIn: [omar-mohamed-salama](https://www.linkedin.com/in/omar-mohamed-salama/)
+- Email: [omarsalama117@gmail.com](mailto:omarsalama117@gmail.com)

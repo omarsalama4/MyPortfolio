@@ -63,7 +63,8 @@ async function assertCase(name, message, options = {}) {
     !response.answer.includes('If you want'),
     response.answer.split(/\s+/).filter(Boolean).length <= 120,
     !options.contextIncludes || options.contextIncludes.every(value => context.includes(value)),
-    options.expectedSourceCount === undefined || response.sources.length === options.expectedSourceCount
+    options.expectedSourceCount === undefined || response.sources.length === options.expectedSourceCount,
+    !options.expectedSourceUrl || response.sources.some(source => source.url === options.expectedSourceUrl)
   ].every(Boolean);
 
   console.log(`${passes ? 'PASS' : 'FAIL'} ${name}`);
@@ -82,6 +83,23 @@ await assertCase('acknowledgement stays conversational', 'ok', {
   expectProvider: false,
   answerIncludes: 'Got it.',
   expectedSourceCount: 0
+});
+await assertCase('CV download stays local and returns its document', 'download Omar\'s CV', {
+  expectProvider: false,
+  answerIncludes: 'CV below.',
+  expectedSourceCount: 1,
+  expectedSourceUrl: '/Omar_Salama_CV.pdf'
+});
+await assertCase('resume download stays local and returns its document', 'download Omar\'s resume', {
+  expectProvider: false,
+  answerIncludes: 'resume below.',
+  expectedSourceCount: 1,
+  expectedSourceUrl: '/Omar_Salama_Resume.pdf'
+});
+await assertCase('CV and resume request returns both documents', 'download CV and resume', {
+  expectProvider: false,
+  answerIncludes: 'CV and resume below.',
+  expectedSourceCount: 2
 });
 await assertCase('vague portfolio request uses OpenAI RAG', 'check portfolio', {
   expectProvider: true,

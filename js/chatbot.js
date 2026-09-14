@@ -140,7 +140,26 @@
     }
   }
 
-  function messageNode(text, role, diagnostics) {
+  function appendResources(parent, resources) {
+    const validResources = Array.isArray(resources)
+      ? resources.filter(resource => resource?.title && resource?.url)
+      : [];
+    if (!validResources.length) return;
+
+    const container = document.createElement('div');
+    container.className = 'chat-resources';
+    validResources.forEach(resource => {
+      const link = document.createElement('a');
+      link.href = resource.url;
+      link.download = '';
+      link.innerHTML = '<i class="fas fa-file-arrow-down" aria-hidden="true"></i>';
+      link.append(` Download ${resource.title.replace(/^Omar Salama\s+/, '')}`);
+      container.appendChild(link);
+    });
+    parent.appendChild(container);
+  }
+
+  function messageNode(text, role, diagnostics, resources) {
     const item = document.createElement('div');
     item.className = `chat-message ${role}`;
 
@@ -153,7 +172,10 @@
     }
     item.appendChild(bubble);
 
-    if (role === 'assistant') appendDiagnostics(item, diagnostics);
+    if (role === 'assistant') {
+      appendResources(bubble, resources);
+      appendDiagnostics(item, diagnostics);
+    }
 
     return item;
   }
@@ -298,7 +320,8 @@
       thinking.replaceWith(messageNode(
         data.answer || "I don't have verified information about that in Omar's available sources.",
         'assistant',
-        data.diagnostics
+        data.diagnostics,
+        data.sources
       ));
       messages.scrollTop = messages.scrollHeight;
       updateExportAvailability();

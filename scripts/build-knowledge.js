@@ -65,14 +65,14 @@ function projectChunks(html) {
   });
 }
 
-async function extractCvText() {
+async function extractDocumentText(fileName) {
   try {
     const pdfParse = (await import('pdf-parse')).default;
-    const buffer = await fs.readFile(path.join(rootDir, 'Omar_Salama_CV.pdf'));
+    const buffer = await fs.readFile(path.join(rootDir, fileName));
     const parsed = await pdfParse(buffer);
     return parsed.text.replace(/\s+/g, ' ').trim();
-  } catch {
-    return '';
+  } catch (error) {
+    throw new Error(`Could not extract verified knowledge from ${fileName}: ${error.message}`);
   }
 }
 
@@ -82,7 +82,18 @@ function chunk(id, source, type, title, content, url, metadata = {}) {
 
 async function main() {
   const html = await fs.readFile(path.join(rootDir, 'index.html'), 'utf8');
-  const cvText = await extractCvText();
+  const professionalDocuments = [
+    { id: 'cv:full', source: 'cv', type: 'cv', title: 'Omar Salama CV', fileName: 'Omar_Salama_CV.pdf' },
+    { id: 'resume:full', source: 'resume', type: 'resume', title: 'Omar Salama Resume', fileName: 'Omar_Salama_Resume.pdf' }
+  ];
+  const documentChunks = await Promise.all(professionalDocuments.map(async document => {
+    const content = await extractDocumentText(document.fileName);
+    return content
+      ? chunk(document.id, document.source, document.type, document.title, content, `/${document.fileName}`, {
+        generatedFrom: document.fileName
+      })
+      : null;
+  }));
   const projectSection = section(html, 'projects');
   const chunks = [
     chunk('portfolio:about', 'portfolio', 'about', 'About Me', stripHtml(section(html, 'about')), `${portfolioUrl}#about`),
@@ -95,11 +106,7 @@ async function main() {
     chunk('portfolio:contact', 'portfolio', 'contact', 'Contact', stripHtml(section(html, 'contact')), `${portfolioUrl}#contact`)
   ];
 
-  if (cvText) {
-    chunks.push(chunk('cv:full', 'cv', 'resume', 'Omar Salama CV', cvText, undefined, {
-      generatedFrom: 'Omar_Salama_CV.pdf'
-    }));
-  }
+  chunks.push(...documentChunks.filter(Boolean));
 
   await fs.mkdir(path.join(rootDir, 'data'), { recursive: true });
   await fs.writeFile(path.join(rootDir, 'data', 'knowledge.json'), `${JSON.stringify({
