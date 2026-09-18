@@ -89,28 +89,17 @@ await assertCase('CV download stays local and returns its document', 'download O
   expectProvider: false,
   answerIncludes: 'CV below.',
   expectedSourceCount: 1,
-  expectedSourceUrl: '/Omar_Salama_CV.pdf'
+  expectedSourceUrl: '/OMAR%20SALAMA%20CV.pdf'
 });
-await assertCase('resume download stays local and returns its document', 'download Omar\'s resume', {
+await assertCase('removed resume resolves to the available CV', 'download Omar\'s resume', {
   expectProvider: false,
-  answerIncludes: 'resume below.',
+  answerIncludes: 'available professional document',
   expectedSourceCount: 1,
-  expectedSourceUrl: '/Omar_Salama_Resume.pdf'
+  expectedSourceUrl: '/OMAR%20SALAMA%20CV.pdf'
 });
-await assertCase('resume availability returns its document', 'do you have the resume?', {
-  expectProvider: false,
-  answerIncludes: 'resume below.',
-  expectedSourceCount: 1,
-  expectedSourceUrl: '/Omar_Salama_Resume.pdf'
-});
-await assertCase('CV and resume request returns both documents', 'download CV and resume', {
-  expectProvider: false,
-  answerIncludes: 'CV and resume below.',
-  expectedSourceCount: 2
-});
-await assertCase('resume-content question uses grounded retrieval', 'what does the resume contain?', {
+await assertCase('professional context is available to the model', 'what was Omar\'s MAHE internship about?', {
   expectProvider: true,
-  contextIncludes: ['Omar Salama Resume'],
+  contextIncludes: ['Professional Context: Manipal Academy of Higher Education (MAHE) - Data Scientist Intern'],
   expectedSourceCount: 0,
   expectStructured: true
 });

@@ -12,7 +12,7 @@ const questions = [
   'What is Omar\'s Agentic AI experience?',
   'What certifications does Omar have?',
   'Where did Omar study?',
-  'What does Omar\'s resume contain?',
+  'What was Omar\'s MAHE internship about?',
   'Show me Omar\'s GitHub projects.',
   'Why should I hire Omar as an AI Engineer?',
   'What is Omar\'s experience with technology XYZ?'
@@ -32,10 +32,15 @@ if (!localKnowledge.length) {
   failures += 1;
 }
 
-const requiredDocuments = ['Omar_Salama_CV.pdf', 'Omar_Salama_Resume.pdf'];
+const requiredDocuments = ['OMAR SALAMA CV.pdf'];
 const missingDocuments = requiredDocuments.filter(fileName => !localKnowledge.some(chunk => chunk.metadata?.generatedFrom === fileName));
 if (missingDocuments.length) {
   console.error(`Missing knowledge for: ${missingDocuments.join(', ')}`);
+  failures += 1;
+}
+
+if (!localKnowledge.some(chunk => chunk.source === 'professional-context')) {
+  console.error('Professional context knowledge is missing.');
   failures += 1;
 }
 

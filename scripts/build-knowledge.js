@@ -18,6 +18,17 @@ function stripHtml(html) {
     .trim();
 }
 
+function stripMarkdown(markdown) {
+  return String(markdown || '')
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/^#{1,6}\s*/gm, '')
+    .replace(/[*_`>|]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function section(html, id) {
   const start = html.indexOf(`<section id="${id}"`);
   if (start === -1) return '';
@@ -65,6 +76,29 @@ function projectChunks(html) {
   });
 }
 
+async function professionalContextChunks() {
+  const fileName = 'docs/professional-context.md';
+  const markdown = await fs.readFile(path.join(rootDir, fileName), 'utf8');
+  return markdown
+    .split(/(?=^##(?:#)?\s+)/m)
+    .map((section, index) => {
+      const title = section.match(/^#{2,3}\s+(.+)$/m)?.[1]?.trim();
+      const content = stripMarkdown(section);
+      if (!title || !content) return null;
+      const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      return chunk(
+        `professional-context:${slug || 'section'}-${index}`,
+        'professional-context',
+        'professional-context',
+        `Professional Context: ${title}`,
+        content,
+        undefined,
+        { generatedFrom: fileName }
+      );
+    })
+    .filter(Boolean);
+}
+
 async function extractDocumentText(fileName) {
   try {
     const pdfParse = (await import('pdf-parse')).default;
@@ -83,17 +117,17 @@ function chunk(id, source, type, title, content, url, metadata = {}) {
 async function main() {
   const html = await fs.readFile(path.join(rootDir, 'index.html'), 'utf8');
   const professionalDocuments = [
-    { id: 'cv:full', source: 'cv', type: 'cv', title: 'Omar Salama CV', fileName: 'Omar_Salama_CV.pdf' },
-    { id: 'resume:full', source: 'resume', type: 'resume', title: 'Omar Salama Resume', fileName: 'Omar_Salama_Resume.pdf' }
+    { id: 'cv:full', source: 'cv', type: 'cv', title: 'Omar Salama CV', fileName: 'OMAR SALAMA CV.pdf' }
   ];
   const documentChunks = await Promise.all(professionalDocuments.map(async document => {
     const content = await extractDocumentText(document.fileName);
     return content
-      ? chunk(document.id, document.source, document.type, document.title, content, `/${document.fileName}`, {
+      ? chunk(document.id, document.source, document.type, document.title, content, `/${encodeURIComponent(document.fileName)}`, {
         generatedFrom: document.fileName
       })
       : null;
   }));
+  const contextChunks = await professionalContextChunks();
   const projectSection = section(html, 'projects');
   const chunks = [
     chunk('portfolio:about', 'portfolio', 'about', 'About Me', stripHtml(section(html, 'about')), `${portfolioUrl}#about`),
@@ -106,7 +140,7 @@ async function main() {
     chunk('portfolio:contact', 'portfolio', 'contact', 'Contact', stripHtml(section(html, 'contact')), `${portfolioUrl}#contact`)
   ];
 
-  chunks.push(...documentChunks.filter(Boolean));
+  chunks.push(...documentChunks.filter(Boolean), ...contextChunks);
 
   await fs.mkdir(path.join(rootDir, 'data'), { recursive: true });
   await fs.writeFile(path.join(rootDir, 'data', 'knowledge.json'), `${JSON.stringify({

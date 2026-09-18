@@ -15,7 +15,7 @@ I build reliable AI products and automation systems that connect language models
 
 The site is a responsive, accessible static portfolio with an optional serverless AI assistant. It is designed for recruiters and technical reviewers to quickly understand my professional focus, experience, selected work, leadership, certifications, and contact details.
 
-The assistant is deliberately grounded in verified portfolio, CV, resume, and GitHub context. It answers professional questions through same-origin `POST /api/chat`, does not expose API keys to the browser, and returns a clear limitation when the requested information is not verified.
+The assistant is deliberately grounded in verified portfolio, CV, professional context, and GitHub knowledge. It answers professional questions through same-origin `POST /api/chat`, does not expose API keys to the browser, and returns a clear limitation when the requested information is not verified.
 
 ## Run Locally
 
