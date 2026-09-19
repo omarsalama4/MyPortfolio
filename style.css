@@ -70,6 +70,10 @@ header { position:fixed; z-index:100; top:0; left:0; width:100%; border-bottom:1
 /* Recruiter-facing refinements: make identity and compact project signals easier to scan. */
 .logo-prominent { font-size:clamp(1.2rem,1.85vw,1.52rem); letter-spacing:.015em; }
 .achievement-symbol { width:100%; height:176px; display:grid; place-items:center; margin:0 0 16px; border:1px solid #315464; border-radius:5px; color:var(--cyan); background:#0f1b21; font-size:3.25rem; }
+.achievement-card { display:flex; flex-direction:column; }
+.achievement-card > div { flex:1; }
+.certificate-link { min-height:34px; display:inline-flex; align-items:center; align-self:flex-start; gap:6px; margin-top:15px; padding:7px 9px; border:1px solid var(--line); border-radius:5px; color:var(--ink); font-size:.74rem; font-weight:700; }
+.certificate-link:hover { border-color:var(--cyan); color:#09212a; background:var(--cyan); }
 .project-case:not(.project-featured) .project-info { display:flex; flex-direction:column; gap:10px; min-height:270px; }
 .project-case:not(.project-featured) .project-heading { min-height:62px; overflow:visible; }
 .project-case:not(.project-featured) .project-heading h3 { display:-webkit-box; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:2; }
