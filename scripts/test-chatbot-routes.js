@@ -99,7 +99,7 @@ await assertCase('removed resume resolves to the available CV', 'download Omar\'
 });
 await assertCase('professional context is available to the model', 'what was Omar\'s MAHE internship about?', {
   expectProvider: true,
-  contextIncludes: ['Professional Context: Manipal Academy of Higher Education (MAHE) - Data Scientist Intern'],
+  contextIncludes: ['Professional Context: Manipal Academy of Higher Education (MAHE) - NLP Research Assistant'],
   expectedSourceCount: 0,
   expectStructured: true
 });

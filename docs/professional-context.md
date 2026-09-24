@@ -92,7 +92,7 @@ Omar Salama is an Applied AI Engineer with a dual degree in Computer Science and
 
 > At Cultiv Bureau, Omar builds AI automation and multi-agent-system concepts that connect LLM reasoning with business systems. The work spans RAG, OCR, CRM and ERP workflows, API/webhook integration, validation, error recovery, and client-facing solution design.
 
-### Manipal Academy of Higher Education (MAHE) - Data Scientist Intern
+### Manipal Academy of Higher Education (MAHE) - NLP Research Assistant
 
 **Dates:** July 2025 - September 2025  
 **Location:** Manipal, India
