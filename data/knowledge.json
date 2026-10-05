@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-24T10:31:53.942Z",
+  "generatedAt": "2026-10-05T22:32:31.188Z",
   "chunks": [
     {
       "id": "portfolio:about",
@@ -24,7 +24,7 @@
       "source": "portfolio",
       "type": "project",
       "title": "Featured Projects",
-      "content": "Featured Projects Flagship AI systems presented as compact case studies for fast technical review. Graduation Project | Healthcare AI Shifaa - AI-Based Patient Monitoring Platform Shifaa team at the ASU Graduation Project Expo Production-grade, privacy-first hospital monitoring platform unifying a grounded medical AI assistant with real-time detection for cardiac arrhythmia, patient falls, and epileptic seizures. 96.69% AUROC 90.18% F1 37+ FPS PyTorch OpenCV ONNX Runtime C++ Python ViViT GNN OpenPose Repo Demo Paper Problem Hospitals need fast, on-premises patient monitoring without leaking sensitive data. Solution A role-aware interface with three detection pipelines and a grounded medical assistant. Architecture Series-gated ViViT + GNN seizure pipeline with OpenPose, ONNX Runtime, C++, and Python. Results 96.69% AUROC, 90.18% F1-score, 37+ FPS, and pre-clinical seizure alerts. Impact Designed for privacy-first, fully on-premises hospital deployment and presented to faculty, industry professionals, and recruiters at the ASU GP Expo. Future Work Clinical validation, alert workflow hardening, and broader hospital integrations. 1st Place | Computer Vision Fruit & Food Segmentation and Calorie Estimation Segmentation, classification, few-shot recognition, and calorie estimation using EfficientNet-B4 + DeepLabV3+. 97.69% Val IoU PyTorch EfficientNet-B4 DeepLabV3+ Few-shot Recognition Code Live Demo Problem Food analysis needs object-level recognition before calories can be estimated reliably. Solution Segment food regions, classify items, support few-shot recognition, then estimate calories. Results 97.69% Validation IoU and 1st Place in the Ain Shams CV Course Competition. Lessons Strong segmentation quality is the foundation for trustworthy downstream nutrition estimates. Medical Imaging Liver Tumor AI - Real-Time Detection & Segmentation PyTorch + U-Net liver tumor segmentation pipeline for unseen patients using strict patient-level validation. 95% Accuracy 91.7% Dice PyTorch U-Net Medical AI Segmentation Live Demo Code Problem Medical segmentation can look strong while leaking patient data across splits. Solution Patient-independent validation with a U-Net segmentation pipeline. Results 95% accuracy and 91.7% Dice score. Impact Healthcare AI proof point with a deployed demo and reproducible code. NLP Research Article Summarizer Chatbot Conversational summarization and question-generation chatbot using Gemini 2.5 Flash API. Gemini API Streamlit NLP Question Generation ROUGE Evaluation Live Demo Code Paper Problem Readers need fast, contextual summaries and follow-up questions from long articles. Solution A Streamlit chatbot that summarizes, extracts topics, and generates context-aware questions. Research Built during the MAHE internship and connected to an NLP summarization paper. Future Work Add richer evaluation dashboards and source-grounded answer tracing. Speech AI / LLM Product CohereVoice Studio An advanced speech-recognition, broadcast-subtitle, and meeting-intelligence suite with Egyptian Arabic-aware model routing. Cohere Transcribe Streamlit pyannote.audio wav2vec 2.0 FFmpeg Code Capabilities Generates broadcast-ready subtitles, multilingual transcripts, speaker labels, and structured meeting notes. Architecture Routes media by language, then combines ASR, diarization, word alignment, subtitle splitting, and translation. Delivery Available through a Streamlit studio and a scriptable CLI for repeatable media-processing workflows. LLM Product Engineering Grounded Portfolio Assistant A portfolio assistant that answers from verified CV, professional context, portfolio, and GitHub knowledge with server-side OpenAI calls. OpenAI API Grounded Retrieval Serverless API Route Tests Diagnostics Code Try Assistant Scope Answers only from verified professional material instead of open-ended web knowledge. Reliability Uses route tests, provider diagnostics, conversation context, and a verified fallback path. Lesson Grounding and deterministic handling matter as much as the model response in recruiter-facing AI products. AI Automation Sanitized n8n Workflow Templates Public, credential-free workflow templates that demonstrate the building blocks behind LLM-enabled automation. n8n LLM Workflows REST APIs Webhooks JSON Validation View Templates Purpose Share inspectable workflow patterns without exposing customer data, credentials, or employer-specific logic. Focus Automation composition, API/webhook integration, structured data handling, and failure-aware workflow design. Relevance Supports an Applied AI and AI Automation engineering profile with a public implementation artifact.",
+      "content": "Featured Projects Flagship AI systems presented as compact case studies for fast technical review. Graduation Project | Healthcare AI Shifaa - AI-Based Patient Monitoring Platform Shifaa team at the ASU Graduation Project Expo Production-grade, privacy-first hospital monitoring platform unifying a grounded medical AI assistant with real-time detection for cardiac arrhythmia, patient falls, and epileptic seizures. 96.69% AUROC 90.18% F1 37+ FPS PyTorch OpenCV ONNX Runtime C++ Python ViViT GNN OpenPose Repo Demo Paper Problem Hospitals need fast, on-premises patient monitoring without leaking sensitive data. Solution A role-aware interface with three detection pipelines and a grounded medical assistant. Architecture Series-gated ViViT + GNN seizure pipeline with OpenPose, ONNX Runtime, C++, and Python. Results 96.69% AUROC, 90.18% F1-score, 37+ FPS, and pre-clinical seizure alerts. Impact Designed for privacy-first, fully on-premises hospital deployment and presented to faculty, industry professionals, and recruiters at the ASU GP Expo. Future Work Clinical validation, alert workflow hardening, and broader hospital integrations. GenAI Hackathon | Career AI Bosla - AI Career Discovery & Growth Platform Conversational AI career-discovery platform offering adaptive discovery dialogues, explainable career matching, personalized roadmaps, habit tracking, and grounded AI mentorship. React TypeScript Vite FastAPI Python PostgreSQL pgvector LLM APIs Vercel Live App Code API Design Problem Students, graduates, and career changers face fragmented advice and struggle to find clear, actionable career direction. Solution An adaptive conversational discovery flow providing grounded career matches, interactive roadmaps, and habit-based follow-through. Architecture React + Vite frontend paired with a modular FastAPI backend, SQL persistence, pgvector semantic search, and configurable LLM providers with fallback. Personalization Grounds recommendations and AI mentor responses in user discovery answers, uploaded career documents, and public GitHub profile context. Reliability Engineered with provider fallback handling, API error feedback, offline cached-data access, and regression testing. Delivery Deployed on Vercel with dedicated production web and API services built for the GenAI Hackathon. 1st Place | Computer Vision Fruit & Food Segmentation and Calorie Estimation Segmentation, classification, few-shot recognition, and calorie estimation using EfficientNet-B4 + DeepLabV3+. 97.69% Val IoU PyTorch EfficientNet-B4 DeepLabV3+ Few-shot Recognition Code Live Demo Problem Food analysis needs object-level recognition before calories can be estimated reliably. Solution Segment food regions, classify items, support few-shot recognition, then estimate calories. Results 97.69% Validation IoU and 1st Place in the Ain Shams CV Course Competition. Lessons Strong segmentation quality is the foundation for trustworthy downstream nutrition estimates. Medical Imaging Liver Tumor AI - Real-Time Detection & Segmentation PyTorch + U-Net liver tumor segmentation pipeline for unseen patients using strict patient-level validation. 95% Accuracy 91.7% Dice PyTorch U-Net Medical AI Segmentation Live Demo Code Problem Medical segmentation can look strong while leaking patient data across splits. Solution Patient-independent validation with a U-Net segmentation pipeline. Results 95% accuracy and 91.7% Dice score. Impact Healthcare AI proof point with a deployed demo and reproducible code. NLP Research Article Summarizer Chatbot Conversational summarization and question-generation chatbot using Gemini 2.5 Flash API. Gemini API Streamlit NLP Question Generation ROUGE Evaluation Live Demo Code Paper Problem Readers need fast, contextual summaries and follow-up questions from long articles. Solution A Streamlit chatbot that summarizes, extracts topics, and generates context-aware questions. Research Built during the MAHE internship and connected to an NLP summarization paper. Future Work Add richer evaluation dashboards and source-grounded answer tracing. Speech AI / LLM Product CohereVoice Studio An advanced speech-recognition, broadcast-subtitle, and meeting-intelligence suite with Egyptian Arabic-aware model routing. Cohere Transcribe Streamlit pyannote.audio wav2vec 2.0 FFmpeg Code Capabilities Generates broadcast-ready subtitles, multilingual transcripts, speaker labels, and structured meeting notes. Architecture Routes media by language, then combines ASR, diarization, word alignment, subtitle splitting, and translation. Delivery Available through a Streamlit studio and a scriptable CLI for repeatable media-processing workflows. LLM Product Engineering Grounded Portfolio Assistant A portfolio assistant that answers from verified CV, professional context, portfolio, and GitHub knowledge with server-side OpenAI calls. OpenAI API Grounded Retrieval Serverless API Route Tests Diagnostics Code Try Assistant Scope Answers only from verified professional material instead of open-ended web knowledge. Reliability Uses route tests, provider diagnostics, conversation context, and a verified fallback path. Lesson Grounding and deterministic handling matter as much as the model response in recruiter-facing AI products. AI Automation Sanitized n8n Workflow Templates Public, credential-free workflow templates that demonstrate the building blocks behind LLM-enabled automation. n8n LLM Workflows REST APIs Webhooks JSON Validation View Templates Purpose Share inspectable workflow patterns without exposing customer data, credentials, or employer-specific logic. Focus Automation composition, API/webhook integration, structured data handling, and failure-aware workflow design. Relevance Supports an Applied AI and AI Automation engineering profile with a public implementation artifact.",
       "url": "https://omarsalama4.github.io/MyPortfolio/#projects",
       "metadata": {}
     },
@@ -47,6 +47,28 @@
           "ViViT",
           "GNN",
           "OpenPose"
+        ]
+      }
+    },
+    {
+      "id": "portfolio:project:bosla-ai-career-discovery-growth-platform",
+      "source": "portfolio",
+      "type": "project",
+      "title": "Bosla - AI Career Discovery & Growth Platform",
+      "content": "GenAI Hackathon | Career AI Bosla - AI Career Discovery & Growth Platform Conversational AI career-discovery platform offering adaptive discovery dialogues, explainable career matching, personalized roadmaps, habit tracking, and grounded AI mentorship. React TypeScript Vite FastAPI Python PostgreSQL pgvector LLM APIs Vercel Live App Code API Design Problem Students, graduates, and career changers face fragmented advice and struggle to find clear, actionable career direction. Solution An adaptive conversational discovery flow providing grounded career matches, interactive roadmaps, and habit-based follow-through. Architecture React + Vite frontend paired with a modular FastAPI backend, SQL persistence, pgvector semantic search, and configurable LLM providers with fallback. Personalization Grounds recommendations and AI mentor responses in user discovery answers, uploaded career documents, and public GitHub profile context. Reliability Engineered with provider fallback handling, API error feedback, offline cached-data access, and regression testing. Delivery Deployed on Vercel with dedicated production web and API services built for the GenAI Hackathon.",
+      "url": "https://github.com/alymaklad/Bosla",
+      "metadata": {
+        "badge": "GenAI Hackathon | Career AI",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "Vite",
+          "FastAPI",
+          "Python",
+          "PostgreSQL",
+          "pgvector",
+          "LLM APIs",
+          "Vercel"
         ]
       }
     },
@@ -161,7 +183,7 @@
       "source": "portfolio",
       "type": "skill",
       "title": "Technical Skills",
-      "content": "Technical Skills Core strengths for Applied AI, AI/ML, Computer Vision, and AI Automation roles. Programming Languages Python C++ Dart SQL AI & Machine Learning PyTorch TensorFlow Scikit-learn Hugging Face Transformers ONNX Runtime Graph Neural Networks Vision Transformers Computer Vision & NLP OpenCV Image Segmentation Object Detection Pose Estimation Optical Flow 3D Vision Transformers Gemini API RAG & AI Automation n8n RAG Prompt Engineering Embeddings Vector Similarity Search REST / GraphQL APIs Webhooks Bitrix24 CRM WhatsApp Cloud API JSON Validation Retry & Fallback Handling Data, Cloud & Engineering Pandas NumPy AWS SageMaker AWS Lambda Data Preprocessing Streamlit Git Linux Docker OOP Data Structures & Algorithms Leadership & Research Technical Leadership Cross-functional Collaboration Public Speaking Problem Solving Curriculum Design Research Writing",
+      "content": "Technical Skills Core strengths for Applied AI, AI/ML, Computer Vision, and AI Automation roles. Programming Languages Python C++ TypeScript JavaScript C# Dart SQL AI & Machine Learning PyTorch TensorFlow Scikit-learn Hugging Face Transformers ONNX Runtime Graph Neural Networks Vision Transformers Computer Vision & NLP OpenCV Image Segmentation Object Detection Pose Estimation Optical Flow 3D Vision Transformers Gemini API RAG & AI Automation n8n RAG Prompt Engineering Embeddings Vector Similarity Search pgvector REST / GraphQL APIs Webhooks Bitrix24 CRM WhatsApp Cloud API JSON Validation Retry & Fallback Handling Data, Cloud & Engineering FastAPI PostgreSQL Pandas NumPy AWS SageMaker AWS Lambda Data Preprocessing Streamlit Git Linux Docker OOP Data Structures & Algorithms Leadership & Research Technical Leadership Cross-functional Collaboration Public Speaking Problem Solving Curriculum Design Research Writing",
       "url": "https://omarsalama4.github.io/MyPortfolio/#skills",
       "metadata": {}
     },
@@ -208,7 +230,7 @@
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Source And Usage Rules",
-      "content": "Source And Usage Rules This document consolidates three sources: 1. The user-supplied professional update dated 2026-09-14. This is the source of truth for new 2026 work, including Cultiv Bureau, CohereVoice Studio, Resala Digitalization Platform, TrueAgent, and the McKinsey Forward Program. 2. OMAR SALAMA CV.pdf in this repository. This is the source of truth for prior roles, education, historic projects, awards, and certifications unless superseded by a newer verified update. 3. Current portfolio repositories and site implementation. Use these to confirm public links, demos, code, and implementation details. Do not invent metrics, client outcomes, deployment scale, adoption, revenue impact, or completion status. Do not describe a design, research activity, or architecture concept as a deployed production system unless that status is explicitly verified. Keep employer/customer data, credentials, internal prompts, and private workflow logic out of public materials.",
+      "content": "Source And Usage Rules This document consolidates three sources: 1. The user-supplied professional update dated 2026-09-14. This is the source of truth for new 2026 work, including Cultiv Bureau, CohereVoice Studio, Resala Digitalization Platform, TrueAgent, and the McKinsey Forward Program. 2. OMAR SALAMA CV.docx (and historic Omar Salama CV.pdf ) in this folder. This is the source of truth for verified roles (including Cultiv Bureau, MAHE NLP Research Assistant, DEPI AI & ML Trainee), education, core projects, awards, and certifications. 3. Current portfolio repositories and site implementation. Use these to confirm public links, demos, code, and implementation details. Do not invent metrics, client outcomes, deployment scale, adoption, revenue impact, or completion status. Do not describe a design, research activity, or architecture concept as a deployed production system unless that status is explicitly verified. Keep employer/customer data, credentials, internal prompts, and private workflow logic out of public materials.",
       "metadata": {
         "generatedFrom": "docs/professional-context.md"
       }
@@ -218,7 +240,7 @@
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Evidence Map",
-      "content": "Evidence Map Area Primary evidence Public evidence Confidence Public-use rule --- --- --- --- --- Cultiv Bureau User-supplied 2026 update and CV No client workflow repository should be assumed public High for responsibilities; unknown for outcomes Describe responsibilities and technical patterns, not customer data or business impact CohereVoice Studio User-supplied 2026 update omarsalama4/coherevoice-studio High Attribute third-party foundations and avoid model-authorship claims Resala Digitalization Platform User-supplied 2026 update No repository verified in this context High for stated architecture work Do not claim release, user count, or production adoption without evidence TrueAgent User-supplied 2026 update No public implementation verified in this context High for product and architecture design Do not call it a deployed agent product Ask Omar Local portfolio source and user-supplied update omarsalama4/MyPortfolio High Call it curated or grounded retrieval; do not claim vector retrieval without implementation evidence Shifaa CV, portfolio, and public repository omarelnokrashy/Shifaa-AI-Based-Patient-Monitoring-System High State Omar's individual contribution; avoid clinical-readiness claims Liver Tumor AI CV and public repository omarsalama4/liver-tumor-ai High Retain patient-independent-validation language; avoid hospital-readiness claims Article Summarizer CV and public repository omarsalama4/News-Summary-chatbot High Report benchmark numbers only as repository-reported results Fruit & Food CV and portfolio omarsalama4/AI-Calories-calculator High for CV metrics and award Do not extrapolate nutrition accuracy beyond reported validation IoU",
+      "content": "Evidence Map Area Primary evidence Public evidence Confidence Public-use rule --- --- --- --- --- Cultiv Bureau User-supplied 2026 update and CV No client workflow repository should be assumed public High for responsibilities; unknown for outcomes Describe responsibilities and technical patterns, not customer data or business impact CohereVoice Studio User-supplied 2026 update omarsalama4/coherevoice-studio High Attribute third-party foundations and avoid model-authorship claims Resala Digitalization Platform User-supplied 2026 update No repository verified in this context High for stated architecture work Do not claim release, user count, or production adoption without evidence TrueAgent User-supplied 2026 update No public implementation verified in this context High for product and architecture design Do not call it a deployed agent product Ask Omar Local portfolio source and user-supplied update omarsalama4/MyPortfolio High Call it curated or grounded retrieval; do not claim vector retrieval without implementation evidence Shifaa CV, portfolio, and public repository omarelnokrashy/Shifaa-AI-Based-Patient-Monitoring-System High State Omar's individual contribution; avoid clinical-readiness claims Liver Tumor AI CV and public repository omarsalama4/liver-tumor-ai High Retain patient-independent-validation language; avoid hospital-readiness claims Article Summarizer CV and public repository omarsalama4/News-Summary-chatbot High Report benchmark numbers only as repository-reported results Fruit & Food CV and portfolio omarsalama4/AI-Calories-calculator High for CV metrics and award Do not extrapolate nutrition accuracy beyond reported validation IoU MAHE Multimodal Credit Risk CV ( OMAR SALAMA CV.docx ) Academic research under Prof. Ramakrishna High Frame as research into multimodal feature fusion, document understanding, and XAI; avoid claims of production bank deployment DEPI CV ( OMAR SALAMA CV.docx ) Initiative training and cohort projects High Frame as intensive AI/ML and data engineering training and cohort solution development",
       "metadata": {
         "generatedFrom": "docs/professional-context.md"
       }
@@ -258,7 +280,7 @@
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Cultiv Bureau - AI & Automation Engineer / Intern",
-      "content": "Cultiv Bureau - AI & Automation Engineer / Intern Dates: July 2026 - Present Location: Cairo, Egypt Scope - Build AI-powered business-process automations and enterprise integrations with n8n, Bitrix24, Odoo, REST APIs, GraphQL, webhooks, and LLMs. - Design CRM workflows for lead qualification, intent classification, routing, customer support, automated follow-ups, assignment, and priority-oriented operations. - Develop RAG and structured-data-extraction pipelines for business applications, including document chunking, embeddings, vector similarity search, and grounded context injection. - Engineer prompts, structured templates, history boundaries, JSON validation, API retry logic, fallback handling, and production debugging to improve response quality and workflow reliability. - Work directly with clients to translate business and customer-service requirements into AI, CRM, and automation solutions. - Build multi-agent-system concepts and workflows with role boundaries, tool access, structured outputs, validation, retries, and error handling. Document intelligence work - Built an Odoo document-processing workflow for Arabic and English documents. - Used Google Cloud Vision OCR with rotation correction and image enhancement. - Normalized OCR output into schema-constrained JSON, with confidence scoring and LLM fallback for uncertain extraction. - Designed generalized normalization logic rather than document-specific hardcoding, then integrated the extracted information into Odoo workflows. TrueForm work - Designed and tested assessment workflows with multi-page forms, timers, speaking evaluation, structured outputs, and QA scenarios. Core stack n8n , Bitrix24 , Odoo , Google Cloud Vision , LLMs , RAG , Multi-Agent Systems , REST , GraphQL , Webhooks , WhatsApp Cloud API , JSON Schema . Public-safe wording Build LLM-enabled automation and RAG workflows that connect CRM and ERP systems through APIs, webhooks, structured outputs, validation, retries, and fallback handling. CV-ready bullet variants - Designed n8n automation workflows that embed LLM intent analysis into CRM and customer-support processes through REST/GraphQL APIs, webhooks, Bitrix24, Odoo, and WhatsApp Cloud API. - Built RAG and document-intelligence pipelines using chunking, embeddings, similarity search, OCR, JSON Schema validation, confidence scoring, and LLM fallback for Arabic and English business documents. - Built multi-agent-system concepts and reliable AI workflows with structured outputs, validation, retries, error handling, and production debugging; worked directly with clients to translate operational requirements into AI-enabled workflows. Portfolio-ready summary At Cultiv Bureau, Omar builds AI automation and multi-agent-system concepts that connect LLM reasoning with business systems. The work spans RAG, OCR, CRM and ERP workflows, API/webhook integration, validation, error recovery, and client-facing solution design.",
+      "content": "Cultiv Bureau - AI & Automation Engineer / Intern Dates: July 2026 - Present Location: Cairo, Egypt Scope - Build AI-powered business-process automations and enterprise integrations with n8n, Bitrix24, Odoo, REST APIs, GraphQL, webhooks, and LLMs. - Design CRM workflows for lead qualification, intent classification, routing, customer support, automated follow-ups, assignment, and priority-oriented operations. - Develop RAG and structured-data-extraction pipelines for business applications, including document chunking, embeddings, vector similarity search, and grounded context injection. - Engineer prompts, structured templates, history boundaries, JSON validation, API retry logic, fallback handling, and production debugging to improve response quality and workflow reliability. - Work directly with clients to translate business and customer-service requirements into AI, CRM, and automation solutions. - Deploy and maintain production workflows using Cloudflare Tunnels, validation, retries, and error handling. Document intelligence work - Built an Odoo document-processing workflow for Arabic and English documents. - Used Google Cloud Vision OCR with rotation correction and image enhancement. - Normalized OCR output into schema-constrained JSON, with confidence scoring and LLM fallback for uncertain extraction. - Designed generalized normalization logic rather than document-specific hardcoding, then integrated the extracted information into Odoo workflows. TrueForm work - Designed and tested assessment workflows with multi-page forms, timers, speaking evaluation, structured outputs, and QA scenarios. Core stack n8n , Bitrix24 , Odoo , Google Cloud Vision , LLMs , RAG , REST , GraphQL , Webhooks , WhatsApp Cloud API , JSON Schema , Cloudflare Tunnels . Public-safe wording Build LLM-enabled automation and RAG workflows that connect CRM and ERP systems through APIs, webhooks, structured outputs, validation, retries, and fallback handling. CV-ready bullet variants - Designed n8n automation workflows that embed LLM intent analysis into CRM and customer-support processes through REST/GraphQL APIs, webhooks, Bitrix24, Odoo, and WhatsApp Cloud API. - Built RAG and document-intelligence pipelines using chunking, embeddings, similarity search, OCR, JSON Schema validation, confidence scoring, and LLM fallback for Arabic and English business documents. - Improved workflow reliability with structured outputs, validation, retries, error handling, and production debugging; worked directly with clients to translate operational requirements into AI-enabled workflows. Portfolio-ready summary At Cultiv Bureau, Omar builds AI automation that connects LLM reasoning with business systems. The work spans RAG, OCR, CRM and ERP workflows, API/webhook integration, validation, error recovery, and client-facing solution design.",
       "metadata": {
         "generatedFrom": "docs/professional-context.md"
       }
@@ -268,7 +290,7 @@
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Manipal Academy of Higher Education (MAHE) - NLP Research Assistant",
-      "content": "Manipal Academy of Higher Education (MAHE) - NLP Research Assistant Dates: July 2025 - September 2025 Location: Manipal, India - Researched a multimodal AI credit-risk scoring system combining structured financial data, emails, and financial documents. - Applied BERT and Transformer embeddings with feature fusion to extract and integrate financial risk signals. - Explored explainable AI with SHAP/LIME and document understanding using LayoutLMv3/Donut. - Co-authored an NLP text-summarization research paper under Prof. Ramakrishna.",
+      "content": "Manipal Academy of Higher Education (MAHE) - NLP Research Assistant Dates: July 2025 - September 2025 Location: Manipal, India Scope - Researched a multimodal AI credit-risk scoring system combining structured financial data, emails, and financial documents. - Applied BERT/Transformer embeddings and feature fusion for extracting and integrating financial risk signals. - Explored Explainable AI (SHAP/LIME) and document understanding using LayoutLMv3/Donut. - Co-authored an NLP text-summarization research paper under Prof. Ramakrishna. - Built and deployed an interactive news-summarization chatbot using the Google Gemini API with conversational, context-aware question generation (Article Summarizer portfolio project). Core stack Python , PyTorch , Hugging Face Transformers , BERT , LayoutLMv3 , Donut , SHAP , LIME , Gemini API , Streamlit , Scikit-learn . CV-ready bullets - Researched a multimodal AI credit-risk scoring system combining structured financial data, emails, and financial documents. - Applied BERT/Transformer embeddings and feature fusion for extracting and integrating financial risk signals. - Explored Explainable AI (SHAP/LIME) and document understanding using LayoutLMv3/Donut. - Co-authored an NLP text-summarization research paper under Prof. Ramakrishna.",
       "metadata": {
         "generatedFrom": "docs/professional-context.md"
       }
@@ -278,7 +300,7 @@
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Digital Egypt Pioneers Initiative (DEPI) - AI & Machine Learning Trainee",
-      "content": "Digital Egypt Pioneers Initiative (DEPI) - AI & Machine Learning Trainee Dates: July 2025 - January 2026 - Completed intensive training in Python, machine learning, deep learning, data engineering, and AI deployment. - Built end-to-end AI projects applying supervised and unsupervised learning, model development, evaluation, and deployment workflows. - Collaborated in a cross-functional cohort to develop AI solutions for real-world problems.",
+      "content": "Digital Egypt Pioneers Initiative (DEPI) - AI & Machine Learning Trainee Dates: July 2025 - January 2026 Location: Cairo, Egypt Scope - Completed intensive cohort training in Python, Machine Learning, Deep Learning, Data Engineering, and AI deployment workflows. - Built end-to-end AI projects applying supervised and unsupervised learning, model development, evaluation, and deployment workflows. - Collaborated in a cross-functional cohort to develop AI solutions for real-world problems. Core stack Python , Machine Learning , Deep Learning , Data Engineering , Scikit-learn , TensorFlow , PyTorch , AI Deployment . CV-ready bullets - Completed intensive training in Python, Machine Learning, Deep Learning, Data Engineering, and AI deployment. - Built end-to-end AI projects applying supervised/unsupervised learning, model development, evaluation, and deployment workflows. - Collaborated in a cross-functional cohort to develop AI solutions for real-world problems.",
       "metadata": {
         "generatedFrom": "docs/professional-context.md"
       }
@@ -314,7 +336,17 @@
       }
     },
     {
-      "id": "professional-context:coherevoice-studio-speech-ai-and-meeting-intelligence-12",
+      "id": "professional-context:bosla-ai-career-discovery-and-growth-platform-12",
+      "source": "professional-context",
+      "type": "professional-context",
+      "title": "Professional Context: Bosla - AI Career Discovery And Growth Platform",
+      "content": "Bosla - AI Career Discovery And Growth Platform Dates: September 2026 - Present Context: GenAI Hackathon project Project links: - Web app: <https://bosla-web.vercel.app - API: <https://bosla-api.vercel.app - GitHub repository: <https://github.com/alymaklad/Bosla - Stitch design: <https://stitch.withgoogle.com/projects/4252916577916722852 - Product and full-stack AI engineering contributor to a career-discovery platform that helps students, graduates, and career changers explore suitable directions through an adaptive conversation. - Shaped the product requirements and user journey, including consent, career-context collection, conversational discovery, explainable career matches, roadmaps, and habit-based follow-through. - Built and iterated on a React, TypeScript, and Vite web application paired with a FastAPI backend, SQL persistence, authentication, and configurable AI-provider integrations. - Implemented AI-personalization workflows that use discovery answers and optional uploaded career documents or public GitHub profile context to inform recommendations and mentor responses. - Developed career-planning and progress features spanning match details, roadmaps, habits, weekly reviews, and progress tracking, with attention to honest account state and onboarding completion. - Improved reliability and usability through provider fallback handling, API error feedback, responsive interface refinements, regression testing, and offline access to previously cached account data. - Prepared the application for Vercel deployment and configured the production web/API setup; Google sign-in and Calendar/Tasks remain dependent on production OAuth configuration, and external labor-market sourcing should only be claimed once verified in the product. Stack: React , TypeScript , Vite , FastAPI , Python , PostgreSQL/SQLite , LLM APIs , pgvector , Vercel . Public-safe summary Co-developed Bosla, a conversational AI career-discovery platform, shaping its product flow and building full-stack features for personalized recommendations, career roadmaps, habit tracking, and mentor guidance grounded in user-provided context.",
+      "metadata": {
+        "generatedFrom": "docs/professional-context.md"
+      }
+    },
+    {
+      "id": "professional-context:coherevoice-studio-speech-ai-and-meeting-intelligence-13",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: CohereVoice Studio - Speech AI And Meeting Intelligence",
@@ -324,7 +356,7 @@
       }
     },
     {
-      "id": "professional-context:resala-digitalization-platform-enterprise-management-system-13",
+      "id": "professional-context:resala-digitalization-platform-enterprise-management-system-14",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Resala Digitalization Platform - Enterprise Management System",
@@ -334,27 +366,27 @@
       }
     },
     {
-      "id": "professional-context:trueagent-ai-employee-and-multi-agent-platform-14",
+      "id": "professional-context:trueagent-ai-employee-and-multi-agent-platform-15",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: TrueAgent - AI Employee And Multi-Agent Platform",
-      "content": "TrueAgent - AI Employee And Multi-Agent Platform Context: Cultiv Bureau product and architecture work. - Designed multi-agent orchestration and AI employee architecture for CRM, ERP, API, and business-workflow interaction. - Defined capabilities and controls including RAG, tool calling, permissions, approvals, stop conditions, tracing, and observability. - Designed integration approaches for Bitrix24, Odoo, n8n, and related business systems. - Conducted competitor research across 70+ AI-agent and customer-support products. - Produced product requirements, feature-comparison frameworks, architecture decisions, and UX concepts. - Explored a production-oriented stack using LangGraph, NestJS/FastAPI, PostgreSQL, Redis, Temporal, OpenTelemetry, Prometheus, and Grafana. Important boundary: This is product and architecture work. Do not describe it as a launched or production-deployed multi-agent platform unless a public, verified deployment is available. Architecture context - Agent layer: role-specific AI employees, tool calling, RAG, capability boundaries, stop conditions, and approval gates. - Application layer: API services considered in NestJS and FastAPI, with business-system adapters for Bitrix24, Odoo, and n8n. - State and workflow layer: PostgreSQL, Redis, and Temporal considered for durable state, queues, and long-running workflows. - Observability layer: OpenTelemetry, Prometheus, and Grafana considered for tracing, monitoring, and operational visibility. - Safety layer: permissions, approvals, structured outputs, and auditability were included in the architecture scope. Safe phrasing Defined a multi-agent enterprise-AI architecture with tool access, permissions, approvals, stop conditions, and observability requirements for CRM and ERP workflows.",
+      "content": "TrueAgent - AI Employee And Multi-Agent Platform Context: Cultiv Bureau product and architecture work. Role: AI-focused product and architecture contributor for TrueAgent, responsible primarily for AI design and implementation and related backend work when needed. Current delivery focus is Phase 1, Module 3 (AI Studio). Module 3 responsibilities - Define and maintain the provider-neutral AI contract between the TrueAgent backend/runtime and AI providers. - Own the AI-side design and planned implementation of OpenAI and OpenRouter adapters, prompt construction and context injection, agent runtime/model invocation, and model fallback behavior. - Coordinate the boundary with Backend: Backend remains responsible for authorization, tenant-scoped context, provider credential resolution, execution persistence, integration/function execution, and credit accounting. - Keep provider credentials out of AI request/result data and logs; use approved model-registry IDs and record the provider/model actually used for each attempt. - Treat model-generated Function calls as proposals for Backend authorization and execution; AI does not call CRM/ERP systems directly. Current project status (2026-10-05) - Prepared AI Contracts v1 as a proposed technical baseline, including versioned request/result, classification, provider-error, and usage envelopes; provider mappings; capability and model-resolution rules; and error-code guidance. - Produced a validated DOCX revision with the JSON Schema and complete examples embedded. The revision is in Docs/AI Contracts v1 validated.docx; Backend and AI sign-off remains pending. - The next Module 3 implementation assignment is the OpenAI/OpenRouter adapter layer and deterministic fake provider. Adapter code has not yet been implemented. Important boundary: This is product, architecture, and contract work. Do not describe TrueAgent as launched or production-deployed, or the planned adapters as implemented, unless later evidence verifies those claims. - Designed multi-agent orchestration and AI employee architecture for CRM, ERP, API, and business-workflow interaction. - Defined capabilities and controls including RAG, tool calling, permissions, approvals, stop conditions, tracing, and observability. - Designed integration approaches for Bitrix24, Odoo, n8n, and related business systems. - Conducted competitor research across 70+ AI-agent and customer-support products. - Produced product requirements, feature-comparison frameworks, architecture decisions, and UX concepts. - Explored a production-oriented stack using LangGraph, NestJS/FastAPI, PostgreSQL, Redis, Temporal, OpenTelemetry, Prometheus, and Grafana. Important boundary: This is product and architecture work. Do not describe it as a launched or production-deployed multi-agent platform unless a public, verified deployment is available. Architecture context - Agent layer: role-specific AI employees, tool calling, RAG, capability boundaries, stop conditions, and approval gates. - Application layer: API services considered in NestJS and FastAPI, with business-system adapters for Bitrix24, Odoo, and n8n. - State and workflow layer: PostgreSQL, Redis, and Temporal considered for durable state, queues, and long-running workflows. - Observability layer: OpenTelemetry, Prometheus, and Grafana considered for tracing, monitoring, and operational visibility. - Safety layer: permissions, approvals, structured outputs, and auditability were included in the architecture scope. Safe phrasing Defined a multi-agent enterprise-AI architecture with tool access, permissions, approvals, stop conditions, and observability requirements for CRM and ERP workflows.",
       "metadata": {
         "generatedFrom": "docs/professional-context.md"
       }
     },
     {
-      "id": "professional-context:ask-omar-grounded-ai-recruiter-portfolio-assistant-15",
+      "id": "professional-context:ask-omar-grounded-ai-recruiter-portfolio-assistant-16",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Ask Omar - Grounded AI Recruiter Portfolio Assistant",
-      "content": "Ask Omar - Grounded AI Recruiter Portfolio Assistant Dates: July 2026 - Present Repository: <https://github.com/omarsalama4/MyPortfolio - Built a grounded assistant into the portfolio using verified CV, professional context, portfolio, and project context. - Designed response behavior to minimize hallucination and keep answers grounded in verified profile data. - Added conversation export, model fallbacks, automated chatbot testing, responsive UI, SEO, and accessibility work. Stack: JavaScript , Node.js , Serverless Functions , OpenAI , HTML , CSS . Important boundary: Describe the system as grounded retrieval from curated portfolio knowledge. Do not claim embeddings/vector search unless the deployed implementation actually uses them. Implementation details - Client: responsive portfolio chat UI, suggested prompts, session history, a CV download action, response headings and bullet formatting, and browser-based PDF export. - Server: serverless OpenAI chat endpoint with a health endpoint and server-side configuration. - Grounding: generated knowledge file derived from verified CV, professional context, and portfolio content; lexical retrieval selects relevant source sections before prompting the model. - Reliability: deterministic handling for greetings, document access, and unsupported topics; verified fallback behavior, provider diagnostics, and automated route tests. - Quality: semantic HTML, keyboard interaction, visible focus states, SEO metadata, sitemap, robots file, and structured Person data.",
+      "content": "Ask Omar - Grounded AI Recruiter Portfolio Assistant Dates: July 2026 - August 2026 Repository: <https://github.com/omarsalama4/MyPortfolio - Built a grounded assistant into the portfolio using CV, professional, and project context. - Designed response behavior to minimize hallucination and keep answers grounded in verified profile data. - Added conversation export, model fallbacks, automated chatbot testing, responsive UI, SEO, and accessibility work. Stack: JavaScript , Node.js , Serverless Functions , OpenAI , Gemini , RAG , HTML , CSS . Important boundary: Describe the system as grounded retrieval from curated portfolio knowledge. Do not claim embeddings/vector search unless the deployed implementation actually uses them. Implementation details - Client: responsive portfolio chat UI, suggested prompts, session history, conversation clearing, and browser-based PDF export. - Server: serverless chat endpoint with configurable OpenAI/Gemini provider settings and a health endpoint. - Grounding: generated knowledge file derived from verified portfolio content; retrieval selects relevant source sections before prompting the model. - Reliability: deterministic handling for greetings and unsupported topics, verified fallback behavior, provider diagnostics, and automated route tests. - Quality: semantic HTML, keyboard interaction, visible focus states, SEO metadata, sitemap, robots file, and structured Person data.",
       "metadata": {
         "generatedFrom": "docs/professional-context.md"
       }
     },
     {
-      "id": "professional-context:ai-automation-and-document-intelligence-workflows-16",
+      "id": "professional-context:ai-automation-and-document-intelligence-workflows-17",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: AI Automation And Document Intelligence Workflows",
@@ -364,7 +396,7 @@
       }
     },
     {
-      "id": "professional-context:shifaa-privacy-first-hospital-clinical-decision-support-17",
+      "id": "professional-context:shifaa-privacy-first-hospital-clinical-decision-support-18",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Shifaa - Privacy-First Hospital Clinical Decision Support",
@@ -374,7 +406,7 @@
       }
     },
     {
-      "id": "professional-context:liver-tumor-ai-detailed-evidence-18",
+      "id": "professional-context:liver-tumor-ai-detailed-evidence-19",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Liver Tumor AI - Detailed Evidence",
@@ -384,7 +416,7 @@
       }
     },
     {
-      "id": "professional-context:article-summarizer-chatbot-detailed-evidence-19",
+      "id": "professional-context:article-summarizer-chatbot-detailed-evidence-20",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Article Summarizer Chatbot - Detailed Evidence",
@@ -394,7 +426,17 @@
       }
     },
     {
-      "id": "professional-context:fruit-and-food-segmentation-and-calorie-estimation-detailed-evidence-20",
+      "id": "professional-context:multimodal-ai-credit-risk-scoring-system-detailed-evidence-21",
+      "source": "professional-context",
+      "type": "professional-context",
+      "title": "Professional Context: Multimodal AI Credit-Risk Scoring System - Detailed Evidence",
+      "content": "Multimodal AI Credit-Risk Scoring System - Detailed Evidence Context: Academic research during MAHE internship under Prof. Ramakrishna. Source: CV ( OMAR SALAMA CV.docx ) - Researched a multimodal credit-risk scoring framework combining structured financial tables, unstructured emails, and financial document inputs. - Applied BERT and Transformer embeddings with multimodal feature fusion to integrate and represent heterogenous risk signals. - Explored document understanding using LayoutLMv3 and Donut for processing semi-structured financial documents (invoices, statements). - Leveraged Explainable AI (SHAP and LIME) to interpret model risk predictions and provide transparent attribution for regulatory and credit-assessment clarity. Stack: Python , PyTorch , Hugging Face Transformers , BERT , LayoutLMv3 , Donut , SHAP , LIME , Scikit-learn , Pandas . Safe project statement Researched a multimodal credit-risk scoring framework fusing structured financials, email text, and document understanding (LayoutLMv3/Donut) with Transformer embeddings and SHAP/LIME explainability.",
+      "metadata": {
+        "generatedFrom": "docs/professional-context.md"
+      }
+    },
+    {
+      "id": "professional-context:fruit-and-food-segmentation-and-calorie-estimation-detailed-evidence-22",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Fruit And Food Segmentation And Calorie Estimation - Detailed Evidence",
@@ -404,7 +446,7 @@
       }
     },
     {
-      "id": "professional-context:n8n-workflow-templates-detailed-evidence-21",
+      "id": "professional-context:n8n-workflow-templates-detailed-evidence-23",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: n8n Workflow Templates - Detailed Evidence",
@@ -414,27 +456,27 @@
       }
     },
     {
-      "id": "professional-context:other-portfolio-work-22",
+      "id": "professional-context:other-portfolio-work-24",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Other Portfolio Work",
-      "content": "Other Portfolio Work - Fruit & Food Segmentation and Calorie Estimation: EfficientNet-B4 and DeepLabV3+ food analysis system; reported 97.69% validation IoU and 1st place in the Ain Shams Computer Vision Course Competition. - Liver Tumor AI: PyTorch and U-Net segmentation pipeline; CV reports 95% accuracy and 91.7% Dice using patient-independent validation. - Article Summarizer Chatbot: Gemini 2.5 Flash conversational summarization and question-generation system built during MAHE work. - GenAI for Education Hackathon 2026: Agentic education and career-discovery concept with student profiling, recommendations, skill-gap analysis, roadmaps, and role exploration. - Smaller portfolio-only work: Happylife Visa Chatbot, German Quiz / Learning Content Tools, n8n-to-Codex MCP experiment, Arabic OCR benchmarking, TrueForm QA/test-case development, and Revit/BIM tasks.",
+      "content": "Other Portfolio Work - Multimodal AI Credit-Risk Scoring System: Research at MAHE fusing structured data, emails, and financial documents with BERT embeddings, LayoutLMv3, and SHAP/LIME. - Fruit & Food Segmentation and Calorie Estimation: EfficientNet-B4 and DeepLabV3+ food analysis system; reported 97.69% validation IoU and 1st place in the Ain Shams Computer Vision Course Competition. - Liver Tumor AI: PyTorch and U-Net segmentation pipeline; CV reports 95% accuracy and 91.7% Dice using patient-independent validation. - Article Summarizer Chatbot: Gemini 2.5 Flash conversational summarization and question-generation system built during MAHE work. - GenAI for Education Hackathon 2026: Agentic education and career-discovery concept with student profiling, recommendations, skill-gap analysis, roadmaps, and role exploration. - Smaller portfolio-only work: Happylife Visa Chatbot, German Quiz / Learning Content Tools, n8n-to-Codex MCP experiment, Arabic OCR benchmarking, TrueForm QA/test-case development, and Revit/BIM tasks.",
       "metadata": {
         "generatedFrom": "docs/professional-context.md"
       }
     },
     {
-      "id": "professional-context:project-selection-by-use-case-23",
+      "id": "professional-context:project-selection-by-use-case-25",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Project Selection By Use Case",
-      "content": "Project Selection By Use Case Audience or role Lead projects Supporting projects Avoid leading with --- --- --- --- Applied AI Engineer Cultiv, CohereVoice, Shifaa Ask Omar, Liver Tumor AI Generic training certificates AI Automation Engineer Cultiv, OCR to Odoo, Ask Omar, n8n templates TrueAgent architecture, Resala Standalone CV competitions Agentic AI Engineer TrueAgent architecture, Cultiv RAG, Ask Omar GenAI for Education, n8n templates Any unverified autonomous-agent claim Speech AI / LLM Product Engineer CohereVoice, Article Summarizer, Ask Omar Cultiv RAG work Unrelated full-stack work Computer Vision / ML Engineer Shifaa, Liver Tumor AI, Fruit & Food ASU Racing, CohereVoice CRM workflows as the main proof",
+      "content": "Project Selection By Use Case Audience or role Lead projects Supporting projects Avoid leading with --- --- --- --- Applied AI Engineer Cultiv, CohereVoice, Shifaa Ask Omar, Liver Tumor AI, MAHE Credit Risk Generic training certificates AI Automation Engineer Cultiv, OCR to Odoo, Ask Omar, n8n templates TrueAgent architecture, Resala Standalone CV competitions Agentic AI Engineer TrueAgent architecture, Cultiv RAG, Ask Omar GenAI for Education, n8n templates Any unverified autonomous-agent claim Speech AI / LLM Product Engineer CohereVoice, Article Summarizer, Ask Omar Cultiv RAG work Unrelated full-stack work Computer Vision / ML Engineer Shifaa, Liver Tumor AI, Fruit & Food ASU Racing, CohereVoice, MAHE Credit Risk CRM workflows as the main proof",
       "metadata": {
         "generatedFrom": "docs/professional-context.md"
       }
     },
     {
-      "id": "professional-context:reusable-project-bullets-24",
+      "id": "professional-context:reusable-project-bullets-26",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Reusable Project Bullets",
@@ -444,7 +486,7 @@
       }
     },
     {
-      "id": "professional-context:coherevoice-studio-25",
+      "id": "professional-context:coherevoice-studio-27",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: CohereVoice Studio",
@@ -454,7 +496,7 @@
       }
     },
     {
-      "id": "professional-context:resala-digitalization-platform-26",
+      "id": "professional-context:resala-digitalization-platform-28",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Resala Digitalization Platform",
@@ -464,7 +506,7 @@
       }
     },
     {
-      "id": "professional-context:ask-omar-27",
+      "id": "professional-context:ask-omar-29",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Ask Omar",
@@ -474,7 +516,7 @@
       }
     },
     {
-      "id": "professional-context:shifaa-28",
+      "id": "professional-context:shifaa-30",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Shifaa",
@@ -484,7 +526,17 @@
       }
     },
     {
-      "id": "professional-context:document-intelligence-to-odoo-29",
+      "id": "professional-context:multimodal-ai-credit-risk-scoring-system-mahe-31",
+      "source": "professional-context",
+      "type": "professional-context",
+      "title": "Professional Context: Multimodal AI Credit-Risk Scoring System (MAHE)",
+      "content": "Multimodal AI Credit-Risk Scoring System (MAHE) - Researched a multimodal credit-risk framework fusing structured financial metrics, email communications, and document understanding (LayoutLMv3/Donut) via Transformer embeddings and multimodal feature fusion. - Integrated Explainable AI methods (SHAP and LIME) to interpret high-dimensional multimodal risk factors for regulatory and audit transparency.",
+      "metadata": {
+        "generatedFrom": "docs/professional-context.md"
+      }
+    },
+    {
+      "id": "professional-context:document-intelligence-to-odoo-32",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Document Intelligence To Odoo",
@@ -494,7 +546,7 @@
       }
     },
     {
-      "id": "professional-context:education-and-development-30",
+      "id": "professional-context:education-and-development-33",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Education And Development",
@@ -504,7 +556,7 @@
       }
     },
     {
-      "id": "professional-context:b-sc-computer-science-and-artificial-intelligence-dual-degree-31",
+      "id": "professional-context:b-sc-computer-science-and-artificial-intelligence-dual-degree-34",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: B.Sc. Computer Science And Artificial Intelligence (Dual Degree)",
@@ -514,7 +566,7 @@
       }
     },
     {
-      "id": "professional-context:mckinsey-forward-program-32",
+      "id": "professional-context:mckinsey-forward-program-35",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: McKinsey Forward Program",
@@ -524,7 +576,7 @@
       }
     },
     {
-      "id": "professional-context:certifications-awards-and-recognition-33",
+      "id": "professional-context:certifications-awards-and-recognition-36",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Certifications, Awards, And Recognition",
@@ -534,7 +586,7 @@
       }
     },
     {
-      "id": "professional-context:consolidated-skills-taxonomy-34",
+      "id": "professional-context:consolidated-skills-taxonomy-37",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Consolidated Skills Taxonomy",
@@ -544,7 +596,7 @@
       }
     },
     {
-      "id": "professional-context:ai-llm-and-agentic-systems-35",
+      "id": "professional-context:ai-llm-and-agentic-systems-38",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: AI, LLM, And Agentic Systems",
@@ -554,17 +606,17 @@
       }
     },
     {
-      "id": "professional-context:applied-ml-vision-nlp-and-speech-36",
+      "id": "professional-context:applied-ml-vision-nlp-and-speech-39",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Applied ML, Vision, NLP, And Speech",
-      "content": "Applied ML, Vision, NLP, And Speech Python , PyTorch , TensorFlow , Scikit-learn , Computer Vision , NLP , Speech AI , ASR , Speaker Diarization , Transformers , OpenCV , ONNX Runtime , Vision Transformers , Graph Neural Networks , OpenPose .",
+      "content": "Applied ML, Vision, NLP, And Speech Python , PyTorch , TensorFlow , Scikit-learn , Computer Vision , NLP , Multimodal AI , Feature Fusion , Explainable AI (SHAP / LIME) , Speech AI , ASR , Speaker Diarization , Transformers , BERT , OpenCV , ONNX Runtime , Vision Transformers , Graph Neural Networks , OpenPose .",
       "metadata": {
         "generatedFrom": "docs/professional-context.md"
       }
     },
     {
-      "id": "professional-context:llm-providers-and-frameworks-37",
+      "id": "professional-context:llm-providers-and-frameworks-40",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: LLM Providers And Frameworks",
@@ -574,7 +626,7 @@
       }
     },
     {
-      "id": "professional-context:automation-and-enterprise-ai-38",
+      "id": "professional-context:automation-and-enterprise-ai-41",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Automation And Enterprise AI",
@@ -584,27 +636,27 @@
       }
     },
     {
-      "id": "professional-context:document-ai-39",
+      "id": "professional-context:document-ai-42",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Document AI",
-      "content": "Document AI OCR , Google Cloud Vision , Tesseract , Document Intelligence , Structured Information Extraction , JSON Schema , Arabic/English NLP .",
+      "content": "Document AI OCR , Google Cloud Vision , LayoutLMv3 , Donut , Tesseract , Document Intelligence , Structured Information Extraction , JSON Schema , Arabic/English NLP .",
       "metadata": {
         "generatedFrom": "docs/professional-context.md"
       }
     },
     {
-      "id": "professional-context:backend-data-and-infrastructure-40",
+      "id": "professional-context:backend-data-and-infrastructure-43",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Backend, Data, And Infrastructure",
-      "content": "Backend, Data, And Infrastructure Node.js , NestJS , FastAPI , TypeScript , JavaScript , PostgreSQL , Prisma , Redis , BullMQ , pgvector , Docker , Docker Compose , AWS , Cloudflare R2 , MinIO .",
+      "content": "Backend, Data, And Infrastructure Data Engineering , Node.js , NestJS , FastAPI , TypeScript , JavaScript , PostgreSQL , Prisma , Redis , BullMQ , pgvector , Docker , Docker Compose , AWS , Cloudflare Tunnels , Cloudflare R2 , MinIO .",
       "metadata": {
         "generatedFrom": "docs/professional-context.md"
       }
     },
     {
-      "id": "professional-context:frontend-41",
+      "id": "professional-context:frontend-44",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Frontend",
@@ -614,7 +666,7 @@
       }
     },
     {
-      "id": "professional-context:testing-security-and-observability-42",
+      "id": "professional-context:testing-security-and-observability-45",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Testing, Security, And Observability",
@@ -624,7 +676,7 @@
       }
     },
     {
-      "id": "professional-context:architecture-43",
+      "id": "professional-context:architecture-46",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Architecture",
@@ -634,7 +686,7 @@
       }
     },
     {
-      "id": "professional-context:approved-messaging-44",
+      "id": "professional-context:approved-messaging-47",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Approved Messaging",
@@ -644,7 +696,7 @@
       }
     },
     {
-      "id": "professional-context:30-second-introduction-45",
+      "id": "professional-context:30-second-introduction-48",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: 30-Second Introduction",
@@ -654,7 +706,7 @@
       }
     },
     {
-      "id": "professional-context:linkedin-headline-46",
+      "id": "professional-context:linkedin-headline-49",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: LinkedIn Headline",
@@ -664,7 +716,7 @@
       }
     },
     {
-      "id": "professional-context:cv-headline-47",
+      "id": "professional-context:cv-headline-50",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: CV Headline",
@@ -674,7 +726,7 @@
       }
     },
     {
-      "id": "professional-context:github-bio-48",
+      "id": "professional-context:github-bio-51",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: GitHub Bio",
@@ -684,7 +736,7 @@
       }
     },
     {
-      "id": "professional-context:claims-to-avoid-or-qualify-49",
+      "id": "professional-context:claims-to-avoid-or-qualify-52",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Claims To Avoid Or Qualify",
@@ -694,7 +746,7 @@
       }
     },
     {
-      "id": "professional-context:current-priorities-50",
+      "id": "professional-context:current-priorities-53",
       "source": "professional-context",
       "type": "professional-context",
       "title": "Professional Context: Current Priorities",

@@ -1,6 +1,6 @@
 # Omar Salama - Professional Context
 
-**Last updated:** 2026-09-19  
+**Last updated:** 2026-10-05  
 **Purpose:** Reusable factual context for portfolio copy, CV tailoring, LinkedIn, recruiter conversations, the Ask Omar assistant, and project documentation.
 
 ## Source And Usage Rules
@@ -8,7 +8,7 @@
 This document consolidates three sources:
 
 1. The user-supplied professional update dated 2026-09-14. This is the source of truth for new 2026 work, including Cultiv Bureau, CohereVoice Studio, Resala Digitalization Platform, TrueAgent, and the McKinsey Forward Program.
-2. `OMAR SALAMA CV.pdf` in this repository. This is the source of truth for prior roles, education, historic projects, awards, and certifications unless superseded by a newer verified update.
+2. `OMAR SALAMA CV.docx` (and historic `Omar_Salama_CV.pdf`) in this folder. This is the source of truth for verified roles (including Cultiv Bureau, MAHE NLP Research Assistant, DEPI AI & ML Trainee), education, core projects, awards, and certifications.
 3. Current portfolio repositories and site implementation. Use these to confirm public links, demos, code, and implementation details.
 
 Do not invent metrics, client outcomes, deployment scale, adoption, revenue impact, or completion status. Do not describe a design, research activity, or architecture concept as a deployed production system unless that status is explicitly verified. Keep employer/customer data, credentials, internal prompts, and private workflow logic out of public materials.
@@ -26,6 +26,8 @@ Do not invent metrics, client outcomes, deployment scale, adoption, revenue impa
 | Liver Tumor AI | CV and public repository | `omarsalama4/liver-tumor-ai` | High | Retain patient-independent-validation language; avoid hospital-readiness claims |
 | Article Summarizer | CV and public repository | `omarsalama4/News-Summary-chatbot` | High | Report benchmark numbers only as repository-reported results |
 | Fruit & Food | CV and portfolio | `omarsalama4/AI-Calories-calculator` | High for CV metrics and award | Do not extrapolate nutrition accuracy beyond reported validation IoU |
+| MAHE Multimodal Credit Risk | CV (`OMAR SALAMA CV.docx`) | Academic research under Prof. Ramakrishna | High | Frame as research into multimodal feature fusion, document understanding, and XAI; avoid claims of production bank deployment |
+| DEPI | CV (`OMAR SALAMA CV.docx`) | Initiative training and cohort projects | High | Frame as intensive AI/ML and data engineering training and cohort solution development |
 
 ## Core Narrative Threads
 
@@ -61,7 +63,7 @@ Omar Salama is an Applied AI Engineer with a dual degree in Computer Science and
 - Develop RAG and structured-data-extraction pipelines for business applications, including document chunking, embeddings, vector similarity search, and grounded context injection.
 - Engineer prompts, structured templates, history boundaries, JSON validation, API retry logic, fallback handling, and production debugging to improve response quality and workflow reliability.
 - Work directly with clients to translate business and customer-service requirements into AI, CRM, and automation solutions.
-- Build multi-agent-system concepts and workflows with role boundaries, tool access, structured outputs, validation, retries, and error handling.
+- Deploy and maintain production workflows using Cloudflare Tunnels, validation, retries, and error handling.
 
 **Document intelligence work**
 
@@ -76,7 +78,7 @@ Omar Salama is an Applied AI Engineer with a dual degree in Computer Science and
 
 **Core stack**
 
-`n8n`, `Bitrix24`, `Odoo`, `Google Cloud Vision`, `LLMs`, `RAG`, `Multi-Agent Systems`, `REST`, `GraphQL`, `Webhooks`, `WhatsApp Cloud API`, `JSON Schema`.
+`n8n`, `Bitrix24`, `Odoo`, `Google Cloud Vision`, `LLMs`, `RAG`, `REST`, `GraphQL`, `Webhooks`, `WhatsApp Cloud API`, `JSON Schema`, `Cloudflare Tunnels`.
 
 **Public-safe wording**
 
@@ -86,28 +88,55 @@ Omar Salama is an Applied AI Engineer with a dual degree in Computer Science and
 
 - Designed n8n automation workflows that embed LLM intent analysis into CRM and customer-support processes through REST/GraphQL APIs, webhooks, Bitrix24, Odoo, and WhatsApp Cloud API.
 - Built RAG and document-intelligence pipelines using chunking, embeddings, similarity search, OCR, JSON Schema validation, confidence scoring, and LLM fallback for Arabic and English business documents.
-- Built multi-agent-system concepts and reliable AI workflows with structured outputs, validation, retries, error handling, and production debugging; worked directly with clients to translate operational requirements into AI-enabled workflows.
+- Improved workflow reliability with structured outputs, validation, retries, error handling, and production debugging; worked directly with clients to translate operational requirements into AI-enabled workflows.
 
 **Portfolio-ready summary**
 
-> At Cultiv Bureau, Omar builds AI automation and multi-agent-system concepts that connect LLM reasoning with business systems. The work spans RAG, OCR, CRM and ERP workflows, API/webhook integration, validation, error recovery, and client-facing solution design.
+> At Cultiv Bureau, Omar builds AI automation that connects LLM reasoning with business systems. The work spans RAG, OCR, CRM and ERP workflows, API/webhook integration, validation, error recovery, and client-facing solution design.
 
 ### Manipal Academy of Higher Education (MAHE) - NLP Research Assistant
 
 **Dates:** July 2025 - September 2025  
 **Location:** Manipal, India
 
+**Scope**
+
 - Researched a multimodal AI credit-risk scoring system combining structured financial data, emails, and financial documents.
-- Applied BERT and Transformer embeddings with feature fusion to extract and integrate financial risk signals.
-- Explored explainable AI with SHAP/LIME and document understanding using LayoutLMv3/Donut.
+- Applied BERT/Transformer embeddings and feature fusion for extracting and integrating financial risk signals.
+- Explored Explainable AI (SHAP/LIME) and document understanding using LayoutLMv3/Donut.
+- Co-authored an NLP text-summarization research paper under Prof. Ramakrishna.
+- Built and deployed an interactive news-summarization chatbot using the Google Gemini API with conversational, context-aware question generation (Article Summarizer portfolio project).
+
+**Core stack**
+
+`Python`, `PyTorch`, `Hugging Face Transformers`, `BERT`, `LayoutLMv3`, `Donut`, `SHAP`, `LIME`, `Gemini API`, `Streamlit`, `Scikit-learn`.
+
+**CV-ready bullets**
+
+- Researched a multimodal AI credit-risk scoring system combining structured financial data, emails, and financial documents.
+- Applied BERT/Transformer embeddings and feature fusion for extracting and integrating financial risk signals.
+- Explored Explainable AI (SHAP/LIME) and document understanding using LayoutLMv3/Donut.
 - Co-authored an NLP text-summarization research paper under Prof. Ramakrishna.
 
 ### Digital Egypt Pioneers Initiative (DEPI) - AI & Machine Learning Trainee
 
-**Dates:** July 2025 - January 2026
+**Dates:** July 2025 - January 2026  
+**Location:** Cairo, Egypt
 
-- Completed intensive training in Python, machine learning, deep learning, data engineering, and AI deployment.
+**Scope**
+
+- Completed intensive cohort training in Python, Machine Learning, Deep Learning, Data Engineering, and AI deployment workflows.
 - Built end-to-end AI projects applying supervised and unsupervised learning, model development, evaluation, and deployment workflows.
+- Collaborated in a cross-functional cohort to develop AI solutions for real-world problems.
+
+**Core stack**
+
+`Python`, `Machine Learning`, `Deep Learning`, `Data Engineering`, `Scikit-learn`, `TensorFlow`, `PyTorch`, `AI Deployment`.
+
+**CV-ready bullets**
+
+- Completed intensive training in Python, Machine Learning, Deep Learning, Data Engineering, and AI deployment.
+- Built end-to-end AI projects applying supervised/unsupervised learning, model development, evaluation, and deployment workflows.
 - Collaborated in a cross-functional cohort to develop AI solutions for real-world problems.
 
 ### ASU Racing Team - Path Planning Specialist
@@ -123,6 +152,31 @@ Omar Salama is an Applied AI Engineer with a dual degree in Computer Science and
 - **Notopia, Full-Stack Developer (July 2024 - October 2024):** Built a Flutter, Next.js, and SQL e-commerce application; CV reports a 30% backend-processing-time reduction.
 
 ## Selected Projects
+
+### Bosla - AI Career Discovery And Growth Platform
+
+**Dates:** September 2026 - Present  
+**Context:** GenAI Hackathon project  
+**Project links:**
+
+- Web app: <https://bosla-web.vercel.app>
+- API: <https://bosla-api.vercel.app>
+- GitHub repository: <https://github.com/alymaklad/Bosla>
+- Stitch design: <https://stitch.withgoogle.com/projects/4252916577916722852>
+
+- Product and full-stack AI engineering contributor to a career-discovery platform that helps students, graduates, and career changers explore suitable directions through an adaptive conversation.
+- Shaped the product requirements and user journey, including consent, career-context collection, conversational discovery, explainable career matches, roadmaps, and habit-based follow-through.
+- Built and iterated on a React, TypeScript, and Vite web application paired with a FastAPI backend, SQL persistence, authentication, and configurable AI-provider integrations.
+- Implemented AI-personalization workflows that use discovery answers and optional uploaded career documents or public GitHub profile context to inform recommendations and mentor responses.
+- Developed career-planning and progress features spanning match details, roadmaps, habits, weekly reviews, and progress tracking, with attention to honest account state and onboarding completion.
+- Improved reliability and usability through provider fallback handling, API error feedback, responsive interface refinements, regression testing, and offline access to previously cached account data.
+- Prepared the application for Vercel deployment and configured the production web/API setup; Google sign-in and Calendar/Tasks remain dependent on production OAuth configuration, and external labor-market sourcing should only be claimed once verified in the product.
+
+**Stack:** `React`, `TypeScript`, `Vite`, `FastAPI`, `Python`, `PostgreSQL/SQLite`, `LLM APIs`, `pgvector`, `Vercel`.
+
+**Public-safe summary**
+
+> Co-developed Bosla, a conversational AI career-discovery platform, shaping its product flow and building full-stack features for personalized recommendations, career roadmaps, habit tracking, and mentor guidance grounded in user-provided context.
 
 ### CohereVoice Studio - Speech AI And Meeting Intelligence
 
@@ -171,6 +225,24 @@ Omar Salama is an Applied AI Engineer with a dual degree in Computer Science and
 
 **Context:** Cultiv Bureau product and architecture work.
 
+**Role:** AI-focused product and architecture contributor for TrueAgent, responsible primarily for AI design and implementation and related backend work when needed. Current delivery focus is Phase 1, Module 3 (AI Studio).
+
+**Module 3 responsibilities**
+
+- Define and maintain the provider-neutral AI contract between the TrueAgent backend/runtime and AI providers.
+- Own the AI-side design and planned implementation of OpenAI and OpenRouter adapters, prompt construction and context injection, agent runtime/model invocation, and model fallback behavior.
+- Coordinate the boundary with Backend: Backend remains responsible for authorization, tenant-scoped context, provider credential resolution, execution persistence, integration/function execution, and credit accounting.
+- Keep provider credentials out of AI request/result data and logs; use approved model-registry IDs and record the provider/model actually used for each attempt.
+- Treat model-generated Function calls as proposals for Backend authorization and execution; AI does not call CRM/ERP systems directly.
+
+**Current project status (2026-10-05)**
+
+- Prepared AI Contracts v1 as a proposed technical baseline, including versioned request/result, classification, provider-error, and usage envelopes; provider mappings; capability and model-resolution rules; and error-code guidance.
+- Produced a validated DOCX revision with the JSON Schema and complete examples embedded. The revision is in Docs/AI_Contracts_v1_validated.docx; Backend and AI sign-off remains pending.
+- The next Module 3 implementation assignment is the OpenAI/OpenRouter adapter layer and deterministic fake provider. Adapter code has not yet been implemented.
+
+**Important boundary:** This is product, architecture, and contract work. Do not describe TrueAgent as launched or production-deployed, or the planned adapters as implemented, unless later evidence verifies those claims.
+
 - Designed multi-agent orchestration and AI employee architecture for CRM, ERP, API, and business-workflow interaction.
 - Defined capabilities and controls including RAG, tool calling, permissions, approvals, stop conditions, tracing, and observability.
 - Designed integration approaches for Bitrix24, Odoo, n8n, and related business systems.
@@ -194,23 +266,23 @@ Omar Salama is an Applied AI Engineer with a dual degree in Computer Science and
 
 ### Ask Omar - Grounded AI Recruiter Portfolio Assistant
 
-**Dates:** July 2026 - Present  
+**Dates:** July 2026 - August 2026  
 **Repository:** <https://github.com/omarsalama4/MyPortfolio>
 
-- Built a grounded assistant into the portfolio using verified CV, professional context, portfolio, and project context.
+- Built a grounded assistant into the portfolio using CV, professional, and project context.
 - Designed response behavior to minimize hallucination and keep answers grounded in verified profile data.
 - Added conversation export, model fallbacks, automated chatbot testing, responsive UI, SEO, and accessibility work.
 
-**Stack:** `JavaScript`, `Node.js`, `Serverless Functions`, `OpenAI`, `HTML`, `CSS`.
+**Stack:** `JavaScript`, `Node.js`, `Serverless Functions`, `OpenAI`, `Gemini`, `RAG`, `HTML`, `CSS`.
 
 **Important boundary:** Describe the system as grounded retrieval from curated portfolio knowledge. Do not claim embeddings/vector search unless the deployed implementation actually uses them.
 
 **Implementation details**
 
-- Client: responsive portfolio chat UI, suggested prompts, session history, a CV download action, response headings and bullet formatting, and browser-based PDF export.
-- Server: serverless OpenAI chat endpoint with a health endpoint and server-side configuration.
-- Grounding: generated knowledge file derived from verified CV, professional context, and portfolio content; lexical retrieval selects relevant source sections before prompting the model.
-- Reliability: deterministic handling for greetings, document access, and unsupported topics; verified fallback behavior, provider diagnostics, and automated route tests.
+- Client: responsive portfolio chat UI, suggested prompts, session history, conversation clearing, and browser-based PDF export.
+- Server: serverless chat endpoint with configurable OpenAI/Gemini provider settings and a health endpoint.
+- Grounding: generated knowledge file derived from verified portfolio content; retrieval selects relevant source sections before prompting the model.
+- Reliability: deterministic handling for greetings and unsupported topics, verified fallback behavior, provider diagnostics, and automated route tests.
 - Quality: semantic HTML, keyboard interaction, visible focus states, SEO metadata, sitemap, robots file, and structured Person data.
 
 ### AI Automation And Document Intelligence Workflows
@@ -286,6 +358,22 @@ Do not reuse the repository phrase claiming hospital readiness. The public evide
 
 > Built an interactive Gemini-powered news summarization assistant with structured prompts, topic extraction, question generation, and CNN/DailyMail ROUGE evaluation.
 
+### Multimodal AI Credit-Risk Scoring System - Detailed Evidence
+
+**Context:** Academic research during MAHE internship under Prof. Ramakrishna.  
+**Source:** CV (`OMAR SALAMA CV.docx`)
+
+- Researched a multimodal credit-risk scoring framework combining structured financial tables, unstructured emails, and financial document inputs.
+- Applied BERT and Transformer embeddings with multimodal feature fusion to integrate and represent heterogenous risk signals.
+- Explored document understanding using LayoutLMv3 and Donut for processing semi-structured financial documents (invoices, statements).
+- Leveraged Explainable AI (SHAP and LIME) to interpret model risk predictions and provide transparent attribution for regulatory and credit-assessment clarity.
+
+**Stack:** `Python`, `PyTorch`, `Hugging Face Transformers`, `BERT`, `LayoutLMv3`, `Donut`, `SHAP`, `LIME`, `Scikit-learn`, `Pandas`.
+
+**Safe project statement**
+
+> Researched a multimodal credit-risk scoring framework fusing structured financials, email text, and document understanding (LayoutLMv3/Donut) with Transformer embeddings and SHAP/LIME explainability.
+
 ### Fruit And Food Segmentation And Calorie Estimation - Detailed Evidence
 
 **Repository:** <https://github.com/omarsalama4/AI-Calories-calculator>  
@@ -305,6 +393,7 @@ Do not reuse the repository phrase claiming hospital readiness. The public evide
 
 ### Other Portfolio Work
 
+- **Multimodal AI Credit-Risk Scoring System:** Research at MAHE fusing structured data, emails, and financial documents with BERT embeddings, LayoutLMv3, and SHAP/LIME.
 - **Fruit & Food Segmentation and Calorie Estimation:** EfficientNet-B4 and DeepLabV3+ food analysis system; reported 97.69% validation IoU and 1st place in the Ain Shams Computer Vision Course Competition.
 - **Liver Tumor AI:** PyTorch and U-Net segmentation pipeline; CV reports 95% accuracy and 91.7% Dice using patient-independent validation.
 - **Article Summarizer Chatbot:** Gemini 2.5 Flash conversational summarization and question-generation system built during MAHE work.
@@ -315,11 +404,11 @@ Do not reuse the repository phrase claiming hospital readiness. The public evide
 
 | Audience or role | Lead projects | Supporting projects | Avoid leading with |
 |---|---|---|---|
-| Applied AI Engineer | Cultiv, CohereVoice, Shifaa | Ask Omar, Liver Tumor AI | Generic training certificates |
+| Applied AI Engineer | Cultiv, CohereVoice, Shifaa | Ask Omar, Liver Tumor AI, MAHE Credit Risk | Generic training certificates |
 | AI Automation Engineer | Cultiv, OCR to Odoo, Ask Omar, n8n templates | TrueAgent architecture, Resala | Standalone CV competitions |
 | Agentic AI Engineer | TrueAgent architecture, Cultiv RAG, Ask Omar | GenAI for Education, n8n templates | Any unverified autonomous-agent claim |
 | Speech AI / LLM Product Engineer | CohereVoice, Article Summarizer, Ask Omar | Cultiv RAG work | Unrelated full-stack work |
-| Computer Vision / ML Engineer | Shifaa, Liver Tumor AI, Fruit & Food | ASU Racing, CohereVoice | CRM workflows as the main proof |
+| Computer Vision / ML Engineer | Shifaa, Liver Tumor AI, Fruit & Food | ASU Racing, CohereVoice, MAHE Credit Risk | CRM workflows as the main proof |
 
 ## Reusable Project Bullets
 
@@ -340,6 +429,11 @@ Do not reuse the repository phrase claiming hospital readiness. The public evide
 ### Shifaa
 
 - Engineered the seizure-detection pipeline for a privacy-first patient-monitoring graduation project, integrating ViViT, GNNs, OpenPose, ONNX Runtime, C++, and Python for real-time inference.
+
+### Multimodal AI Credit-Risk Scoring System (MAHE)
+
+- Researched a multimodal credit-risk framework fusing structured financial metrics, email communications, and document understanding (LayoutLMv3/Donut) via Transformer embeddings and multimodal feature fusion.
+- Integrated Explainable AI methods (SHAP and LIME) to interpret high-dimensional multimodal risk factors for regulatory and audit transparency.
 
 ### Document Intelligence To Odoo
 
@@ -380,7 +474,7 @@ Professional-development program covering structured problem solving, MECE / iss
 
 ### Applied ML, Vision, NLP, And Speech
 
-`Python`, `PyTorch`, `TensorFlow`, `Scikit-learn`, `Computer Vision`, `NLP`, `Speech AI`, `ASR`, `Speaker Diarization`, `Transformers`, `OpenCV`, `ONNX Runtime`, `Vision Transformers`, `Graph Neural Networks`, `OpenPose`.
+`Python`, `PyTorch`, `TensorFlow`, `Scikit-learn`, `Computer Vision`, `NLP`, `Multimodal AI`, `Feature Fusion`, `Explainable AI (SHAP / LIME)`, `Speech AI`, `ASR`, `Speaker Diarization`, `Transformers`, `BERT`, `OpenCV`, `ONNX Runtime`, `Vision Transformers`, `Graph Neural Networks`, `OpenPose`.
 
 ### LLM Providers And Frameworks
 
@@ -392,11 +486,11 @@ Professional-development program covering structured problem solving, MECE / iss
 
 ### Document AI
 
-`OCR`, `Google Cloud Vision`, `Tesseract`, `Document Intelligence`, `Structured Information Extraction`, `JSON Schema`, `Arabic/English NLP`.
+`OCR`, `Google Cloud Vision`, `LayoutLMv3`, `Donut`, `Tesseract`, `Document Intelligence`, `Structured Information Extraction`, `JSON Schema`, `Arabic/English NLP`.
 
 ### Backend, Data, And Infrastructure
 
-`Node.js`, `NestJS`, `FastAPI`, `TypeScript`, `JavaScript`, `PostgreSQL`, `Prisma`, `Redis`, `BullMQ`, `pgvector`, `Docker`, `Docker Compose`, `AWS`, `Cloudflare R2`, `MinIO`.
+`Data Engineering`, `Node.js`, `NestJS`, `FastAPI`, `TypeScript`, `JavaScript`, `PostgreSQL`, `Prisma`, `Redis`, `BullMQ`, `pgvector`, `Docker`, `Docker Compose`, `AWS`, `Cloudflare Tunnels`, `Cloudflare R2`, `MinIO`.
 
 ### Frontend
 
@@ -444,3 +538,5 @@ Professional-development program covering structured problem solving, MECE / iss
 2. Publish a transparent TrueAgent architecture artifact that distinguishes designed capabilities from implemented and evaluated behavior.
 3. Add setup, tests, limitations, and architecture documentation to CohereVoice Studio and Shifaa.
 4. Keep CV, portfolio, LinkedIn, GitHub, and Ask Omar synchronized with this document.
+
+

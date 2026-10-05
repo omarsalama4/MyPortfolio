@@ -357,7 +357,7 @@ function focusedProjectExcerpt(project) {
 
 function extractiveFallback(message, chunks, history = []) {
   const normalized = message.toLowerCase();
-  const primary = chunks.find(chunk => normalized.includes('shifaa') && chunk.title.toLowerCase().includes('shifaa')) || chunks[0];
+  const primary = chunks.find(chunk => (normalized.includes('shifaa') && chunk.title.toLowerCase().includes('shifaa')) || (normalized.includes('bosla') && chunk.title.toLowerCase().includes('bosla'))) || chunks[0];
   if (!primary) return UNKNOWN_ANSWER;
 
   const referenced = referencedProject(chunks, history);

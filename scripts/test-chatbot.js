@@ -7,6 +7,7 @@ const questions = [
   'What AI projects has Omar built?',
   'What is Omar\'s latest project?',
   'Tell me about Shifaa.',
+  'Tell me about Bosla.',
   'What technologies does Omar use?',
   'What is Omar\'s Computer Vision experience?',
   'What is Omar\'s Agentic AI experience?',

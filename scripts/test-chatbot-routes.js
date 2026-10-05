@@ -120,7 +120,7 @@ await assertCase('project request uses project context', 'What AI projects has O
 });
 await assertCase('latest-project request uses chronology context', "What is Omar's latest project?", {
   expectProvider: true,
-  contextIncludes: ['Shifaa - AI-Based Patient Monitoring Platform', 'Fruit & Food Segmentation and Calorie Estimation'],
+  contextIncludes: ['Bosla - AI Career Discovery & Growth Platform'],
   expectedSourceCount: 0
 });
 await assertCase('unsupported topic avoids the provider', 'how is the weather?', {
@@ -132,6 +132,11 @@ await assertCase('provider failure uses verified fallback', 'Tell me about Shifa
   expectProvider: true,
   providerMode: 'failure',
   answerIncludes: 'Shifaa',
+  expectedSourceCount: 0
+});
+await assertCase('Bosla project request retrieves Bosla context', 'Tell me about Bosla.', {
+  expectProvider: true,
+  contextIncludes: ['Bosla'],
   expectedSourceCount: 0
 });
 
