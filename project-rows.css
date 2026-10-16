@@ -4,6 +4,14 @@
 .projects .project-row:first-child { border-top:2px solid var(--cyan); }
 .projects .project-row:hover { transform:none; }
 .projects .project-row-identity,.projects .project-row-body { min-width:0; }
+.projects .project-row .project-row-body { display:flex; flex-direction:column; align-items:stretch; gap:18px; }
+.projects .project-row .project-heading { min-height:0; overflow:visible; }
+.projects .project-row .project-heading h3 { display:block; overflow:visible; -webkit-line-clamp:unset; }
+.projects .project-row .project-lede { display:block; min-height:0; max-height:none; margin:0; overflow:visible; -webkit-line-clamp:unset; line-height:1.65; }
+.projects .project-row .metric-row,.projects .project-row .project-tags,.projects .project-row .project-actions { display:flex; flex-wrap:wrap; align-items:center; align-content:flex-start; gap:8px; min-height:0; max-height:none; margin:0; overflow:visible; }
+.projects .project-row .project-tags span,.projects .project-row .metric-row span { display:inline-flex; align-items:center; flex:0 1 auto; max-width:100%; min-height:29px; line-height:1.5; overflow-wrap:anywhere; }
+.projects .project-row .project-actions a { flex:0 1 auto; }
+.projects .project-row .project-details { margin:0; }
 .projects .project-heading h3 { margin:10px 0 20px; font-size:1.8rem; line-height:1.2; overflow-wrap:anywhere; }
 .projects .project-hero-visual { margin:20px 0 0; }
 .projects .project-hero-visual img { height:210px; object-position:center 35%; }
