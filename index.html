@@ -26,6 +26,7 @@
     <link rel="icon" href="imgs/omar-ai-icon.png" type="image/png" sizes="512x512">
     <link rel="apple-touch-icon" href="imgs/omar-ai-icon.png">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="project-rows.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -229,18 +230,15 @@
                 <p class="section-intro">Flagship AI systems presented as compact case studies for fast technical review.</p>
 
                 <div class="projects-grid">
-                    <article class="project-case project-featured">
-                        <div class="project-copy">
-                            <div class="project-info">
-                                <div class="project-heading">
+                    <article class="project-case project-row">
+                        <div class="project-row-identity"><div class="project-heading">
                                     <span class="project-badge">Graduation Project | Healthcare AI</span>
                                     <h3>Shifaa - AI-Based Patient Monitoring Platform</h3>
-                                </div>
-                                <figure class="project-hero-visual">
+                                </div><figure class="project-hero-visual">
                                     <img src="imgs/shifaa.jpeg" alt="Omar Salama and the Shifaa team presenting their AI patient monitoring graduation project" loading="lazy">
                                     <figcaption>Shifaa team at the ASU Graduation Project Expo</figcaption>
-                                </figure>
-                                <p class="project-lede">
+                                </figure></div>
+                        <div class="project-row-body"><p class="project-lede">
                                     Production-grade, privacy-first hospital monitoring platform unifying a grounded medical AI assistant
                                     with real-time detection for cardiac arrhythmia, patient falls, and epileptic seizures.
                                 </p>
@@ -257,26 +255,25 @@
                                     <a href="https://drive.google.com/file/d/1yqvCbXEu1rKKWcKDDc96VqOX6HE2jrLD/view?usp=sharing" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-play" aria-hidden="true"></i> Demo</a>
                                     <a href="https://drive.google.com/file/d/1wRwCQk0RikWyrMjMWBLWUBCcy4G2QTPw/view?usp=sharing" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-lines" aria-hidden="true"></i> Paper</a>
                                 </div>
-                            </div>
-                            <div class="case-grid">
+                            <details class="project-details">
+                                <summary><span>Case study details</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+                                <div class="case-grid">
                                 <div><strong>Problem</strong><span>Hospitals need fast, on-premises patient monitoring without leaking sensitive data.</span></div>
                                 <div><strong>Solution</strong><span>A role-aware interface with three detection pipelines and a grounded medical assistant.</span></div>
                                 <div><strong>Architecture</strong><span>Series-gated ViViT + GNN seizure pipeline with OpenPose, ONNX Runtime, C++, and Python.</span></div>
                                 <div><strong>Results</strong><span>96.69% AUROC, 90.18% F1-score, 37+ FPS, and pre-clinical seizure alerts.</span></div>
                                 <div><strong>Impact</strong><span>Designed for privacy-first, fully on-premises hospital deployment and presented to faculty, industry professionals, and recruiters at the ASU GP Expo.</span></div>
-                                <div><strong>Future Work</strong><span>Clinical validation, alert workflow hardening, and broader hospital integrations.</span></div>
-                            </div>
+                                <div><strong>Future Work</strong><span>Clinical validation, alert workflow hardening, and broader hospital integrations.</span></div></div>
+                            </details>
                         </div>
                     </article>
 
-                    <article class="project-case">
-                        <div class="project-copy">
-                            <div class="project-info project-info--no-metric">
-                                <div class="project-heading">
+                    <article class="project-case project-row">
+                        <div class="project-row-identity"><div class="project-heading">
                                     <span class="project-badge">GenAI Hackathon | Career AI</span>
                                     <h3>Bosla - AI Career Discovery &amp; Growth Platform</h3>
-                                </div>
-                                <p class="project-lede">
+                                </div></div>
+                        <div class="project-row-body"><p class="project-lede">
                                     Conversational AI career-discovery platform offering adaptive discovery dialogues, explainable career matching, personalized roadmaps, habit tracking, and grounded AI mentorship.
                                 </p>
                                 <div class="project-tags">
@@ -285,26 +282,25 @@
                                 <div class="project-actions">
                                     <a href="https://bosla-web.vercel.app" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Live App</a>
                                 </div>
-                            </div>
-                            <div class="case-grid">
+                            <details class="project-details">
+                                <summary><span>Case study details</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+                                <div class="case-grid">
                                 <div><strong>Problem</strong><span>Students, graduates, and career changers face fragmented advice and struggle to find clear, actionable career direction.</span></div>
                                 <div><strong>Solution</strong><span>An adaptive conversational discovery flow providing grounded career matches, interactive roadmaps, and habit-based follow-through.</span></div>
                                 <div><strong>Architecture</strong><span>React + Vite frontend paired with a modular FastAPI backend, SQL persistence, pgvector semantic search, and configurable LLM providers with fallback.</span></div>
                                 <div><strong>Personalization</strong><span>Grounds recommendations and AI mentor responses in user discovery answers, uploaded career documents, and public GitHub profile context.</span></div>
                                 <div><strong>Reliability</strong><span>Engineered with provider fallback handling, API error feedback, offline cached-data access, and regression testing.</span></div>
-                                <div><strong>Delivery</strong><span>Deployed on Vercel with dedicated production web and API services built for the GenAI Hackathon.</span></div>
-                            </div>
+                                <div><strong>Delivery</strong><span>Deployed on Vercel with dedicated production web and API services built for the GenAI Hackathon.</span></div></div>
+                            </details>
                         </div>
                     </article>
 
-                    <article class="project-case">
-                        <div class="project-copy">
-                            <div class="project-info">
-                                <div class="project-heading">
+                    <article class="project-case project-row">
+                        <div class="project-row-identity"><div class="project-heading">
                                     <span class="project-badge">1st Place | Computer Vision</span>
                                     <h3>Fruit & Food Segmentation and Calorie Estimation</h3>
-                                </div>
-                                <p class="project-lede">
+                                </div></div>
+                        <div class="project-row-body"><p class="project-lede">
                                     Segmentation, classification, few-shot recognition, and calorie estimation using EfficientNet-B4 + DeepLabV3+.
                                 </p>
                                 <div class="metric-row">
@@ -317,24 +313,23 @@
                                     <a href="https://github.com/omarsalama4/AI-Calories-calculator" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
                                     <a href="https://ai-calories-calculator-cv.streamlit.app/" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Live Demo</a>
                                 </div>
-                            </div>
-                            <div class="case-grid">
+                            <details class="project-details">
+                                <summary><span>Case study details</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+                                <div class="case-grid">
                                 <div><strong>Problem</strong><span>Food analysis needs object-level recognition before calories can be estimated reliably.</span></div>
                                 <div><strong>Solution</strong><span>Segment food regions, classify items, support few-shot recognition, then estimate calories.</span></div>
                                 <div><strong>Results</strong><span>97.69% Validation IoU and 1st Place in the Ain Shams CV Course Competition.</span></div>
-                                <div><strong>Lessons</strong><span>Strong segmentation quality is the foundation for trustworthy downstream nutrition estimates.</span></div>
-                            </div>
+                                <div><strong>Lessons</strong><span>Strong segmentation quality is the foundation for trustworthy downstream nutrition estimates.</span></div></div>
+                            </details>
                         </div>
                     </article>
 
-                    <article class="project-case">
-                        <div class="project-copy">
-                            <div class="project-info">
-                                <div class="project-heading">
+                    <article class="project-case project-row">
+                        <div class="project-row-identity"><div class="project-heading">
                                     <span class="project-badge">Medical Imaging</span>
                                     <h3>Liver Tumor AI - Real-Time Detection & Segmentation</h3>
-                                </div>
-                                <p class="project-lede">
+                                </div></div>
+                        <div class="project-row-body"><p class="project-lede">
                                     PyTorch + U-Net liver tumor segmentation pipeline for unseen patients using strict patient-level validation.
                                 </p>
                                 <div class="metric-row">
@@ -348,24 +343,23 @@
                                     <a href="https://liver-tumor-ai-patient-independent.streamlit.app" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Live Demo</a>
                                     <a href="https://github.com/omarsalama4/liver-tumor-ai" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
                                 </div>
-                            </div>
-                            <div class="case-grid">
+                            <details class="project-details">
+                                <summary><span>Case study details</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+                                <div class="case-grid">
                                 <div><strong>Problem</strong><span>Medical segmentation can look strong while leaking patient data across splits.</span></div>
                                 <div><strong>Solution</strong><span>Patient-independent validation with a U-Net segmentation pipeline.</span></div>
                                 <div><strong>Results</strong><span>95% accuracy and 91.7% Dice score.</span></div>
-                                <div><strong>Impact</strong><span>Healthcare AI proof point with a deployed demo and reproducible code.</span></div>
-                            </div>
+                                <div><strong>Impact</strong><span>Healthcare AI proof point with a deployed demo and reproducible code.</span></div></div>
+                            </details>
                         </div>
                     </article>
 
-                    <article class="project-case">
-                        <div class="project-copy">
-                            <div class="project-info project-info--no-metric">
-                                <div class="project-heading">
+                    <article class="project-case project-row">
+                        <div class="project-row-identity"><div class="project-heading">
                                     <span class="project-badge">NLP Research</span>
                                     <h3>Article Summarizer Chatbot</h3>
-                                </div>
-                                <p class="project-lede">
+                                </div></div>
+                        <div class="project-row-body"><p class="project-lede">
                                     Conversational summarization and question-generation chatbot using Gemini 2.5 Flash API.
                                 </p>
                                 <div class="project-tags">
@@ -376,24 +370,23 @@
                                     <a href="https://github.com/omarsalama4/News-Summary-chatbot" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
                                     <a href="https://drive.google.com/file/d/15TEYehSIqNXBsLvIFAfnRCzzz0ZeT5GO/view?usp=sharing" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-lines" aria-hidden="true"></i> Paper</a>
                                 </div>
-                            </div>
-                            <div class="case-grid">
+                            <details class="project-details">
+                                <summary><span>Case study details</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+                                <div class="case-grid">
                                 <div><strong>Problem</strong><span>Readers need fast, contextual summaries and follow-up questions from long articles.</span></div>
                                 <div><strong>Solution</strong><span>A Streamlit chatbot that summarizes, extracts topics, and generates context-aware questions.</span></div>
                                 <div><strong>Research</strong><span>Built during the MAHE internship and connected to an NLP summarization paper.</span></div>
-                                <div><strong>Future Work</strong><span>Add richer evaluation dashboards and source-grounded answer tracing.</span></div>
-                            </div>
+                                <div><strong>Future Work</strong><span>Add richer evaluation dashboards and source-grounded answer tracing.</span></div></div>
+                            </details>
                         </div>
                     </article>
 
-                    <article class="project-case">
-                        <div class="project-copy">
-                            <div class="project-info project-info--no-metric">
-                                <div class="project-heading">
+                    <article class="project-case project-row">
+                        <div class="project-row-identity"><div class="project-heading">
                                     <span class="project-badge">Speech AI / LLM Product</span>
                                     <h3>CohereVoice Studio</h3>
-                                </div>
-                                <p class="project-lede">
+                                </div></div>
+                        <div class="project-row-body"><p class="project-lede">
                                     An advanced speech-recognition, broadcast-subtitle, and meeting-intelligence suite with Egyptian Arabic-aware model routing.
                                 </p>
                                 <div class="project-tags">
@@ -402,23 +395,22 @@
                                 <div class="project-actions">
                                     <a href="https://github.com/omarsalama4/coherevoice-studio" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
                                 </div>
-                            </div>
-                            <div class="case-grid">
+                            <details class="project-details">
+                                <summary><span>Case study details</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+                                <div class="case-grid">
                                 <div><strong>Capabilities</strong><span>Generates broadcast-ready subtitles, multilingual transcripts, speaker labels, and structured meeting notes.</span></div>
                                 <div><strong>Architecture</strong><span>Routes media by language, then combines ASR, diarization, word alignment, subtitle splitting, and translation.</span></div>
-                                <div><strong>Delivery</strong><span>Available through a Streamlit studio and a scriptable CLI for repeatable media-processing workflows.</span></div>
-                            </div>
+                                <div><strong>Delivery</strong><span>Available through a Streamlit studio and a scriptable CLI for repeatable media-processing workflows.</span></div></div>
+                            </details>
                         </div>
                     </article>
 
-                    <article class="project-case">
-                        <div class="project-copy">
-                            <div class="project-info project-info--no-metric">
-                                <div class="project-heading">
+                    <article class="project-case project-row">
+                        <div class="project-row-identity"><div class="project-heading">
                                     <span class="project-badge">LLM Product Engineering</span>
                                     <h3>Grounded Portfolio Assistant</h3>
-                                </div>
-                                <p class="project-lede">
+                                </div></div>
+                        <div class="project-row-body"><p class="project-lede">
                                     A portfolio assistant that answers from verified CV, professional context, portfolio, and GitHub knowledge with server-side OpenAI calls.
                                 </p>
                                 <div class="project-tags">
@@ -428,23 +420,22 @@
                                     <a href="https://github.com/omarsalama4/MyPortfolio" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
                                     <a href="#chatbot" class="project-link" data-open-chat><i class="fas fa-comments" aria-hidden="true"></i> Try Assistant</a>
                                 </div>
-                            </div>
-                            <div class="case-grid">
+                            <details class="project-details">
+                                <summary><span>Case study details</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+                                <div class="case-grid">
                                 <div><strong>Scope</strong><span>Answers only from verified professional material instead of open-ended web knowledge.</span></div>
                                 <div><strong>Reliability</strong><span>Uses route tests, provider diagnostics, conversation context, and a verified fallback path.</span></div>
-                                <div><strong>Lesson</strong><span>Grounding and deterministic handling matter as much as the model response in recruiter-facing AI products.</span></div>
-                            </div>
+                                <div><strong>Lesson</strong><span>Grounding and deterministic handling matter as much as the model response in recruiter-facing AI products.</span></div></div>
+                            </details>
                         </div>
                     </article>
 
-                    <article class="project-case">
-                        <div class="project-copy">
-                            <div class="project-info project-info--no-metric">
-                                <div class="project-heading">
+                    <article class="project-case project-row">
+                        <div class="project-row-identity"><div class="project-heading">
                                     <span class="project-badge">AI Automation</span>
                                     <h3>Sanitized n8n Workflow Templates</h3>
-                                </div>
-                                <p class="project-lede">
+                                </div></div>
+                        <div class="project-row-body"><p class="project-lede">
                                     Public, credential-free workflow templates that demonstrate the building blocks behind LLM-enabled automation.
                                 </p>
                                 <div class="project-tags">
@@ -453,12 +444,13 @@
                                 <div class="project-actions">
                                     <a href="https://github.com/omarsalama4/n8n-workflows" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> View Templates</a>
                                 </div>
-                            </div>
-                            <div class="case-grid">
+                            <details class="project-details">
+                                <summary><span>Case study details</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+                                <div class="case-grid">
                                 <div><strong>Purpose</strong><span>Share inspectable workflow patterns without exposing customer data, credentials, or employer-specific logic.</span></div>
                                 <div><strong>Focus</strong><span>Automation composition, API/webhook integration, structured data handling, and failure-aware workflow design.</span></div>
-                                <div><strong>Relevance</strong><span>Supports an Applied AI and AI Automation engineering profile with a public implementation artifact.</span></div>
-                            </div>
+                                <div><strong>Relevance</strong><span>Supports an Applied AI and AI Automation engineering profile with a public implementation artifact.</span></div></div>
+                            </details>
                         </div>
                     </article>
                 </div>

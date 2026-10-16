@@ -1,0 +1,32 @@
+/* Case-study rows use the portfolio's existing theme tokens. */
+.projects .projects-grid { display:block; }
+.projects .project-row { display:grid; grid-template-columns:minmax(240px,.75fr) minmax(0,1.25fr); gap:48px; min-height:0; padding:32px 0; overflow:visible; border:0; border-top:1px solid var(--line); border-radius:0; background:transparent; }
+.projects .project-row:first-child { border-top:2px solid var(--cyan); }
+.projects .project-row:hover { transform:none; }
+.projects .project-row-identity,.projects .project-row-body { min-width:0; }
+.projects .project-heading h3 { margin:10px 0 20px; font-size:1.8rem; line-height:1.2; overflow-wrap:anywhere; }
+.projects .project-hero-visual { margin:20px 0 0; }
+.projects .project-hero-visual img { height:210px; object-position:center 35%; }
+.projects .project-lede { margin:4px 0 18px; color:var(--muted); }
+.projects .metric-row { margin:0 0 15px; }
+.projects .project-tags { margin:0 0 20px; }
+.projects .project-actions { margin:0; }
+.project-details { margin-top:24px; border-top:1px solid var(--line); padding-top:14px; }
+.project-details summary { display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:44px; padding:10px 14px; border:1px solid var(--line); border-radius:6px; color:var(--cyan); background:var(--panel); font-size:.85rem; font-weight:700; cursor:pointer; list-style:none; transition:border-color .18s,background .18s; }
+.project-details summary::-webkit-details-marker { display:none; }
+.project-details summary:hover { border-color:var(--cyan); background:var(--panel-2); }
+.project-details summary:focus-visible { outline:3px solid var(--cyan); outline-offset:4px; }
+.project-details summary i { font-size:.75rem; transition:transform .18s; }
+.project-details[open] summary { border-color:var(--cyan); }
+.project-details[open] summary i { transform:rotate(180deg); }
+.projects .project-details .case-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; padding:22px 0 0; border:0; background:transparent; }
+.projects .project-details .case-grid div { padding:0; border:0; }
+.projects .case-grid strong { font-size:.72rem; line-height:1.4; }
+.projects .case-grid span { margin-top:6px; line-height:1.65; }
+@media(max-width:760px) {
+ .projects .project-row { grid-template-columns:1fr; gap:18px; padding:26px 0; }
+ .projects .project-heading h3 { margin-bottom:0; font-size:1.6rem; }
+ .projects .project-hero-visual img { height:auto; max-height:280px; aspect-ratio:16/9; }
+ .projects .project-details .case-grid { grid-template-columns:1fr; }
+}
+@media(prefers-reduced-motion:reduce) { .project-details summary,.project-details summary i { transition:none; } }
